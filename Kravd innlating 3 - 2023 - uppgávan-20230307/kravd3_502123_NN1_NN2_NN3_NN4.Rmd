@@ -307,13 +307,17 @@ ferdslu_ohapp
 > 3c1) broyt øll virðini í `ferdslu_ohapp` merkt sum '-' til '0' og les hana útaftur (tip: hetta kann lættast gerast við eini pipe av `ferdslu_ohapp` inn í `mutate(across())`, har tit lata `across()` kalla eina `str_replace` funktión).
 
 ```{r}
-ferdslu_ohapp %>% mutate(across(c(4:21), 
+ferdslu_ohapp <- ferdslu_ohapp %>% 
+  mutate(across(c(4:21), 
   .fns = ~str_to_lower(str_replace_all(.,"-", "0"))))
+
+ferdslu_ohapp
 ```
 
 > 3c2) samla øll árini í `ferdslu_ohapp` í ein nýggjan variabul `ár` og virðini í ein nýggjan variabul `n`, og útles `ferdslu_ohapp` (tip: tú fært eina `432 x 5` tibble. Um títt `n` ikki er numeriskt, broyt so `n` til integer og útles `ferdslu_ohapp` umaftur, áðrenn tú fert víðari).
 
 ```{r}
+ferdslu_ohapp <- ferdslu_ohapp %>% mutate(across(c(4:21), as.integer))
 
 ```
 
