@@ -306,7 +306,8 @@ ggplot(p_samadag, aes(x = n_lesandi, y = p_sdag)) +
 > 3a) les givnu fíluna `ferdslu_ohapp.csv` inn í tibble `ferdslu_ohapp` við einføldum brúki av `read_csv()`-funktiónini uttan nakrar parametrar (tip: tú fært eina `25 x 1` tibble).
 
 ```{r}
-ferdslu_ohapp <- read_csv("D:/ferdslu_ohapp.csv") 
+ferdslu_ohapp <- read_csv("ferdslu_ohapp.csv")
+ferdslu_ohapp
 
 ```
 
