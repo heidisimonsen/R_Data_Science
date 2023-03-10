@@ -319,6 +319,12 @@ ferdslu_ohapp
 ```{r}
 ferdslu_ohapp <- ferdslu_ohapp %>% mutate(across(c(4:21), as.integer))
 
+ferdslu_ohapp %>% 
+  pivot_longer(
+    cols = c(4:21), 
+    names_to = "ár", 
+    values_to = "n"
+  )
 ```
 
 > 3c3) deil variabul `slag` í tveir nýggjar variablar við heitum frá `slag` og virðum frá `n`, og útles `ferdslu_ohapp` umaftur (tip: tú fært eina `216 x 5` tibble).
