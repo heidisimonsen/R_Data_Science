@@ -1830,210 +1830,181 @@ tibble).</p>
 </blockquote>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxubl9sZXNhbmRpIDwtIDI6MTBcbnJveW5kX25yIDwtIDE6MlxuXG4oc2FtYV9mZGFnIDwtIHRpYmJsZShcbiAgY3Jvc3Npbmcobl9sZXNhbmRpLCByb3luZF9ucikpXG4pXG5gYGBcbmBgYCJ9 -->
-<pre class="r"><code>```r
-n_lesandi &lt;- 2:10
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubl9sZXNhbmRpIDwtIDI6MTBcbnJveW5kX25yIDwtIDE6MlxuXG4oc2FtYV9mZGFnIDwtIHRpYmJsZShcbiAgY3Jvc3Npbmcobl9sZXNhbmRpLCByb3luZF9ucikpXG4pXG5gYGAifQ== -->
+<pre class="r"><code>n_lesandi &lt;- 2:10
 roynd_nr &lt;- 1:2
 
 (sama_fdag &lt;- tibble(
   crossing(n_lesandi, roynd_nr))
 )</code></pre>
-<pre><code>
-&lt;!-- rnb-source-end --&gt;
-
-&lt;!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6MTgsIm5jb2wiOjIsInN1bW1hcnkiOnsiQSB0aWJibGUiOiIxOCDDlyAyIn19LCJyZGYiOiJINHNJQUFBQUFBQUFCcVZReTA3RE1CQmN1MG5hV09JaCtoMkpoTGp3QVlnUFFDRDFWcG5FMEtqdXVuSmNBVGUrbUU5bzJLUnJpZnJLWWVMWmlXZTh1MDhQcXp1MVVnQXdnMHhLbU9WRUlYOTVmcXp1Z1JRcUJHUlFqdWNuWFZvU0djVUx3ZzF6T2JsUHlCZzVvMkRNR1F0R3lWQ01tQ2M0NzUvbldlTTU2cDNwaVZ4UFAwOWlpV3RyZW8xdHg4TEN1eTlzMStnVGQrbmRSeDBUeGpibE4zMkdZZmhKbjJtczd1TXpVVlN0RHJwKzgrU242cGhZNW00Zk9vZGtra3RlbE9JaFJCSWtmQ0pjSFhEc3FxMmF6UUczMWUwZkwzQ25ncGNhT1M5R0RoeFZjRlJtbW8xalhoaDg3OURFbWF4K05aYUxTOXJFdEloNjd6c01jVUpTK3pxNG9PTTkxVGdibFdsbU9QNEN2dVZRNEdjQ0FBQT0ifQ== --&gt;
-
-&lt;div data-pagedtable=&quot;false&quot;&gt;
-  &lt;script data-pagedtable-source type=&quot;application/json&quot;&gt;
-{&quot;columns&quot;:[{&quot;label&quot;:[&quot;n_lesandi&quot;],&quot;name&quot;:[1],&quot;type&quot;:[&quot;int&quot;],&quot;align&quot;:[&quot;right&quot;]},{&quot;label&quot;:[&quot;roynd_nr&quot;],&quot;name&quot;:[2],&quot;type&quot;:[&quot;int&quot;],&quot;align&quot;:[&quot;right&quot;]}],&quot;data&quot;:[{&quot;1&quot;:&quot;2&quot;,&quot;2&quot;:&quot;1&quot;},{&quot;1&quot;:&quot;2&quot;,&quot;2&quot;:&quot;2&quot;},{&quot;1&quot;:&quot;3&quot;,&quot;2&quot;:&quot;1&quot;},{&quot;1&quot;:&quot;3&quot;,&quot;2&quot;:&quot;2&quot;},{&quot;1&quot;:&quot;4&quot;,&quot;2&quot;:&quot;1&quot;},{&quot;1&quot;:&quot;4&quot;,&quot;2&quot;:&quot;2&quot;},{&quot;1&quot;:&quot;5&quot;,&quot;2&quot;:&quot;1&quot;},{&quot;1&quot;:&quot;5&quot;,&quot;2&quot;:&quot;2&quot;},{&quot;1&quot;:&quot;6&quot;,&quot;2&quot;:&quot;1&quot;},{&quot;1&quot;:&quot;6&quot;,&quot;2&quot;:&quot;2&quot;},{&quot;1&quot;:&quot;7&quot;,&quot;2&quot;:&quot;1&quot;},{&quot;1&quot;:&quot;7&quot;,&quot;2&quot;:&quot;2&quot;},{&quot;1&quot;:&quot;8&quot;,&quot;2&quot;:&quot;1&quot;},{&quot;1&quot;:&quot;8&quot;,&quot;2&quot;:&quot;2&quot;},{&quot;1&quot;:&quot;9&quot;,&quot;2&quot;:&quot;1&quot;},{&quot;1&quot;:&quot;9&quot;,&quot;2&quot;:&quot;2&quot;},{&quot;1&quot;:&quot;10&quot;,&quot;2&quot;:&quot;1&quot;},{&quot;1&quot;:&quot;10&quot;,&quot;2&quot;:&quot;2&quot;}],&quot;options&quot;:{&quot;columns&quot;:{&quot;min&quot;:{},&quot;max&quot;:[10],&quot;total&quot;:[2]},&quot;rows&quot;:{&quot;min&quot;:[10],&quot;max&quot;:[10],&quot;total&quot;:[18]},&quot;pages&quot;:{}}}
-  &lt;/script&gt;
-&lt;/div&gt;
-
-&lt;!-- rnb-frame-end --&gt;
-
-&lt;!-- rnb-chunk-end --&gt;
-
-
-&lt;!-- rnb-text-begin --&gt;
-
-
-&gt; 1b) legg variabul `fdag` afturat `sama_fdag` við brúk av `mutate()` og eini eini `map()`-funktión. Soleiðis, at tú fyri hvørt virði av `n_lesandi` ásetur (simulerar) tilvildarligar føðingardagar fyri tey lesandi við brúk av `sample(365, ., replace = TRUE)`. Útles síðani tibble `sama_fdag` umaftur (tip: hon skal vera ein `18 x 3` tibble).
-
-
-&lt;!-- rnb-text-end --&gt;
-
-
-&lt;!-- rnb-chunk-begin --&gt;
-
-
-&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc2FtYV9mZGFnIDwtIG11dGF0ZShcbiAgc2FtYV9mZGFnLFxuICBmZGFnID0gbWFwKG5fbGVzYW5kaSwgfiBzYW1wbGUoMzY1LCAuLCByZXBsYWNlPVRSVUUpKSlcbnNhbWFfZmRhZ1xuYGBgXG5gYGByXG4jICBcbiMgI2Jyw7prYSB1bm5lc3QoKSBmdW5jdGlvbmluYSBleHBhbmRlcmEgZmRhZyBjb2xsdW1cbiMgc2FtYV9mZGFnX2Vrc3BhbmRlcmEgPC0gc2FtYV9mZGFnICU+JSBcbiMgICB1bm5lc3QoY29scyA9IGZkYWcpXG4jIHNhbWFfZmRhZ19la3NwYW5kZXJhXG5cbmBgYFxuYGBgIn0= --&gt;
-
-```r
-```r
-sama_fdag &lt;- mutate(
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6MTgsIm5jb2wiOjIsInN1bW1hcnkiOnsiQSB0aWJibGUiOlsiMTggw5cgMiJdfX0sInJkZiI6Ikg0c0lBQUFBQUFBQUJxVlF5MDdETUJCY3UwbmFXT0loK2gySmhMandBWWdQUUNEMVZwbkUwS2p1dW5KY0FUZSttRTlvMktScmlmcktZZUxaaVdlOHUwOFBxenUxVWdBd2cweEttT1ZFSVg5NWZxenVnUlFxQkdSUWp1Y25YVm9TR2NVTHdnMXpPYmxQeUJnNW8yRE1HUXRHeVZDTW1DYzQ3NS9uV2VNNTZwM3BpVnhQUDA5aWlXdHJlbzF0eDhMQ3V5OXMxK2dUZCtuZFJ4MFR4amJsTjMyR1lmaEpuMm1zN3VNelVWU3REcnArOCtTbjZwaFk1bTRmT29ka2trdGVsT0loUkJJa2ZDSmNIWERzcXEyYXpRRzMxZTBmTDNDbmdwY2FPUzlHRGh4VmNGUm1tbzFqWGhoODc5REVtYXgrTlphTFM5ckV0SWg2N3pzTWNVSlMrenE0b09NOTFUZ2JsV2xtT1A0Q3Z1VlE0R2NDQUFBPSJ9 -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["n_lesandi"],"name":[1],"type":["int"],"align":["right"]},{"label":["roynd_nr"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"2","2":"1"},{"1":"2","2":"2"},{"1":"3","2":"1"},{"1":"3","2":"2"},{"1":"4","2":"1"},{"1":"4","2":"2"},{"1":"5","2":"1"},{"1":"5","2":"2"},{"1":"6","2":"1"},{"1":"6","2":"2"},{"1":"7","2":"1"},{"1":"7","2":"2"},{"1":"8","2":"1"},{"1":"8","2":"2"},{"1":"9","2":"1"},{"1":"9","2":"2"},{"1":"10","2":"1"},{"1":"10","2":"2"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[18]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<blockquote>
+<p>1b) legg variabul <code>fdag</code> afturat <code>sama_fdag</code>
+við brúk av <code>mutate()</code> og eini eini
+<code>map()</code>-funktión. Soleiðis, at tú fyri hvørt virði av
+<code>n_lesandi</code> ásetur (simulerar) tilvildarligar føðingardagar
+fyri tey lesandi við brúk av
+<code>sample(365, ., replace = TRUE)</code>. Útles síðani tibble
+<code>sama_fdag</code> umaftur (tip: hon skal vera ein
+<code>18 x 3</code> tibble).</p>
+</blockquote>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2FtYV9mZGFnIDwtIG11dGF0ZShcbiAgc2FtYV9mZGFnLFxuICBmZGFnID0gbWFwKG5fbGVzYW5kaSwgfiBzYW1wbGUoMzY1LCAuLCByZXBsYWNlPVRSVUUpKSlcbnNhbWFfZmRhZ1xuYGBgIn0= -->
+<pre class="r"><code>sama_fdag &lt;- mutate(
   sama_fdag,
   fdag = map(n_lesandi, ~ sample(365, ., replace=TRUE)))
 sama_fdag</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6MTgsIm5jb2wiOjMsInN1bW1hcnkiOnsiQSB0aWJibGUiOlsiMTggw5cgMyJdfX0sInJkZiI6Ikg0c0lBQUFBQUFBQUJxV1R2NHZVVUJESDM4dHU5bTZENjQ5ZFVWRXJRUkIxSTNnV05vS0NuSXBnY2R6aGlzb1prK3hkTVBkeVpyUDRxN0d4c3JTeDBNNVdRY0hHUWhSc3JQUlBFTVRDUmtIRTh0YnZKTit3TWEzRloyZm0rK2JObXpkNXUzQjZNT2NNSEtWVVF6VXRTelZzdU1wZVdwenZIMWRRRUdqVlZHMnh0NUhVeXpPVjZvQXVzRWlETklsTldtU0d6SkkyY1VoWlQ3UGUvOW9lNjNVWTd3UVBLL0ZMcEM0eWxyNFhFSWV3N3lyYVBEUVhIS01tOS9vRUxvTXhPRFRWOVRWd0Fod0dGblc1L3k4d0IrNnkvcXZLMmhKNEFmMGs3SGJZTmE1aFhscHNCbnNLOWd2UFBUQmRWMit3dHBkN1g4UEtiSzl5SGI0K0Fyc1BkaE93cVVuL1R5bzUwdGN6OEFCOFppOWQ2cDNpTyttTHNIZ0k2aU9RZVQxbW45TFR6V21ld3R2UWNwL2Q3TzhiK0Zyc2xSbm1lZks5RDRKejRBOTRoTFU5bk1rRjhBSDhyT1NpZi9VZW5BRzdlTGIwOGhiOEJqdVlpL2VqejhLZUI5L2hYNEdWTTU4WDliVVBmd0NlVnZLSFFMN3ZOc1QzaWh4OUNYN0VHZXd2enZqbkQyQWJieTBjd2RtYVA1QkNiSnZsT0J4NUpvZ296S2JKSFJNc201UnhjeGg0SzdWSzdUUzU1WmJWOGlkNUh6K1R5ZVJIL1VnLzlrYmxrYVhvQkY3bXVjTVUreEZ0MUxiTUpPdFpsQmhzc25yOEdJNHEvaGk2Vmtpbk5XSEwyRWhYUWQ5Zkhac2IvYU9WdllxZGl0K3QrSTNpZUd2Q1VxM3kycUcvbXRCdmhXWWxNbUY1cDlpN0hzWU1ObU1TK1NEYzlUUXlXWGxEcUNNM1N6S3Z6SFA4SkM2Vi9NNXE0eTloZGxncXV3UUFBQT09In0= -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["n_lesandi"],"name":[1],"type":["int"],"align":["right"]},{"label":["roynd_nr"],"name":[2],"type":["int"],"align":["right"]},{"label":["fdag"],"name":[3],"type":["list"],"align":["right"]}],"data":[{"1":"2","2":"1","3":"<int [2]>"},{"1":"2","2":"2","3":"<int [2]>"},{"1":"3","2":"1","3":"<int [3]>"},{"1":"3","2":"2","3":"<int [3]>"},{"1":"4","2":"1","3":"<int [4]>"},{"1":"4","2":"2","3":"<int [4]>"},{"1":"5","2":"1","3":"<int [5]>"},{"1":"5","2":"2","3":"<int [5]>"},{"1":"6","2":"1","3":"<int [6]>"},{"1":"6","2":"2","3":"<int [6]>"},{"1":"7","2":"1","3":"<int [7]>"},{"1":"7","2":"2","3":"<int [7]>"},{"1":"8","2":"1","3":"<int [8]>"},{"1":"8","2":"2","3":"<int [8]>"},{"1":"9","2":"1","3":"<int [9]>"},{"1":"9","2":"2","3":"<int [9]>"},{"1":"10","2":"1","3":"<int [10]>"},{"1":"10","2":"2","3":"<int [10]>"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[18]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyAgXG4jICNicsO6a2EgdW5uZXN0KCkgZnVuY3Rpb25pbmEgZXhwYW5kZXJhIGZkYWcgY29sbHVtXG4jIHNhbWFfZmRhZ19la3NwYW5kZXJhIDwtIHNhbWFfZmRhZyAlPiUgXG4jICAgdW5uZXN0KGNvbHMgPSBmZGFnKVxuIyBzYW1hX2ZkYWdfZWtzcGFuZGVyYVxuXG5gYGAifQ== -->
 <pre class="r"><code>#  
 # #brúka unnest() functionina expandera fdag collum
 # sama_fdag_ekspandera &lt;- sama_fdag %&gt;% 
 #   unnest(cols = fdag)
 # sama_fdag_ekspandera
 </code></pre>
-<pre><code>
-&lt;!-- rnb-source-end --&gt;
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<blockquote>
+<p>1c) hvør datatypa er variabul <code>fdag</code>? í tibble
+<code>sama_fdag</code>? Útles variabul <code>fdag</code> soleiðis, at
+bæði datatypa og innihald sæst.</p>
+</blockquote>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI8OadGxlcyBkYXRhdHlwdVxuY2F0KFwiRGF0YXR5cGFuIGhqw6EgdmFyaWFidWwgJ2ZkYWcnOlwiLCB0eXBlb2Yoc2FtYV9mZGFnJGZkYWcpLCBcIlxcbiBcXG5cIilcbmBgYCJ9 -->
+<pre class="r"><code>#Útles datatypu
+cat(&quot;Datatypan hjá variabul &#39;fdag&#39;:&quot;, typeof(sama_fdag$fdag), &quot;\n \n&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRGF0YXR5cGFuIGhqw6EgdmFyaWFidWwgJ2ZkYWcnOiBsaXN0IFxuIFxuIn0= -->
+<pre><code>Datatypan hjá variabul &#39;fdag&#39;: list 
+ </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI8OadGxlcyBpbm5paGFsZFxuY2F0KFwiSW5uaWhhbGQgaGrDoSB2YXJpYWJ1bCAnZmRhZyc6IFxcblwiKVxuYGBgIn0= -->
+<pre class="r"><code>#Útles innihald
+cat(&quot;Innihald hjá variabul &#39;fdag&#39;: \n&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiSW5uaWhhbGQgaGrDoSB2YXJpYWJ1bCAnZmRhZyc6IFxuIn0= -->
+<pre><code>Innihald hjá variabul &#39;fdag&#39;: </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuKHNhbWFfZmRhZyRmZGFnKVxuYGBgIn0= -->
+<pre class="r"><code>(sama_fdag$fdag)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiW1sxXV1cblsxXSAgMjMgMTM5XG5cbltbMl1dXG5bMV0gMTc3IDM0MFxuXG5bWzNdXVxuWzFdICA4MiAzNTcgMTkyXG5cbltbNF1dXG5bMV0gIDcwIDMwMiAzMDhcblxuW1s1XV1cblsxXSAyMDcgIDkxIDExNyAgNDNcblxuW1s2XV1cblsxXSAzNTIgMzE3IDMwMCAyNThcblxuW1s3XV1cblsxXSAyNDIgIDUxIDEyMiAzNTcgMTc4XG5cbltbOF1dXG5bMV0gIDg1IDE3NCAzMjAgIDIwIDM2NVxuXG5bWzldXVxuWzFdIDI2OSAxMTYgMzIxIDIyNCAyMDcgIDQwXG5cbltbMTBdXVxuWzFdIDE4NiAyODQgMzIwIDE4MSAyNjMgIDkzXG5cbltbMTFdXVxuWzFdIDMwMyAgMzQgMjY4IDI2MSAgIDcgMjYwIDE1NlxuXG5bWzEyXV1cblsxXSAzMDcgMTY0IDEzMyAyMDggMTc0IDI3NCAzMDdcblxuW1sxM11dXG5bMV0gMzQzICA1NiAyMDEgIDg0IDE1MiAzNjUgMjI0IDExM1xuXG5bWzE0XV1cblsxXSAxMjAgMzQxICAyNiAgIDYgMjI5IDIyNyAgNTYgMzAyXG5cbltbMTVdXVxuWzFdICA0MiAgNzMgMjQ2IDE0NyAyODMgMTc4ICA3OCAxOTYgMjM5XG5cbltbMTZdXVxuWzFdICAzNCAxOTMgIDcxICAyNCAxNTIgMzEyIDE5MCAyNDQgIDIyXG5cbltbMTddXVxuIFsxXSAzMjggIDc1IDIzMyAzNDggIDQ2IDE3MyAyODMgMzU1ICA4OCAxNTdcblxuW1sxOF1dXG4gWzFdIDM1OCAzMjYgMjczIDEyMyAzNTUgMzQ1IDEwNSAyNzQgMjkzIDI0NFxuIn0= -->
+<pre><code>[[1]]
+[1]  23 139
 
-&lt;!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6MTgsIm5jb2wiOjMsInN1bW1hcnkiOnsiQSB0aWJibGUiOiIxOCDDlyAzIn19LCJyZGYiOiJINHNJQUFBQUFBQUFCcVdUUFdnVVFSVEhaKzRqbDF0SWxCeUlvRFlLQ3NFN3hJQkVzYkFJQVF1YmNPb3BrV085MjB1T1hHYmozb1lZc0JBdEZVc1ZMYXhFc0xPeHNyR3dzZEJHdEJGQkZCVUxDeXVybkwvWmZZT2JiUzErdkkvNXo1djNkbVlYNWxvelhzdFRTaFZWcVZCUXhUS3VLcDl0enRkbkZSa0NyVXFxYXUxVlJMVkVxZFFFVEVGQktBb2xvU3lNQ1JWaFhLZ0tudURxYWFuM3Y3WW05U1lrZmlsOXVQZ2RYSktZdnZVQjdNZnRPWFdEZkIxN1VuSjJycy93Rms3QmlVeitKOFR3aHoyemtyZnp2NEQ3MElGZDhEQ3padldQb0EwWE12dHNuOCtKVjhENkMzQVJEbWZXcjdOR3I3cUZmd1ordzBGWnI4ZzVkK0VWSEVlM0Q5dVRYcDNtR1h5Rk8vQUd6VzdzYmZnaUdudFBSMkFQM0dKOUZUc045K0FhN1AybjA5UFMzd3k4aDhkZzlkL2hrK2k0YjAwdmFoTVc0Vnc2dXo2TmJhYmZUaDNMYU8xZC9nRHVSamZUbXNrY3IyWCtSZEhhOTdOQlBKZWk5cWV6YWR2ZkZYZ0MzOUlabkY2ZngwN0NUWGlRenFqbnNiYitJZmdBVDNNL1FObjRxOEVRWjJmeVFOSmsxYlFId2RBMzNiNGt4cU53MDNUYkpwSzQxT3Y2UzdsSzFTamNhTGhxeVpOa0hqVWFqWDdsait3TS9LRTcwaVc5cmgvN2pWN0VmcUt0M0paS3VCYjNROE9tUWswZWk2ZlNIMFBuQ3Vrb2w5aXhibXhYM1hwbmVkMnMxSTltOWlycDFQcFRHYitZSGw4WVNha3hOM2JRV1E3Rkh3dk1VdDhFYnFhQmZ6a1lTRERKbDBnK1JHTXQ2cHZZVFVoMjJJakQySGM2cnhNT1hDYVpXVzM5QldtT1BQVzdCQUFBIn0= --&gt;
+[[2]]
+[1] 177 340
 
-&lt;div data-pagedtable=&quot;false&quot;&gt;
-  &lt;script data-pagedtable-source type=&quot;application/json&quot;&gt;
-{&quot;columns&quot;:[{&quot;label&quot;:[&quot;n_lesandi&quot;],&quot;name&quot;:[1],&quot;type&quot;:[&quot;int&quot;],&quot;align&quot;:[&quot;right&quot;]},{&quot;label&quot;:[&quot;roynd_nr&quot;],&quot;name&quot;:[2],&quot;type&quot;:[&quot;int&quot;],&quot;align&quot;:[&quot;right&quot;]},{&quot;label&quot;:[&quot;fdag&quot;],&quot;name&quot;:[3],&quot;type&quot;:[&quot;list&quot;],&quot;align&quot;:[&quot;right&quot;]}],&quot;data&quot;:[{&quot;1&quot;:&quot;2&quot;,&quot;2&quot;:&quot;1&quot;,&quot;3&quot;:&quot;&lt;int [2]&gt;&quot;},{&quot;1&quot;:&quot;2&quot;,&quot;2&quot;:&quot;2&quot;,&quot;3&quot;:&quot;&lt;int [2]&gt;&quot;},{&quot;1&quot;:&quot;3&quot;,&quot;2&quot;:&quot;1&quot;,&quot;3&quot;:&quot;&lt;int [3]&gt;&quot;},{&quot;1&quot;:&quot;3&quot;,&quot;2&quot;:&quot;2&quot;,&quot;3&quot;:&quot;&lt;int [3]&gt;&quot;},{&quot;1&quot;:&quot;4&quot;,&quot;2&quot;:&quot;1&quot;,&quot;3&quot;:&quot;&lt;int [4]&gt;&quot;},{&quot;1&quot;:&quot;4&quot;,&quot;2&quot;:&quot;2&quot;,&quot;3&quot;:&quot;&lt;int [4]&gt;&quot;},{&quot;1&quot;:&quot;5&quot;,&quot;2&quot;:&quot;1&quot;,&quot;3&quot;:&quot;&lt;int [5]&gt;&quot;},{&quot;1&quot;:&quot;5&quot;,&quot;2&quot;:&quot;2&quot;,&quot;3&quot;:&quot;&lt;int [5]&gt;&quot;},{&quot;1&quot;:&quot;6&quot;,&quot;2&quot;:&quot;1&quot;,&quot;3&quot;:&quot;&lt;int [6]&gt;&quot;},{&quot;1&quot;:&quot;6&quot;,&quot;2&quot;:&quot;2&quot;,&quot;3&quot;:&quot;&lt;int [6]&gt;&quot;},{&quot;1&quot;:&quot;7&quot;,&quot;2&quot;:&quot;1&quot;,&quot;3&quot;:&quot;&lt;int [7]&gt;&quot;},{&quot;1&quot;:&quot;7&quot;,&quot;2&quot;:&quot;2&quot;,&quot;3&quot;:&quot;&lt;int [7]&gt;&quot;},{&quot;1&quot;:&quot;8&quot;,&quot;2&quot;:&quot;1&quot;,&quot;3&quot;:&quot;&lt;int [8]&gt;&quot;},{&quot;1&quot;:&quot;8&quot;,&quot;2&quot;:&quot;2&quot;,&quot;3&quot;:&quot;&lt;int [8]&gt;&quot;},{&quot;1&quot;:&quot;9&quot;,&quot;2&quot;:&quot;1&quot;,&quot;3&quot;:&quot;&lt;int [9]&gt;&quot;},{&quot;1&quot;:&quot;9&quot;,&quot;2&quot;:&quot;2&quot;,&quot;3&quot;:&quot;&lt;int [9]&gt;&quot;},{&quot;1&quot;:&quot;10&quot;,&quot;2&quot;:&quot;1&quot;,&quot;3&quot;:&quot;&lt;int [10]&gt;&quot;},{&quot;1&quot;:&quot;10&quot;,&quot;2&quot;:&quot;2&quot;,&quot;3&quot;:&quot;&lt;int [10]&gt;&quot;}],&quot;options&quot;:{&quot;columns&quot;:{&quot;min&quot;:{},&quot;max&quot;:[10],&quot;total&quot;:[3]},&quot;rows&quot;:{&quot;min&quot;:[10],&quot;max&quot;:[10],&quot;total&quot;:[18]},&quot;pages&quot;:{}}}
-  &lt;/script&gt;
-&lt;/div&gt;
+[[3]]
+[1]  82 357 192
 
-&lt;!-- rnb-frame-end --&gt;
+[[4]]
+[1]  70 302 308
 
-&lt;!-- rnb-chunk-end --&gt;
+[[5]]
+[1] 207  91 117  43
 
+[[6]]
+[1] 352 317 300 258
 
-&lt;!-- rnb-text-begin --&gt;
+[[7]]
+[1] 242  51 122 357 178
 
+[[8]]
+[1]  85 174 320  20 365
 
-&gt; 1c)  hvør datatypa er variabul `fdag`? í tibble `sama_fdag`? Útles variabul `fdag` soleiðis, at bæði datatypa og innihald sæst.
+[[9]]
+[1] 269 116 321 224 207  40
 
+[[10]]
+[1] 186 284 320 181 263  93
 
-&lt;!-- rnb-text-end --&gt;
+[[11]]
+[1] 303  34 268 261   7 260 156
 
+[[12]]
+[1] 307 164 133 208 174 274 307
 
-&lt;!-- rnb-chunk-begin --&gt;
+[[13]]
+[1] 343  56 201  84 152 365 224 113
 
+[[14]]
+[1] 120 341  26   6 229 227  56 302
 
-&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuI8OadGxlcyBkYXRhdHlwdVxuY2F0KFxcRGF0YXR5cGFuIGhqw6EgdmFyaWFidWwgJ2ZkYWcnOlxcLCB0eXBlb2Yoc2FtYV9mZGFnJGZkYWcpLCBcXFxcbiBcXG5cXClcbmBgYFxuYGBgIn0= --&gt;
+[[15]]
+[1]  42  73 246 147 283 178  78 196 239
 
-```r
-```r
-#Útles datatypu
-cat(\Datatypan hjá variabul &#39;fdag&#39;:\, typeof(sama_fdag$fdag), \\n \n\)</code></pre>
-<pre><code>
-&lt;!-- rnb-source-end --&gt;
+[[16]]
+[1]  34 193  71  24 152 312 190 244  22
 
-&lt;!-- rnb-output-begin eyJkYXRhIjoiRGF0YXR5cGFuIGhqw6EgdmFyaWFidWwgJ2ZkYWcnOiBsaXN0IFxuIFxuIn0= --&gt;
-</code></pre>
-<p>Datatypan hjá variabul ‘fdag’: list</p>
-<pre><code>
+[[17]]
+ [1] 328  75 233 348  46 173 283 355  88 157
 
-
-&lt;!-- rnb-output-end --&gt;
-
-&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuI8OadGxlcyBpbm5paGFsZFxuY2F0KFxcSW5uaWhhbGQgaGrDoSB2YXJpYWJ1bCAnZmRhZyc6IFxcblxcKVxuYGBgXG5gYGAifQ== --&gt;
-
-```r
-```r
-#Útles innihald
-cat(\Innihald hjá variabul &#39;fdag&#39;: \n\)</code></pre>
-<pre><code>
-&lt;!-- rnb-source-end --&gt;
-
-&lt;!-- rnb-output-begin eyJkYXRhIjoiSW5uaWhhbGQgaGrDoSB2YXJpYWJ1bCAnZmRhZyc6IFxuIn0= --&gt;
-</code></pre>
-<p>Innihald hjá variabul ‘fdag’:</p>
-<pre><code>
-
-
-&lt;!-- rnb-output-end --&gt;
-
-&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuKHNhbWFfZmRhZyRmZGFnKVxuYGBgXG5gYGAifQ== --&gt;
-
-```r
-```r
-(sama_fdag$fdag)</code></pre>
-<pre><code>
-&lt;!-- rnb-source-end --&gt;
-
-&lt;!-- rnb-output-begin eyJkYXRhIjoiW1sxXV1cblsxXSAxOTMgICA2XG5cbltbMl1dXG5bMV0gMjEyICA5M1xuXG5bWzNdXVxuWzFdIDI5MSAyMjAgIDkzXG5cbltbNF1dXG5bMV0gMTMwIDMwMSAgNjBcblxuW1s1XV1cblsxXSAyMjUgMjA3ICA2NCAgNThcblxuW1s2XV1cblsxXSAyMzQgMTE2IDI0OCAzMTJcblxuW1s3XV1cblsxXSAxODggMTUyICA5OSAgMjIgMTU1XG5cbltbOF1dXG5bMV0gMTE2IDE1OSAgOTUgIDg5IDMxMlxuXG5bWzldXVxuWzFdIDE4MiAzNjMgMjYyICA4MiAgOTAgIDQ0XG5cbltbMTBdXVxuWzFdIDEyOCAzNDkgMzQ0ICA3NyAyNDIgIDM4XG5cbltbMTFdXVxuWzFdIDE1NSAxNTAgMTk3ICA1NyAyODUgMTAyICAgNFxuXG5bWzEyXV1cblsxXSAxNzcgMjI4IDE0MiAyMDYgMjgwIDE0MCAyMjdcblxuW1sxM11dXG5bMV0gIDQ4ICAyNyAxMzkgMzY1ICA0MiAxNTEgMTI0ICAyOFxuXG5bWzE0XV1cblsxXSAyOTggIDQ0ICA1MSAyMTQgMTY1IDEwOSAyMzEgMjIyXG5cbltbMTVdXVxuWzFdIDMxMyAxMjEgIDkyICA4NiAgOTUgMzI5ICA4NCAyNDggIDU0XG5cbltbMTZdXVxuWzFdIDI1NyAyMzIgIDM1IDM0MCAxNjUgMjg1IDIwMiAxMjggMzQ4XG5cbltbMTddXVxuIFsxXSAxMTkgMzI0IDMyNCAgMzQgMTc3IDI4NCAxMTMgMTY3IDIzMCAxMzlcblxuW1sxOF1dXG4gWzFdIDM0MyAgMTQgMTMxIDE1NCAgMjcgMzI2ICAyOSAgMzkgMjE1IDE3MFxuIn0= --&gt;
-</code></pre>
-<p>[[1]] [1] 193 6</p>
-<p>[[2]] [1] 212 93</p>
-<p>[[3]] [1] 291 220 93</p>
-<p>[[4]] [1] 130 301 60</p>
-<p>[[5]] [1] 225 207 64 58</p>
-<p>[[6]] [1] 234 116 248 312</p>
-<p>[[7]] [1] 188 152 99 22 155</p>
-<p>[[8]] [1] 116 159 95 89 312</p>
-<p>[[9]] [1] 182 363 262 82 90 44</p>
-<p>[[10]] [1] 128 349 344 77 242 38</p>
-<p>[[11]] [1] 155 150 197 57 285 102 4</p>
-<p>[[12]] [1] 177 228 142 206 280 140 227</p>
-<p>[[13]] [1] 48 27 139 365 42 151 124 28</p>
-<p>[[14]] [1] 298 44 51 214 165 109 231 222</p>
-<p>[[15]] [1] 313 121 92 86 95 329 84 248 54</p>
-<p>[[16]] [1] 257 232 35 340 165 285 202 128 348</p>
-<p>[[17]] [1] 119 324 324 34 177 284 113 167 230 139</p>
-<p>[[18]] [1] 343 14 131 154 27 326 29 39 215 170</p>
-<pre><code>
-
-
-&lt;!-- rnb-output-end --&gt;
-
-&lt;!-- rnb-chunk-end --&gt;
-
-
-&lt;!-- rnb-text-begin --&gt;
-
-
-&gt; 1d) legg variabul `nakar_sdag` afturat `sama_fdag` við brúk av `mutate()`, og eini eini logiskari `map()`-funktión. Soleiðis, at tú fyri hvønn simuleraðan `fdag` eftirkannar (`TRUE` ella `FALSE`) um nøkur lesandi hava sama føðingardag. Útles síðani tibble `sama_fdag` umaftur (tip: hon skal vera ein `18 x 4` tibble).
-
-
-&lt;!-- rnb-text-end --&gt;
-
-
-&lt;!-- rnb-chunk-begin --&gt;
-
-
-&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc2FtYV9mZGFnIDwtIG11dGF0ZShcbiAgc2FtYV9mZGFnLFxuICBuYWthcl9zZGFnID0gbWFwX2xnbChmZGFnLCB+IGFueShkdXBsaWNhdGVkKC54KSkpXG4pXG5cbnNhbWFfZmRhZ1xuYGBgXG5gYGAifQ== --&gt;
-
-```r
-```r
-sama_fdag &lt;- mutate(
+[[18]]
+ [1] 358 326 273 123 355 345 105 274 293 244</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<blockquote>
+<p>1d) legg variabul <code>nakar_sdag</code> afturat
+<code>sama_fdag</code> við brúk av <code>mutate()</code>, og eini eini
+logiskari <code>map()</code>-funktión. Soleiðis, at tú fyri hvønn
+simuleraðan <code>fdag</code> eftirkannar (<code>TRUE</code> ella
+<code>FALSE</code>) um nøkur lesandi hava sama føðingardag. Útles síðani
+tibble <code>sama_fdag</code> umaftur (tip: hon skal vera ein
+<code>18 x 4</code> tibble).</p>
+</blockquote>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2FtYV9mZGFnIDwtIG11dGF0ZShcbiAgc2FtYV9mZGFnLFxuICBuYWthcl9zZGFnID0gbWFwX2xnbChmZGFnLCB+IGFueShkdXBsaWNhdGVkKC54KSkpXG4pXG5cbnNhbWFfZmRhZ1xuYGBgIn0= -->
+<pre class="r"><code>sama_fdag &lt;- mutate(
   sama_fdag,
   nakar_sdag = map_lgl(fdag, ~ any(duplicated(.x)))
 )
 
 sama_fdag</code></pre>
-<pre><code>
-&lt;!-- rnb-source-end --&gt;
-
-&lt;!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6MTgsIm5jb2wiOjQsInN1bW1hcnkiOnsiQSB0aWJibGUiOiIxOCDDlyA0In19LCJyZGYiOiJINHNJQUFBQUFBQUFCcVdUUFdnVVFSU0FaKzQzdDVBb0JrUlFHd1dGNEIxQ2drU3hzQWdCQzV0dzZpbVJZNzNiSk1kZFp1UGVoaGl3RUMwVlN4VXRyRVN3czdHeXNiQ3gwRWEwRVVFVUZRc0xLNnVjMyt5K0lYdlhadUhqL2N5YnQrKzltVm1ZYTB4N0RVOHBsVmVGWEU3bGk2aXFlTDQrWDUxVmVEQzBLcWlLbGRjSm1rUXB3RGpzZ1p5UUZ3cENVU2dKWldGTXFBaWU0UEpweWJkVE9TbjV4c1YrTFhVNCt3TmNFWnU2OVdIazUyR2Z1b1cvaWp3dFB0dlhWM2dQWitCVXh2OGJZdmpIbmxueDIvNWZ3VU5vd1Y1NG5GbXo4VStnQ1pjeSsyeWRMN0c3WVBVRnVBekhNdXMzV2FOVzNVQS9CMy9oaUt5WDVULzM0UTJjSk80Z2NpbHpkamJtQlh5SGUvQ09tSDNJdS9CTll1dzVIWWY5Y0lmMVZlUVVQSUFiY0dBN1RrOUpmZFB3RVo2Q2pmOEpYeVNPODliVW9qWmhFUzZrdmV1enlIbzZPM1VpRTJ2UDhoZHdOcnFlNWt6NmVDdjlMMHFzdlQ4YjJITXA2bERhbTdiMVhZTm44Q1B0d2NYcmk4Z0p1QTJQMGg3MVBOTG1Qd3FmNExua3R2ZG9wNTlPeGRDREtocC9OZWlqN0xZcjRxeVlaaS9vKzZiZEVjZFlGRzZhZHRORVloZVcydjZ5Nko3eHUzN1U3RnZQY081S0ZHN1VYUDdrMGpNeE5SZ00vb3dXMGVyNWZWZUVjM3B0UC9aclN4SDdzYlpHdHBURHRiZ1RHamJsN0RNcnlaaTBrRTJrb3hISHJuVmpxMnBYV3l2cnBsdWR5ZXhWVXFsVzIwOVhKNU5KZnA4YlNLcVNHMFRRV2dsRkx3Vm11V01DMTFQUHZ4cjB4SmhnRXNrZ2FtdFJ4OFN1UTd6OVdoekd2b3Z6V21IUGVaS2UxZFovcVlYRTh4MEZBQUE9In0= --&gt;
-
-&lt;div data-pagedtable=&quot;false&quot;&gt;
-  &lt;script data-pagedtable-source type=&quot;application/json&quot;&gt;
-{&quot;columns&quot;:[{&quot;label&quot;:[&quot;n_lesandi&quot;],&quot;name&quot;:[1],&quot;type&quot;:[&quot;int&quot;],&quot;align&quot;:[&quot;right&quot;]},{&quot;label&quot;:[&quot;roynd_nr&quot;],&quot;name&quot;:[2],&quot;type&quot;:[&quot;int&quot;],&quot;align&quot;:[&quot;right&quot;]},{&quot;label&quot;:[&quot;fdag&quot;],&quot;name&quot;:[3],&quot;type&quot;:[&quot;list&quot;],&quot;align&quot;:[&quot;right&quot;]},{&quot;label&quot;:[&quot;nakar_sdag&quot;],&quot;name&quot;:[4],&quot;type&quot;:[&quot;lgl&quot;],&quot;align&quot;:[&quot;right&quot;]}],&quot;data&quot;:[{&quot;1&quot;:&quot;2&quot;,&quot;2&quot;:&quot;1&quot;,&quot;3&quot;:&quot;&lt;int [2]&gt;&quot;,&quot;4&quot;:&quot;FALSE&quot;},{&quot;1&quot;:&quot;2&quot;,&quot;2&quot;:&quot;2&quot;,&quot;3&quot;:&quot;&lt;int [2]&gt;&quot;,&quot;4&quot;:&quot;FALSE&quot;},{&quot;1&quot;:&quot;3&quot;,&quot;2&quot;:&quot;1&quot;,&quot;3&quot;:&quot;&lt;int [3]&gt;&quot;,&quot;4&quot;:&quot;FALSE&quot;},{&quot;1&quot;:&quot;3&quot;,&quot;2&quot;:&quot;2&quot;,&quot;3&quot;:&quot;&lt;int [3]&gt;&quot;,&quot;4&quot;:&quot;FALSE&quot;},{&quot;1&quot;:&quot;4&quot;,&quot;2&quot;:&quot;1&quot;,&quot;3&quot;:&quot;&lt;int [4]&gt;&quot;,&quot;4&quot;:&quot;FALSE&quot;},{&quot;1&quot;:&quot;4&quot;,&quot;2&quot;:&quot;2&quot;,&quot;3&quot;:&quot;&lt;int [4]&gt;&quot;,&quot;4&quot;:&quot;FALSE&quot;},{&quot;1&quot;:&quot;5&quot;,&quot;2&quot;:&quot;1&quot;,&quot;3&quot;:&quot;&lt;int [5]&gt;&quot;,&quot;4&quot;:&quot;FALSE&quot;},{&quot;1&quot;:&quot;5&quot;,&quot;2&quot;:&quot;2&quot;,&quot;3&quot;:&quot;&lt;int [5]&gt;&quot;,&quot;4&quot;:&quot;FALSE&quot;},{&quot;1&quot;:&quot;6&quot;,&quot;2&quot;:&quot;1&quot;,&quot;3&quot;:&quot;&lt;int [6]&gt;&quot;,&quot;4&quot;:&quot;FALSE&quot;},{&quot;1&quot;:&quot;6&quot;,&quot;2&quot;:&quot;2&quot;,&quot;3&quot;:&quot;&lt;int [6]&gt;&quot;,&quot;4&quot;:&quot;FALSE&quot;},{&quot;1&quot;:&quot;7&quot;,&quot;2&quot;:&quot;1&quot;,&quot;3&quot;:&quot;&lt;int [7]&gt;&quot;,&quot;4&quot;:&quot;FALSE&quot;},{&quot;1&quot;:&quot;7&quot;,&quot;2&quot;:&quot;2&quot;,&quot;3&quot;:&quot;&lt;int [7]&gt;&quot;,&quot;4&quot;:&quot;FALSE&quot;},{&quot;1&quot;:&quot;8&quot;,&quot;2&quot;:&quot;1&quot;,&quot;3&quot;:&quot;&lt;int [8]&gt;&quot;,&quot;4&quot;:&quot;FALSE&quot;},{&quot;1&quot;:&quot;8&quot;,&quot;2&quot;:&quot;2&quot;,&quot;3&quot;:&quot;&lt;int [8]&gt;&quot;,&quot;4&quot;:&quot;FALSE&quot;},{&quot;1&quot;:&quot;9&quot;,&quot;2&quot;:&quot;1&quot;,&quot;3&quot;:&quot;&lt;int [9]&gt;&quot;,&quot;4&quot;:&quot;FALSE&quot;},{&quot;1&quot;:&quot;9&quot;,&quot;2&quot;:&quot;2&quot;,&quot;3&quot;:&quot;&lt;int [9]&gt;&quot;,&quot;4&quot;:&quot;FALSE&quot;},{&quot;1&quot;:&quot;10&quot;,&quot;2&quot;:&quot;1&quot;,&quot;3&quot;:&quot;&lt;int [10]&gt;&quot;,&quot;4&quot;:&quot;TRUE&quot;},{&quot;1&quot;:&quot;10&quot;,&quot;2&quot;:&quot;2&quot;,&quot;3&quot;:&quot;&lt;int [10]&gt;&quot;,&quot;4&quot;:&quot;FALSE&quot;}],&quot;options&quot;:{&quot;columns&quot;:{&quot;min&quot;:{},&quot;max&quot;:[10],&quot;total&quot;:[4]},&quot;rows&quot;:{&quot;min&quot;:[10],&quot;max&quot;:[10],&quot;total&quot;:[18]},&quot;pages&quot;:{}}}
-  &lt;/script&gt;
-&lt;/div&gt;
-
-&lt;!-- rnb-frame-end --&gt;
-
-&lt;!-- rnb-chunk-end --&gt;
-
-
-&lt;!-- rnb-text-begin --&gt;
-
-
-&gt; 1e) ger eina nýggja tibble `p_samadag`, har tú við eini pipe av `sama_fdag` bólkað uppá `n_lesandi` útroknar simuleraðu sannlíkindini `p_sdag` fyri at nakar lesandi hevur sama føðingardag. Útles síðani tibble `p_samadag` (tip: tí vit enn ikki hava økt um talið av lesandi, so skal `p_samadag` bert vera ein `9 x 2` tibble har flestu, ella øll, sannlíkindini eru 0).
-
-
-
-&lt;!-- rnb-text-end --&gt;
-
-
-&lt;!-- rnb-chunk-begin --&gt;
-
-
-&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuIyBwX3NhbWFkYWcgPC0gc2FtYV9mZGFnIHw+XG4jICAgZ3JvdXBfYnkobl9sZXNhbmRpKSB8PlxuIyAgIHN1bW1hcmlzZShwX3NkYWcgPSBtZWFuKG5ha2FyX3NkYWcpKVxuIyBcbiMgcF9zYW1hZGFnXG5cblxuIyBuX2xlc2FuZGkgPC0gMTBcbiMgcF9zZGFnIDwtIHJlcGxpY2F0ZSg1MDAwLCB7XG4jICAgZmRhZyA8LSBzYW1wbGUoMzY1LCBuX2xlc2FuZGksIHJlcGxhY2UgPSBUUlVFKVxuIyAgIGFueShkdXBsaWNhdGVkKGZkYWcpKVxuIyB9KVxuIyBtZWFuKHBfc2RhZylcblxuXG5wX3NhbWFkYWcgPC0gdGliYmxlKG5fbGVzYW5kaSkgJT4lXG4gIGNyb3NzaW5nKHJveW5kX25yKSAlPiVcbiAgbXV0YXRlKGZkYWcgPSBtYXAobl9sZXNhbmRpLCB+IHNhbXBsZSgzNjUsIC54LCByZXBsYWNlID0gVFJVRSkpLFxuICAgICAgICAgbmFrYXJfc2RhZyA9IG1hcF9sZ2woZmRhZywgfiBhbnkoZHVwbGljYXRlZCgueCkpKSkgJT4lXG4gIGdyb3VwX2J5KG5fbGVzYW5kaSkgJT4lXG4gIHN1bW1hcmlzZShwX3NkYWcgPSBtZWFuKG5ha2FyX3NkYWcpKVxuXG5wX3NhbWFkYWdcbmBgYFxuYGBgclxuTkFcbmBgYFxuYGBgIn0= --&gt;
-
-```r
-```r
-# p_samadag &lt;- sama_fdag |&gt;
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6MTgsIm5jb2wiOjQsInN1bW1hcnkiOnsiQSB0aWJibGUiOlsiMTggw5cgNCJdfX0sInJkZiI6Ikg0c0lBQUFBQUFBQUJxV1R2MnNVUVJUSFovWjJMN25GODBjaUttb2xDS0xlV2lSRkdrRkJvaUpZaEFSUFZNNTFkeTg1c3BsTmR2ZndWMk5qWldsam9aMnRnb0tOaFNqWVdPbWZJSWlGallLSVpjN3YyL3N1dHptd0VBOCs5MzdPbXpkdlpoZk90R2ZjdHF1VXFpbmJzbFROZ2FxY3BjWDUxcHlDQjRaV3RtcUl2SVdrYVNnMmFJSXBZSkVhc1lsRDZtU0NUSklHY1VsWlQ3UGUvOHBwMW12UzNnc2VWT3dYU0Yya0xYMHZ3STRnMzFaODgvQjVZSlkrT2RkSGNBWDB3YkdSWDE4SEo4RnhZTkV2NS84SlpzQWQxbjlaaVMyQjUvQ2ZndHdOdWNZWTVxVkY1cENuSVQ5ejN5T2p1SHFOMkVHdWZRVXBzNzNHT0hSOUF2SVE1RGJnMENmOVA2N2tTRjlQd1gzd2liMU0wZDhjM3BPK0JJbUhvRDRBbWRjajlpazliWXp5Rk42R2x2UHNaMzlmd1pmaFdwbGhrU2YzZlJTY0I3L0JROFFPY0NZWHdYdndvNUtML3RVN2NCYnM0OTdTeXh2d0MreGhMdDZQUGdkNUFYeURmaFZTOW53MnJLOEQ2RzN3cEpMZkJYSy91MkRmSGVib3k5QjduTUZoN3VIeUhmM0xULzg5dE9XRGNveS9GbVZRZGtxRXpvYnB4RkhtbTdCSHgyU2EzRFpoeDZTMDdXN29MMU4zamIvcXA1MU1QRnRyTjlMa3BsZldMeDc5UGZ3TkJvUHY0MDBFc1orVlRaUk9OL1J6Myt1bVdBOXJjMnpKUkxLZTl4S0RSWlo4Wm5XT1NaTnFJWjJPT1hiMGpYUVZ0b0tWdmxsdHpWYldLbmFxMWVqVDFjVmtpdTJ0QVV2VnkwRkV3VXBDdlI2WjVaNkp5alBGL28wb3ByRWRreWdHNGEyblBaT1hKNFEzOC9Jazk4czhOMGppMGxPY1dXMytBWm1vU1VFZEJRQUEifQ== -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["n_lesandi"],"name":[1],"type":["int"],"align":["right"]},{"label":["roynd_nr"],"name":[2],"type":["int"],"align":["right"]},{"label":["fdag"],"name":[3],"type":["list"],"align":["right"]},{"label":["nakar_sdag"],"name":[4],"type":["lgl"],"align":["right"]}],"data":[{"1":"2","2":"1","3":"<int [2]>","4":"FALSE"},{"1":"2","2":"2","3":"<int [2]>","4":"FALSE"},{"1":"3","2":"1","3":"<int [3]>","4":"FALSE"},{"1":"3","2":"2","3":"<int [3]>","4":"FALSE"},{"1":"4","2":"1","3":"<int [4]>","4":"FALSE"},{"1":"4","2":"2","3":"<int [4]>","4":"FALSE"},{"1":"5","2":"1","3":"<int [5]>","4":"FALSE"},{"1":"5","2":"2","3":"<int [5]>","4":"FALSE"},{"1":"6","2":"1","3":"<int [6]>","4":"FALSE"},{"1":"6","2":"2","3":"<int [6]>","4":"FALSE"},{"1":"7","2":"1","3":"<int [7]>","4":"FALSE"},{"1":"7","2":"2","3":"<int [7]>","4":"TRUE"},{"1":"8","2":"1","3":"<int [8]>","4":"FALSE"},{"1":"8","2":"2","3":"<int [8]>","4":"FALSE"},{"1":"9","2":"1","3":"<int [9]>","4":"FALSE"},{"1":"9","2":"2","3":"<int [9]>","4":"FALSE"},{"1":"10","2":"1","3":"<int [10]>","4":"FALSE"},{"1":"10","2":"2","3":"<int [10]>","4":"FALSE"}],"options":{"columns":{"min":{},"max":[10],"total":[4]},"rows":{"min":[10],"max":[10],"total":[18]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<blockquote>
+<p>1e) ger eina nýggja tibble <code>p_samadag</code>, har tú við eini
+pipe av <code>sama_fdag</code> bólkað uppá <code>n_lesandi</code>
+útroknar simuleraðu sannlíkindini <code>p_sdag</code> fyri at nakar
+lesandi hevur sama føðingardag. Útles síðani tibble
+<code>p_samadag</code> (tip: tí vit enn ikki hava økt um talið av
+lesandi, so skal <code>p_samadag</code> bert vera ein <code>9 x 2</code>
+tibble har flestu, ella øll, sannlíkindini eru 0).</p>
+</blockquote>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBwX3NhbWFkYWcgPC0gc2FtYV9mZGFnIHw+XG4jICAgZ3JvdXBfYnkobl9sZXNhbmRpKSB8PlxuIyAgIHN1bW1hcmlzZShwX3NkYWcgPSBtZWFuKG5ha2FyX3NkYWcpKVxuIyBcbiMgcF9zYW1hZGFnXG5cblxuIyBuX2xlc2FuZGkgPC0gMTBcbiMgcF9zZGFnIDwtIHJlcGxpY2F0ZSg1MDAwLCB7XG4jICAgZmRhZyA8LSBzYW1wbGUoMzY1LCBuX2xlc2FuZGksIHJlcGxhY2UgPSBUUlVFKVxuIyAgIGFueShkdXBsaWNhdGVkKGZkYWcpKVxuIyB9KVxuIyBtZWFuKHBfc2RhZylcblxuXG5wX3NhbWFkYWcgPC0gdGliYmxlKG5fbGVzYW5kaSkgJT4lXG4gIGNyb3NzaW5nKHJveW5kX25yKSAlPiVcbiAgbXV0YXRlKGZkYWcgPSBtYXAobl9sZXNhbmRpLCB+IHNhbXBsZSgzNjUsIC54LCByZXBsYWNlID0gVFJVRSkpLFxuICAgICAgICAgbmFrYXJfc2RhZyA9IG1hcF9sZ2woZmRhZywgfiBhbnkoZHVwbGljYXRlZCgueCkpKSkgJT4lXG4gIGdyb3VwX2J5KG5fbGVzYW5kaSkgJT4lXG4gIHN1bW1hcmlzZShwX3NkYWcgPSBtZWFuKG5ha2FyX3NkYWcpKVxuXG5wX3NhbWFkYWdcbmBgYCJ9 -->
+<pre class="r"><code># p_samadag &lt;- sama_fdag |&gt;
 #   group_by(n_lesandi) |&gt;
 #   summarise(p_sdag = mean(nakar_sdag))
 # 
@@ -2056,42 +2027,32 @@ p_samadag &lt;- tibble(n_lesandi) %&gt;%
   summarise(p_sdag = mean(nakar_sdag))
 
 p_samadag</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6OSwibmNvbCI6Miwic3VtbWFyeSI6eyJBIHRpYmJsZSI6WyI5IMOXIDIiXX19LCJyZGYiOiJINHNJQUFBQUFBQUFCcTFReTA3RE1CRGNPSThTU3hTa2ZrZHlRVWg4QU9JREVFaTlWU1l4YllSWlI3RXJPUExYM0JyV3lWb3FPVGZTeExOano3NmVIN2QzY2lzQklJVk1DRWh6b3BDL3ZqeFZEMEFLQlFsa1VJYnpteDV0aUFUeG1sQXlUd2xaY0JFS3dvcHd4ZmNoODVyNWhiNS9UZVdvUHJVamNqczFNNHNsN294MkN0dU9oYUxmdVZidEY5NXlzRjkxOUllQnhBLzl4bkg4WFJacGpIS3hTQlJscTd5cTN3ZnlVM1JhV0ZhMjk1MUZNb2tOcjBWTzF6UE9FeVhEUXJnNVl1aXFyWnJERVQrcSt6TXZjS2NKcnpSeU1aY1hJNmNxT0ZXbW00T05TOUM0NzFESG1ZeDYwNGFETlcxaVdrVGREeDM2T0NHcHJ2YldxL2hPTnRaRVpab1pUbi85KzI0VlFRSUFBQT09In0= -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["n_lesandi"],"name":[1],"type":["int"],"align":["right"]},{"label":["p_sdag"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"2","2":"0"},{"1":"3","2":"0"},{"1":"4","2":"0"},{"1":"5","2":"0"},{"1":"6","2":"0"},{"1":"7","2":"0"},{"1":"8","2":"0"},{"1":"9","2":"0"},{"1":"10","2":"0"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[9]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuTkFcbmBgYCJ9 -->
 <pre class="r"><code>NA</code></pre>
-<pre><code>
-&lt;!-- rnb-source-end --&gt;
-
-&lt;!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6OSwibmNvbCI6Miwic3VtbWFyeSI6eyJBIHRpYmJsZSI6Ijkgw5cgMiJ9fSwicmRmIjoiSDRzSUFBQUFBQUFBQnExUXkwN0RNQkRjT0k4U1N4U2tma2R5UVVoOEFPSURFRWk5VlNZeGJZUlpSN0VyT1BMWDNCcld5Vm9xT1RmU3hMTmp6NzZlSDdkM2Npc0JJSVZNQ0Voem9wQy92anhWRDBBS0JRbGtVSWJ6bXg1dGlBVHhtbEF5VHdsWmNCRUt3b3B3eGZjaDg1cjVoYjUvVGVXb1ByVWpjanMxTTRzbDdveDJDdHVPaGFMZnVWYnRGOTV5c0Y5MTlJZUJ4QS85eG5IOFhSWnBqSEt4U0JSbHE3eXEzd2Z5VTNSYVdGYTI5NTFGTW9rTnIwVk8xelBPRXlYRFFyZzVZdWlxclpyREVUK3Erek12Y0tjSnJ6UnlNWmNYSTZjcU9GV21tNE9OUzlDNDcxREhtWXg2MDRhRE5XMWlXa1RkRHgzNk9DR3BydmJXcS9oT050WkVaWm9aVG4vOSsyNFZRUUlBQUE9PSJ9 --&gt;
-
-&lt;div data-pagedtable=&quot;false&quot;&gt;
-  &lt;script data-pagedtable-source type=&quot;application/json&quot;&gt;
-{&quot;columns&quot;:[{&quot;label&quot;:[&quot;n_lesandi&quot;],&quot;name&quot;:[1],&quot;type&quot;:[&quot;int&quot;],&quot;align&quot;:[&quot;right&quot;]},{&quot;label&quot;:[&quot;p_sdag&quot;],&quot;name&quot;:[2],&quot;type&quot;:[&quot;dbl&quot;],&quot;align&quot;:[&quot;right&quot;]}],&quot;data&quot;:[{&quot;1&quot;:&quot;2&quot;,&quot;2&quot;:&quot;0&quot;},{&quot;1&quot;:&quot;3&quot;,&quot;2&quot;:&quot;0&quot;},{&quot;1&quot;:&quot;4&quot;,&quot;2&quot;:&quot;0&quot;},{&quot;1&quot;:&quot;5&quot;,&quot;2&quot;:&quot;0&quot;},{&quot;1&quot;:&quot;6&quot;,&quot;2&quot;:&quot;0&quot;},{&quot;1&quot;:&quot;7&quot;,&quot;2&quot;:&quot;0&quot;},{&quot;1&quot;:&quot;8&quot;,&quot;2&quot;:&quot;0&quot;},{&quot;1&quot;:&quot;9&quot;,&quot;2&quot;:&quot;0&quot;},{&quot;1&quot;:&quot;10&quot;,&quot;2&quot;:&quot;0&quot;}],&quot;options&quot;:{&quot;columns&quot;:{&quot;min&quot;:{},&quot;max&quot;:[10],&quot;total&quot;:[2]},&quot;rows&quot;:{&quot;min&quot;:[10],&quot;max&quot;:[10],&quot;total&quot;:[9]},&quot;pages&quot;:{}}}
-  &lt;/script&gt;
-&lt;/div&gt;
-
-&lt;!-- rnb-frame-end --&gt;
-
-&lt;!-- rnb-chunk-end --&gt;
-
-
-&lt;!-- rnb-text-begin --&gt;
-
-
-&gt; 1f)
-
-&gt; 1f1) samla trinini í 1a, 1b, 1d, og 1e í ein samlaðan pipe-setning, goym úrslitið í tibble `p_samadag`. Útles `p_samadag`, og eftirkanna at tú fært sama/líknandi úrslit sum í 1e. 
-
-
-&lt;!-- rnb-text-end --&gt;
-
-
-&lt;!-- rnb-chunk-begin --&gt;
-
-
-&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxucF9zYW1hZGFnIDwtIHRpYmJsZShuX2xlc2FuZGkgPSAyOjEwKSAlPiVcbiAgY3Jvc3Npbmcocm95bmRfbnIgPSAxOjIpICU+JVxuICBtdXRhdGUoZmRhZyA9IG1hcChuX2xlc2FuZGksIH4gc2FtcGxlKDM2NSwgLiwgcmVwbGFjZSA9IFRSVUUpKSxcbiAgICAgICAgIG5ha2FyX3NkYWcgPSBtYXBfbGdsKGZkYWcsIH4gYW55KGR1cGxpY2F0ZWQoLngpKSkpICU+JVxuICBncm91cF9ieShuX2xlc2FuZGkpICU+JVxuICBzdW1tYXJpc2UocF9zZGFnID0gbWVhbihuYWthcl9zZGFnKSlcblxucF9zYW1hZGFnXG5gYGBcbmBgYHJcbk5BXG5gYGBcbmBgYCJ9 --&gt;
-
-```r
-```r
-p_samadag &lt;- tibble(n_lesandi = 2:10) %&gt;%
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<blockquote>
+<p>1f)</p>
+</blockquote>
+<blockquote>
+<p>1f1) samla trinini í 1a, 1b, 1d, og 1e í ein samlaðan pipe-setning,
+goym úrslitið í tibble <code>p_samadag</code>. Útles
+<code>p_samadag</code>, og eftirkanna at tú fært sama/líknandi úrslit
+sum í 1e.</p>
+</blockquote>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucF9zYW1hZGFnIDwtIHRpYmJsZShuX2xlc2FuZGkgPSAyOjEwKSAlPiVcbiAgY3Jvc3Npbmcocm95bmRfbnIgPSAxOjIpICU+JVxuICBtdXRhdGUoZmRhZyA9IG1hcChuX2xlc2FuZGksIH4gc2FtcGxlKDM2NSwgLiwgcmVwbGFjZSA9IFRSVUUpKSxcbiAgICAgICAgIG5ha2FyX3NkYWcgPSBtYXBfbGdsKGZkYWcsIH4gYW55KGR1cGxpY2F0ZWQoLngpKSkpICU+JVxuICBncm91cF9ieShuX2xlc2FuZGkpICU+JVxuICBzdW1tYXJpc2UocF9zZGFnID0gbWVhbihuYWthcl9zZGFnKSlcblxucF9zYW1hZGFnXG5gYGAifQ== -->
+<pre class="r"><code>p_samadag &lt;- tibble(n_lesandi = 2:10) %&gt;%
   crossing(roynd_nr = 1:2) %&gt;%
   mutate(fdag = map(n_lesandi, ~ sample(365, ., replace = TRUE)),
          nakar_sdag = map_lgl(fdag, ~ any(duplicated(.x)))) %&gt;%
@@ -2099,40 +2060,30 @@ p_samadag &lt;- tibble(n_lesandi = 2:10) %&gt;%
   summarise(p_sdag = mean(nakar_sdag))
 
 p_samadag</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6OSwibmNvbCI6Miwic3VtbWFyeSI6eyJBIHRpYmJsZSI6WyI5IMOXIDIiXX19LCJyZGYiOiJINHNJQUFBQUFBQUFCblZReTA3RE1CRGNPSThTU3hTa2ZrZHlRVUxjZXFuNkFRaWszaXFUbURiQzJGSHNxaHo1VlA2Q1c4TTZXVXR0UkMxTk1wNzE3T3Q1dFhuZ0d3NEFNU1NNUVp3aWhmVDFaVjA4QVNwNGlTQ0IzUCsvOE5FQ2lSZHZFVG54R0pGNEZ5SkR6QkEzRlBlWjU4VC9QY3VmYTVGcjU2S3BWSXRQYVpIY0Q4Mk1ZcTYzU2xxaDY0YUVyTjNhV3V3bTNyd3p4ekw0L1VEc0d6OTkzLzlPaTFSSzJGQWtpTHdXVHBUdkhmcnhkcHBZWnFaMWpkRm9ZZ3RhQ3gvQ0k4NFRSZDFFdUR0bzMxVmRWUHVEL2lnZXo3eEFuVWEwMHNEWldKNzFsQ3FqVkltczlpWXNRZXBkbzJXWVNZazNxZWd5eDAwTWl5amJydEV1VElpcUxaMXhJcnpqbFZGQkdXYUcweCtQWENCdVFRSUFBQT09In0= -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["n_lesandi"],"name":[1],"type":["int"],"align":["right"]},{"label":["p_sdag"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"2","2":"0.0"},{"1":"3","2":"0.0"},{"1":"4","2":"0.0"},{"1":"5","2":"0.5"},{"1":"6","2":"0.0"},{"1":"7","2":"0.0"},{"1":"8","2":"0.0"},{"1":"9","2":"0.0"},{"1":"10","2":"0.0"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[9]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuTkFcbmBgYCJ9 -->
 <pre class="r"><code>NA</code></pre>
-<pre><code>
-&lt;!-- rnb-source-end --&gt;
-
-&lt;!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6OSwibmNvbCI6Miwic3VtbWFyeSI6eyJBIHRpYmJsZSI6Ijkgw5cgMiJ9fSwicmRmIjoiSDRzSUFBQUFBQUFBQnBWUXkyckRNQkJjeTQvRWdxYUZmSWQ5S1lUY2VpbjVnTkpDYmtHMTFjUlVrWXlsa0I3N3FmMkwzdUt1N0JXa2hoNXFHR3MwcTluWDArUDJubTg1QU1TUU1BWnhpaFRTbCtkTnNRWlU4QkpCQXJrL1AvRFJFb2tYYnhBNThSaVJlQmNpUTh3UWM0cjd6QXZpLy9vZXZ2NksvR29xMWVJb0xaSzdvWmxSelBWT1NTdDAzWkNRdFR0YmkvM0VtM2ZtWEFhL0g0aDk0cS92Kys5cGtVb0pHNG9Fa2RmQ2lmS3RRei9lTGhQTHpMU3VNUnBOYkVscjRVTjR4SFdpcUpzSXR5ZnR1NnFMNm5EUzc4WHF5Z3ZVYVVRckRaeU41VmxQcVRKS2xjanFZTUlTcE40M1dvYVpsSGlWaWk0TDNNU3dpTEx0R3UzQ2hLamEwaGtud2p0ZUdSV1VZV2E0L0FCMTZ0MFZRUUlBQUE9PSJ9 --&gt;
-
-&lt;div data-pagedtable=&quot;false&quot;&gt;
-  &lt;script data-pagedtable-source type=&quot;application/json&quot;&gt;
-{&quot;columns&quot;:[{&quot;label&quot;:[&quot;n_lesandi&quot;],&quot;name&quot;:[1],&quot;type&quot;:[&quot;int&quot;],&quot;align&quot;:[&quot;right&quot;]},{&quot;label&quot;:[&quot;p_sdag&quot;],&quot;name&quot;:[2],&quot;type&quot;:[&quot;dbl&quot;],&quot;align&quot;:[&quot;right&quot;]}],&quot;data&quot;:[{&quot;1&quot;:&quot;2&quot;,&quot;2&quot;:&quot;0.0&quot;},{&quot;1&quot;:&quot;3&quot;,&quot;2&quot;:&quot;0.0&quot;},{&quot;1&quot;:&quot;4&quot;,&quot;2&quot;:&quot;0.0&quot;},{&quot;1&quot;:&quot;5&quot;,&quot;2&quot;:&quot;0.0&quot;},{&quot;1&quot;:&quot;6&quot;,&quot;2&quot;:&quot;0.0&quot;},{&quot;1&quot;:&quot;7&quot;,&quot;2&quot;:&quot;0.0&quot;},{&quot;1&quot;:&quot;8&quot;,&quot;2&quot;:&quot;0.5&quot;},{&quot;1&quot;:&quot;9&quot;,&quot;2&quot;:&quot;0.0&quot;},{&quot;1&quot;:&quot;10&quot;,&quot;2&quot;:&quot;0.0&quot;}],&quot;options&quot;:{&quot;columns&quot;:{&quot;min&quot;:{},&quot;max&quot;:[10],&quot;total&quot;:[2]},&quot;rows&quot;:{&quot;min&quot;:[10],&quot;max&quot;:[10],&quot;total&quot;:[9]},&quot;pages&quot;:{}}}
-  &lt;/script&gt;
-&lt;/div&gt;
-
-&lt;!-- rnb-frame-end --&gt;
-
-&lt;!-- rnb-chunk-end --&gt;
-
-
-&lt;!-- rnb-text-begin --&gt;
-
-
-&gt; 1f2) set nú talið `n_lesandi` upp til `2:50`, og eftirkanna um tú enn fært sama/líknandi úrslit sum í 1e fyri fyrstu 9 rekkjurnar, og hvat tú nú fært afturat í teimum eyka rekkjunum? Greið frá hvat tú eygleiðir (tip: her skalt tú fáa eina `49 x 2` tibble).
-
-
-&lt;!-- rnb-text-end --&gt;
-
-
-&lt;!-- rnb-chunk-begin --&gt;
-
-
-&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuIyBwX3NhbWFkYWcgPC0gdGliYmxlKGNyb3NzaW5nKG5fbGVzYW5kaSA9IDI6NTAsIHJveW5kX25yID0gMToyKSkgJT4lXG4jICAgbXV0YXRlKGZkYWcgPSBtYXAobl9sZXNhbmRpLCB+IHNhbXBsZSgzNjUsIC4sIHJlcGxhY2UgPSBUUlVFKSksXG4jICAgICAgICAgIG5ha2FyX3NkYWcgPSBtYXBfbGdsKGZkYWcsIH4gYW55KGR1cGxpY2F0ZWQoLngpKSkpICU+JVxuIyAgIGdyb3VwX2J5KG5fbGVzYW5kaSkgJT4lXG4jICAgc3VtbWFyaXNlKHBfc2RhZyA9IG1lYW4obmFrYXJfc2RhZykpXG4jIFxuIyBwX3NhbWFkYWdcblxuXG5wX3NhbWFkYWcgPC0gdGliYmxlKG5fbGVzYW5kaSA9IDI6NTApICU+JVxuICBjcm9zc2luZyhyb3luZF9uciA9IDE6MikgJT4lXG4gIG11dGF0ZShmZGFnID0gbWFwKG5fbGVzYW5kaSwgfiBzYW1wbGUoMzY1LCAuLCByZXBsYWNlID0gVFJVRSkpLFxuICAgICAgICAgbmFrYXJfc2RhZyA9IG1hcF9sZ2woZmRhZywgfiBhbnkoZHVwbGljYXRlZCgueCkpKSkgJT4lXG4gIGdyb3VwX2J5KG5fbGVzYW5kaSkgJT4lXG4gIHN1bW1hcmlzZShwX3NkYWcgPSBtZWFuKG5ha2FyX3NkYWcpKVxuXG5wX3NhbWFkYWdcbmBgYFxuYGBgIn0= --&gt;
-
-```r
-```r
-# p_samadag &lt;- tibble(crossing(n_lesandi = 2:50, roynd_nr = 1:2)) %&gt;%
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<blockquote>
+<p>1f2) set nú talið <code>n_lesandi</code> upp til <code>2:50</code>,
+og eftirkanna um tú enn fært sama/líknandi úrslit sum í 1e fyri fyrstu 9
+rekkjurnar, og hvat tú nú fært afturat í teimum eyka rekkjunum? Greið
+frá hvat tú eygleiðir (tip: her skalt tú fáa eina <code>49 x 2</code>
+tibble).</p>
+</blockquote>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBwX3NhbWFkYWcgPC0gdGliYmxlKGNyb3NzaW5nKG5fbGVzYW5kaSA9IDI6NTAsIHJveW5kX25yID0gMToyKSkgJT4lXG4jICAgbXV0YXRlKGZkYWcgPSBtYXAobl9sZXNhbmRpLCB+IHNhbXBsZSgzNjUsIC4sIHJlcGxhY2UgPSBUUlVFKSksXG4jICAgICAgICAgIG5ha2FyX3NkYWcgPSBtYXBfbGdsKGZkYWcsIH4gYW55KGR1cGxpY2F0ZWQoLngpKSkpICU+JVxuIyAgIGdyb3VwX2J5KG5fbGVzYW5kaSkgJT4lXG4jICAgc3VtbWFyaXNlKHBfc2RhZyA9IG1lYW4obmFrYXJfc2RhZykpXG4jIFxuIyBwX3NhbWFkYWdcblxuXG5wX3NhbWFkYWcgPC0gdGliYmxlKG5fbGVzYW5kaSA9IDI6NTApICU+JVxuICBjcm9zc2luZyhyb3luZF9uciA9IDE6MikgJT4lXG4gIG11dGF0ZShmZGFnID0gbWFwKG5fbGVzYW5kaSwgfiBzYW1wbGUoMzY1LCAuLCByZXBsYWNlID0gVFJVRSkpLFxuICAgICAgICAgbmFrYXJfc2RhZyA9IG1hcF9sZ2woZmRhZywgfiBhbnkoZHVwbGljYXRlZCgueCkpKSkgJT4lXG4gIGdyb3VwX2J5KG5fbGVzYW5kaSkgJT4lXG4gIHN1bW1hcmlzZShwX3NkYWcgPSBtZWFuKG5ha2FyX3NkYWcpKVxuXG5wX3NhbWFkYWdcbmBgYCJ9 -->
+<pre class="r"><code># p_samadag &lt;- tibble(crossing(n_lesandi = 2:50, roynd_nr = 1:2)) %&gt;%
 #   mutate(fdag = map(n_lesandi, ~ sample(365, ., replace = TRUE)),
 #          nakar_sdag = map_lgl(fdag, ~ any(duplicated(.x)))) %&gt;%
 #   group_by(n_lesandi) %&gt;%
@@ -2149,40 +2100,29 @@ p_samadag &lt;- tibble(n_lesandi = 2:50) %&gt;%
   summarise(p_sdag = mean(nakar_sdag))
 
 p_samadag</code></pre>
-<pre><code>
-&lt;!-- rnb-source-end --&gt;
-
-&lt;!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6NDksIm5jb2wiOjIsInN1bW1hcnkiOnsiQSB0aWJibGUiOiI0OSDDlyAyIn19LCJyZGYiOiJINHNJQUFBQUFBQUFCcTNTMjA3Q01CZ0g4RklHeUZUd2ZENmZUNXVpRjNySGpmRUJqQ2Jja2JKTldKemRzbzNvcFcvb0svZ0lQQUh6WDJnVFhHSlFJc21QdHQrK3I2ZjAvcloycGRkMFFraVdhSlNTYkE1ZGtudDh1RE51Q0NJWVpJaEdpcUo5UTlJc09pSTRDUlhaejRJbXFpQVBCUmdEVVNSbUhvY0pXVk9DTWt6Qk5NeUFtSE1PNW1FQkZtRUpsbUVGVm1FTjFtRURObUVMdG1FSGRtRVA5dUVBRHVFSWp1RUVUdUVNREREaEhDN2svaS9sbmtUL1gzN1Z6Ky90WC9QUzhXcG50THdmOHpzanRzUHFmenYva0x6VW84dHg5dUpFcFA5Z3FBd1dlZDF6SXNadFZ3YnlRVDJ5V1ROVld3ejlWMVBWaThkSDMvR1hKTWxIZWhITFk1RmFSQVYxbThYTWZBcFJqMUUzVlZMd2c5ajFPWXFvZUw3aTJldTl6MzJERTJYQ1ZLRGM1bUpYdG1HMTJ2elp1QjZvSlhLbm9sOFo2TlArOGpTUlUrWGxWSnBqdFh4MUNRNXZ1dHhSWi9KWXcvSGtvSVNiNkYyRUdZUXVqOVVKRVkzTTJJK1p5dE10MzFPUjNwbEo5d3U5anEyM0lRUUFBQT09In0= --&gt;
-
-&lt;div data-pagedtable=&quot;false&quot;&gt;
-  &lt;script data-pagedtable-source type=&quot;application/json&quot;&gt;
-{&quot;columns&quot;:[{&quot;label&quot;:[&quot;n_lesandi&quot;],&quot;name&quot;:[1],&quot;type&quot;:[&quot;int&quot;],&quot;align&quot;:[&quot;right&quot;]},{&quot;label&quot;:[&quot;p_sdag&quot;],&quot;name&quot;:[2],&quot;type&quot;:[&quot;dbl&quot;],&quot;align&quot;:[&quot;right&quot;]}],&quot;data&quot;:[{&quot;1&quot;:&quot;2&quot;,&quot;2&quot;:&quot;0.0&quot;},{&quot;1&quot;:&quot;3&quot;,&quot;2&quot;:&quot;0.0&quot;},{&quot;1&quot;:&quot;4&quot;,&quot;2&quot;:&quot;0.0&quot;},{&quot;1&quot;:&quot;5&quot;,&quot;2&quot;:&quot;0.0&quot;},{&quot;1&quot;:&quot;6&quot;,&quot;2&quot;:&quot;0.0&quot;},{&quot;1&quot;:&quot;7&quot;,&quot;2&quot;:&quot;0.0&quot;},{&quot;1&quot;:&quot;8&quot;,&quot;2&quot;:&quot;0.0&quot;},{&quot;1&quot;:&quot;9&quot;,&quot;2&quot;:&quot;0.0&quot;},{&quot;1&quot;:&quot;10&quot;,&quot;2&quot;:&quot;0.0&quot;},{&quot;1&quot;:&quot;11&quot;,&quot;2&quot;:&quot;0.5&quot;},{&quot;1&quot;:&quot;12&quot;,&quot;2&quot;:&quot;0.5&quot;},{&quot;1&quot;:&quot;13&quot;,&quot;2&quot;:&quot;0.0&quot;},{&quot;1&quot;:&quot;14&quot;,&quot;2&quot;:&quot;0.0&quot;},{&quot;1&quot;:&quot;15&quot;,&quot;2&quot;:&quot;0.0&quot;},{&quot;1&quot;:&quot;16&quot;,&quot;2&quot;:&quot;0.5&quot;},{&quot;1&quot;:&quot;17&quot;,&quot;2&quot;:&quot;0.5&quot;},{&quot;1&quot;:&quot;18&quot;,&quot;2&quot;:&quot;0.0&quot;},{&quot;1&quot;:&quot;19&quot;,&quot;2&quot;:&quot;0.5&quot;},{&quot;1&quot;:&quot;20&quot;,&quot;2&quot;:&quot;0.5&quot;},{&quot;1&quot;:&quot;21&quot;,&quot;2&quot;:&quot;1.0&quot;},{&quot;1&quot;:&quot;22&quot;,&quot;2&quot;:&quot;0.5&quot;},{&quot;1&quot;:&quot;23&quot;,&quot;2&quot;:&quot;0.0&quot;},{&quot;1&quot;:&quot;24&quot;,&quot;2&quot;:&quot;0.5&quot;},{&quot;1&quot;:&quot;25&quot;,&quot;2&quot;:&quot;0.5&quot;},{&quot;1&quot;:&quot;26&quot;,&quot;2&quot;:&quot;1.0&quot;},{&quot;1&quot;:&quot;27&quot;,&quot;2&quot;:&quot;0.5&quot;},{&quot;1&quot;:&quot;28&quot;,&quot;2&quot;:&quot;0.5&quot;},{&quot;1&quot;:&quot;29&quot;,&quot;2&quot;:&quot;0.0&quot;},{&quot;1&quot;:&quot;30&quot;,&quot;2&quot;:&quot;0.5&quot;},{&quot;1&quot;:&quot;31&quot;,&quot;2&quot;:&quot;1.0&quot;},{&quot;1&quot;:&quot;32&quot;,&quot;2&quot;:&quot;1.0&quot;},{&quot;1&quot;:&quot;33&quot;,&quot;2&quot;:&quot;1.0&quot;},{&quot;1&quot;:&quot;34&quot;,&quot;2&quot;:&quot;1.0&quot;},{&quot;1&quot;:&quot;35&quot;,&quot;2&quot;:&quot;1.0&quot;},{&quot;1&quot;:&quot;36&quot;,&quot;2&quot;:&quot;1.0&quot;},{&quot;1&quot;:&quot;37&quot;,&quot;2&quot;:&quot;1.0&quot;},{&quot;1&quot;:&quot;38&quot;,&quot;2&quot;:&quot;0.5&quot;},{&quot;1&quot;:&quot;39&quot;,&quot;2&quot;:&quot;1.0&quot;},{&quot;1&quot;:&quot;40&quot;,&quot;2&quot;:&quot;1.0&quot;},{&quot;1&quot;:&quot;41&quot;,&quot;2&quot;:&quot;1.0&quot;},{&quot;1&quot;:&quot;42&quot;,&quot;2&quot;:&quot;0.5&quot;},{&quot;1&quot;:&quot;43&quot;,&quot;2&quot;:&quot;1.0&quot;},{&quot;1&quot;:&quot;44&quot;,&quot;2&quot;:&quot;1.0&quot;},{&quot;1&quot;:&quot;45&quot;,&quot;2&quot;:&quot;1.0&quot;},{&quot;1&quot;:&quot;46&quot;,&quot;2&quot;:&quot;1.0&quot;},{&quot;1&quot;:&quot;47&quot;,&quot;2&quot;:&quot;0.5&quot;},{&quot;1&quot;:&quot;48&quot;,&quot;2&quot;:&quot;1.0&quot;},{&quot;1&quot;:&quot;49&quot;,&quot;2&quot;:&quot;1.0&quot;},{&quot;1&quot;:&quot;50&quot;,&quot;2&quot;:&quot;1.0&quot;}],&quot;options&quot;:{&quot;columns&quot;:{&quot;min&quot;:{},&quot;max&quot;:[10],&quot;total&quot;:[2]},&quot;rows&quot;:{&quot;min&quot;:[10],&quot;max&quot;:[10],&quot;total&quot;:[49]},&quot;pages&quot;:{}}}
-  &lt;/script&gt;
-&lt;/div&gt;
-
-&lt;!-- rnb-frame-end --&gt;
-
-&lt;!-- rnb-chunk-end --&gt;
-
-
-&lt;!-- rnb-text-begin --&gt;
-
-    GREIÐ FRÁ HVAT TAÐ MERKIR
-
-&gt; 1f3) her skal talið `n_lesandi` framvegis vera `2:50`, og set nú talið `roynd_nr` upp til `1:5000`. Eftirkanna aftur, um tú enn fært sama/líknandi úrslit sum í 1e fyri fyrstu 9 rekkjurnar, og hvat tú nú fært í hinum rekkjunum? Greið frá hvat tú eygleiðir (tip: her skalt tú framvegis fáa eina `49 x 2` tibble).
-
-
-&lt;!-- rnb-text-end --&gt;
-
-
-&lt;!-- rnb-chunk-begin --&gt;
-
-
-&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxucF9zYW1hZGFnIDwtIHRpYmJsZShuX2xlc2FuZGkgPSAyOjUwKSAlPiVcbiAgY3Jvc3Npbmcocm95bmRfbnIgPSAxOjUwMDApICU+JVxuICBtdXRhdGUoZmRhZyA9IG1hcChuX2xlc2FuZGksIH4gc2FtcGxlKDM2NSwgLiwgcmVwbGFjZSA9IFRSVUUpKSxcbiAgICAgICAgIG5ha2FyX3NkYWcgPSBtYXBfbGdsKGZkYWcsIH4gYW55KGR1cGxpY2F0ZWQoLngpKSkpICU+JVxuICBncm91cF9ieShuX2xlc2FuZGkpICU+JVxuICBzdW1tYXJpc2UocF9zZGFnID0gbWVhbihuYWthcl9zZGFnKSlcblxucF9zYW1hZGFnXG5gYGBcbmBgYCJ9 --&gt;
-
-```r
-```r
-p_samadag &lt;- tibble(n_lesandi = 2:50) %&gt;%
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6NDksIm5jb2wiOjIsInN1bW1hcnkiOnsiQSB0aWJibGUiOlsiNDkgw5cgMiJdfX0sInJkZiI6Ikg0c0lBQUFBQUFBQUJyWFN5VkxDTUJnSDhCQUtTRlZ3My9kOWF4VTk2TTJMNHdNNE9zT05pVzJGampYdHRHWDA2QnY2Q2o0Q1QwRDlCeElHNjNxQm1SLzU4alZmdHNuTlZmVk1yK3FFa0N6UktDWFpIRUtTdTd1OU5pNElNdWhraUVhS29uM0JvRWtFSWprS0ZSbG5RUk5Wa0ljQ0RJRW9Fak1QdzRpc0tVRVp4bUFjSmtETU9RWFRNQU96TUFmenNBQ0xzQVRMc0FLcnNBYnJzQUdic0FYYnNBTzdzQWY3Y0FDSGNBUUdtSEFNSjNML3AzSlBJaDdvNy9MOW4rTmEzOWYxMnRiditUL3JmcXBQN2UvTCtFRzN2ZlUvUGJvY1owOU9STG9QaHNwa2tkYzhKMkxjZG1VaUg5UWltOVZUdGNYUWZ6WlZ2WGg4OUJWL1NaSzhwUmV4UEJhcFJWUlN0MW5NekljUTllaTFVeVVGUDRoZG42T0lpdWNybnIzZStkelZQMUVtVENYS1RTNTJaUnRXbzhrZmpmTytXaUozS3VKS1gweTd5OU5FVHBXWFUybU8xZkRWSlRpODduSkhuY2xqOTQ0bk95WGNST2NpekNCMGVheE9pR3hreG43TTFEamQ4ajJWNlp5WnREOEFBOVp0eFNFRUFBQT0ifQ== -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["n_lesandi"],"name":[1],"type":["int"],"align":["right"]},{"label":["p_sdag"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"2","2":"0.0"},{"1":"3","2":"0.0"},{"1":"4","2":"0.0"},{"1":"5","2":"0.0"},{"1":"6","2":"0.0"},{"1":"7","2":"0.0"},{"1":"8","2":"0.0"},{"1":"9","2":"0.0"},{"1":"10","2":"0.0"},{"1":"11","2":"0.0"},{"1":"12","2":"0.0"},{"1":"13","2":"0.0"},{"1":"14","2":"0.5"},{"1":"15","2":"0.0"},{"1":"16","2":"0.0"},{"1":"17","2":"0.0"},{"1":"18","2":"0.0"},{"1":"19","2":"1.0"},{"1":"20","2":"0.0"},{"1":"21","2":"0.5"},{"1":"22","2":"0.5"},{"1":"23","2":"1.0"},{"1":"24","2":"0.5"},{"1":"25","2":"0.5"},{"1":"26","2":"1.0"},{"1":"27","2":"0.0"},{"1":"28","2":"0.5"},{"1":"29","2":"0.5"},{"1":"30","2":"1.0"},{"1":"31","2":"1.0"},{"1":"32","2":"0.5"},{"1":"33","2":"0.5"},{"1":"34","2":"0.5"},{"1":"35","2":"0.0"},{"1":"36","2":"1.0"},{"1":"37","2":"1.0"},{"1":"38","2":"1.0"},{"1":"39","2":"1.0"},{"1":"40","2":"1.0"},{"1":"41","2":"1.0"},{"1":"42","2":"1.0"},{"1":"43","2":"1.0"},{"1":"44","2":"1.0"},{"1":"45","2":"1.0"},{"1":"46","2":"1.0"},{"1":"47","2":"1.0"},{"1":"48","2":"1.0"},{"1":"49","2":"1.0"},{"1":"50","2":"0.5"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[49]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<pre><code>GREIÐ FRÁ HVAT TAÐ MERKIR</code></pre>
+<blockquote>
+<p>1f3) her skal talið <code>n_lesandi</code> framvegis vera
+<code>2:50</code>, og set nú talið <code>roynd_nr</code> upp til
+<code>1:5000</code>. Eftirkanna aftur, um tú enn fært sama/líknandi
+úrslit sum í 1e fyri fyrstu 9 rekkjurnar, og hvat tú nú fært í hinum
+rekkjunum? Greið frá hvat tú eygleiðir (tip: her skalt tú framvegis fáa
+eina <code>49 x 2</code> tibble).</p>
+</blockquote>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucF9zYW1hZGFnIDwtIHRpYmJsZShuX2xlc2FuZGkgPSAyOjUwKSAlPiVcbiAgY3Jvc3Npbmcocm95bmRfbnIgPSAxOjUwMDApICU+JVxuICBtdXRhdGUoZmRhZyA9IG1hcChuX2xlc2FuZGksIH4gc2FtcGxlKDM2NSwgLiwgcmVwbGFjZSA9IFRSVUUpKSxcbiAgICAgICAgIG5ha2FyX3NkYWcgPSBtYXBfbGdsKGZkYWcsIH4gYW55KGR1cGxpY2F0ZWQoLngpKSkpICU+JVxuICBncm91cF9ieShuX2xlc2FuZGkpICU+JVxuICBzdW1tYXJpc2UocF9zZGFnID0gbWVhbihuYWthcl9zZGFnKSlcblxucF9zYW1hZGFnXG5gYGAifQ== -->
+<pre class="r"><code>p_samadag &lt;- tibble(n_lesandi = 2:50) %&gt;%
   crossing(roynd_nr = 1:5000) %&gt;%
   mutate(fdag = map(n_lesandi, ~ sample(365, ., replace = TRUE)),
          nakar_sdag = map_lgl(fdag, ~ any(duplicated(.x)))) %&gt;%
@@ -2190,78 +2130,64 @@ p_samadag &lt;- tibble(n_lesandi = 2:50) %&gt;%
   summarise(p_sdag = mean(nakar_sdag))
 
 p_samadag</code></pre>
-<pre><code>
-&lt;!-- rnb-source-end --&gt;
-
-&lt;!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6NDksIm5jb2wiOjIsInN1bW1hcnkiOnsiQSB0aWJibGUiOiI0OSDDlyAyIn19LCJyZGYiOiJINHNJQUFBQUFBQUFCbDNUZTBoVFVSZ0E4THU3VGQzeVVUNUtNOStabW0ybCtZY1orSlZwU1JDV0dVaFpkdHR1MjJyZXU3YUprUkJLQldVUFFiS2dRQXlUb0FUSklDbUV6TFNIcGtaSjRvTVNuYmsxblQwSVdlVFdkK2U5RWZ2anQ1MzczZk9kYzc2UGN3dHppemZMaStVRVFZZ0pDVWtTWWlrT0NlbUJvcDJLVEFJaitDQWlKSVNNK3orTmswSnd3QVVEVUJvL0ZpTUpsNFY4a0MveVExd1N0L0l5NU0vbkJLSWd0Qnl0UU1HSVd6TVVoYUdWYUJVS1J4Rm9OWXBFYTFBVWlrWXhLQmJGb1hpVWdOYWlSTFFPSmFGa2xJTFdvMVMwQVNtUUVtMUVtL2p6cC9OblNnUGpzQ244ejk1OHFCemRGekhnV3dwMXpNMnJCWiszd3UzbXFmMExBeVBRUEhpL3YrR2NCUjVjYmpubDMzWUQybUorV0s3VkdPRkpwMzN1OXc0WFBMc0wwMitpd3FCclYxN21mTVl3ZEMvK2ZKeDNwdzllVDBiUXFSOWVRUC81UGFLc3VpWVlMRW4rMVZWYkF1OHIyMXc5WllkaHFPUEVXZWRZQW55TTlMdEZsaWZDY0Y5ZFZzcXJNekJhNjVrSTR3djBZczNvVS9pa2ZOaWQzbHNNRTlrNUJ4MnFXSmk0TWlOdWJiZkJwRlkyVkIrZUNsTzdFN1owMmgxZ0VUVXhPQlVzclFVQnVDVk12MVY5M3g1YkFsOWFScXpaT1lkZzVpSjl2YlVnRUt6QjBnNmNDdFpMalVtRlJSVFlLdEpxZXlUVllITXI4NjMzb3VFclg3ODlUc0c5QVR0dUZ1UTB3aXhYWnFnRlpyRUw5YlpKbU8xTE9kSVFLWU01U1RWTGFNZGg3c0kzVnBlcmdUbXUvTjduNE5qV1hwVlI5aEljbnJZYXdOSGdLUlFjanpTTlRwa2U1Z250R0xZVUhNNngrSGZUUjcwdW5aU2h5bWdUZjJGSVBpaGpTdlcwaVdMVU9qN2dZeWcxcVNtTlY2N015RllvaFh6dThwRlYrT04ydXdlOU4xSHBLWk93aVJDVXF5a3pwVHh1eEh4OGNubWwrTElHczQ1bE1Ja000YSs5M1BONnlmOExpWXhlZ2FCeWhqdVZXcUhTbGpNbnVlL3NYeTdCbjFURVgwOWhUQzV0VDdyNXBYejRwU1MwU3NzS1RhQVpqWTZoaFpyMDFERmF6ejhFWWljOGpWQWFqRHJHTEZTSVVaUFN6Sm9wWVo1Y3hlcUZpS2Rtd3ZVWEhpb1NhQ0VFQUFBPSJ9 --&gt;
-
-&lt;div data-pagedtable=&quot;false&quot;&gt;
-  &lt;script data-pagedtable-source type=&quot;application/json&quot;&gt;
-{&quot;columns&quot;:[{&quot;label&quot;:[&quot;n_lesandi&quot;],&quot;name&quot;:[1],&quot;type&quot;:[&quot;int&quot;],&quot;align&quot;:[&quot;right&quot;]},{&quot;label&quot;:[&quot;p_sdag&quot;],&quot;name&quot;:[2],&quot;type&quot;:[&quot;dbl&quot;],&quot;align&quot;:[&quot;right&quot;]}],&quot;data&quot;:[{&quot;1&quot;:&quot;2&quot;,&quot;2&quot;:&quot;0.0046&quot;},{&quot;1&quot;:&quot;3&quot;,&quot;2&quot;:&quot;0.0068&quot;},{&quot;1&quot;:&quot;4&quot;,&quot;2&quot;:&quot;0.0180&quot;},{&quot;1&quot;:&quot;5&quot;,&quot;2&quot;:&quot;0.0270&quot;},{&quot;1&quot;:&quot;6&quot;,&quot;2&quot;:&quot;0.0426&quot;},{&quot;1&quot;:&quot;7&quot;,&quot;2&quot;:&quot;0.0538&quot;},{&quot;1&quot;:&quot;8&quot;,&quot;2&quot;:&quot;0.0708&quot;},{&quot;1&quot;:&quot;9&quot;,&quot;2&quot;:&quot;0.1006&quot;},{&quot;1&quot;:&quot;10&quot;,&quot;2&quot;:&quot;0.1236&quot;},{&quot;1&quot;:&quot;11&quot;,&quot;2&quot;:&quot;0.1428&quot;},{&quot;1&quot;:&quot;12&quot;,&quot;2&quot;:&quot;0.1640&quot;},{&quot;1&quot;:&quot;13&quot;,&quot;2&quot;:&quot;0.1944&quot;},{&quot;1&quot;:&quot;14&quot;,&quot;2&quot;:&quot;0.2306&quot;},{&quot;1&quot;:&quot;15&quot;,&quot;2&quot;:&quot;0.2450&quot;},{&quot;1&quot;:&quot;16&quot;,&quot;2&quot;:&quot;0.2888&quot;},{&quot;1&quot;:&quot;17&quot;,&quot;2&quot;:&quot;0.3240&quot;},{&quot;1&quot;:&quot;18&quot;,&quot;2&quot;:&quot;0.3454&quot;},{&quot;1&quot;:&quot;19&quot;,&quot;2&quot;:&quot;0.3718&quot;},{&quot;1&quot;:&quot;20&quot;,&quot;2&quot;:&quot;0.4150&quot;},{&quot;1&quot;:&quot;21&quot;,&quot;2&quot;:&quot;0.4526&quot;},{&quot;1&quot;:&quot;22&quot;,&quot;2&quot;:&quot;0.4716&quot;},{&quot;1&quot;:&quot;23&quot;,&quot;2&quot;:&quot;0.5076&quot;},{&quot;1&quot;:&quot;24&quot;,&quot;2&quot;:&quot;0.5172&quot;},{&quot;1&quot;:&quot;25&quot;,&quot;2&quot;:&quot;0.5752&quot;},{&quot;1&quot;:&quot;26&quot;,&quot;2&quot;:&quot;0.6028&quot;},{&quot;1&quot;:&quot;27&quot;,&quot;2&quot;:&quot;0.6252&quot;},{&quot;1&quot;:&quot;28&quot;,&quot;2&quot;:&quot;0.6464&quot;},{&quot;1&quot;:&quot;29&quot;,&quot;2&quot;:&quot;0.6812&quot;},{&quot;1&quot;:&quot;30&quot;,&quot;2&quot;:&quot;0.7086&quot;},{&quot;1&quot;:&quot;31&quot;,&quot;2&quot;:&quot;0.7354&quot;},{&quot;1&quot;:&quot;32&quot;,&quot;2&quot;:&quot;0.7522&quot;},{&quot;1&quot;:&quot;33&quot;,&quot;2&quot;:&quot;0.7668&quot;},{&quot;1&quot;:&quot;34&quot;,&quot;2&quot;:&quot;0.7958&quot;},{&quot;1&quot;:&quot;35&quot;,&quot;2&quot;:&quot;0.8124&quot;},{&quot;1&quot;:&quot;36&quot;,&quot;2&quot;:&quot;0.8260&quot;},{&quot;1&quot;:&quot;37&quot;,&quot;2&quot;:&quot;0.8478&quot;},{&quot;1&quot;:&quot;38&quot;,&quot;2&quot;:&quot;0.8652&quot;},{&quot;1&quot;:&quot;39&quot;,&quot;2&quot;:&quot;0.8828&quot;},{&quot;1&quot;:&quot;40&quot;,&quot;2&quot;:&quot;0.8888&quot;},{&quot;1&quot;:&quot;41&quot;,&quot;2&quot;:&quot;0.8998&quot;},{&quot;1&quot;:&quot;42&quot;,&quot;2&quot;:&quot;0.9068&quot;},{&quot;1&quot;:&quot;43&quot;,&quot;2&quot;:&quot;0.9226&quot;},{&quot;1&quot;:&quot;44&quot;,&quot;2&quot;:&quot;0.9360&quot;},{&quot;1&quot;:&quot;45&quot;,&quot;2&quot;:&quot;0.9454&quot;},{&quot;1&quot;:&quot;46&quot;,&quot;2&quot;:&quot;0.9474&quot;},{&quot;1&quot;:&quot;47&quot;,&quot;2&quot;:&quot;0.9568&quot;},{&quot;1&quot;:&quot;48&quot;,&quot;2&quot;:&quot;0.9594&quot;},{&quot;1&quot;:&quot;49&quot;,&quot;2&quot;:&quot;0.9688&quot;},{&quot;1&quot;:&quot;50&quot;,&quot;2&quot;:&quot;0.9680&quot;}],&quot;options&quot;:{&quot;columns&quot;:{&quot;min&quot;:{},&quot;max&quot;:[10],&quot;total&quot;:[2]},&quot;rows&quot;:{&quot;min&quot;:[10],&quot;max&quot;:[10],&quot;total&quot;:[49]},&quot;pages&quot;:{}}}
-  &lt;/script&gt;
-&lt;/div&gt;
-
-&lt;!-- rnb-frame-end --&gt;
-
-&lt;!-- rnb-chunk-end --&gt;
-
-
-&lt;!-- rnb-text-begin --&gt;
-
-    GREIÐ FRÁ!
-
-&gt; 1f4) plotta eitt punkt- og linjuplot av `p_samadag` frá spurningi 1f3, har tú mappar `x = n_lesandi` og `y = p_sdag`. Brúka til dømis tilhoyrandi aksa-tekstirnar: &quot;Antal lesandi&quot; og &quot;Sannlíkindini fyri sama føðingardag&quot;. Hvussu stóran flokk av lesandi skalt tú hava fyri at sannlíkindini fyri at nakar í flokkinum hevur sama føðingardag er ávikavist 0.5, 0.7 og 0.9?
-
-
-&lt;!-- rnb-text-end --&gt;
-
-
-&lt;!-- rnb-chunk-begin --&gt;
-
-
-&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuZ2dwbG90KHBfc2FtYWRhZywgYWVzKHggPSBuX2xlc2FuZGksIHkgPSBwX3NkYWcpKSArXG4gIGdlb21fcG9pbnQoKSArXG4gIGdlb21fbGluZSgpICtcbiAgbGFicyh4ID0gXFxBbnRhbCBsZXNhbmRpXFwsIHkgPSBcXFNhbm5sw61raW5kaW5pIGZ5cmkgc2FtYSBmw7jDsGluZ2FyZGFnXFwpXG5cbmBgYFxuYGBgIn0= --&gt;
-
-```r
-```r
-ggplot(p_samadag, aes(x = n_lesandi, y = p_sdag)) +
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6NDksIm5jb2wiOjIsInN1bW1hcnkiOnsiQSB0aWJibGUiOlsiNDkgw5cgMiJdfX0sInJkZiI6Ikg0c0lBQUFBQUFBQUJsM1RlVWhUY1J3QThPYzJwODUwWG5ua2taWm51cVdaWlpKOEVjc2lpcUswakF4OWJTK3YrVFozV05GaC9sTmg0bEVSWXRJbEpSVlJtU0lpb1VtV2tIWllZcGlVMmZKMm91VkI1dGIzNlhzUkczeTIzKys3OS8zK0RyNXY3NWJrU0ZHeWlDQUlQaUhnOFFpK0pRNEp5NlRFQkVrMGdSR2NXQkFDd29iNVBZNFBPZU9BQ2RxaENIYk1Sd0ltQ3dtUkZiSkdUQkpUMlJZdFkzUHNrUmc1SUVma2hKaWFMbWc1Y2tWdXlCMTVvQlhJRTNraGIrU0RWaUpmNUlkV29kWElId1dnUUJTRWdsRUlXb05DVVJpU0lDbGFpOExaL2E5ajl4UUIxTTd5Vk9ITUZjaWYwaGNYNW42Qmk5WVZQRjFBQWxSazczazhkZklwVk0rRVpnMTJwY1BEZHRsa25HOEsxQ1NtM1plM3pFRTl0VkRZMHpBTnorNDRWdmJwWnVGNTkrZGY1LzgwUUd2dlMzQnhFa0xieHRyYmtaVmk2TERmTDNDL3JJTjNrajQ3ejl3ODZJd0plWFhpYmgxOHFERzI1cVRNUTlmdmVHTksyWHY0eEUvb1BTeTdBRDBIcXMrMUJCWkFienZ6NllDdmJzbjlIbFFZOUtWSGU1OXUyZzdmbUZVUDFrSi9GSndhTDh1QTc4dzJhMHlnejM5OUNVdUR2azgzcytCbmdoOGxyWUlDSlFFRHQwajlMR1dFd2JncHAyNk5Cd3haVk5IU0p5OWc2STBxWnY1TUdReXJ0MjJObm9pQ0VjZjFncEVkUlRCU1p5c09hZ3lIVVgvdHZ1S2Z1MkNVT1laOUU0d3h4ei9VREdORmcveEg5Y013TnQxU2toSThBK05acmo2Nzg5SmcvTUdOcEd1eDFqRGVPWGx2ZmpBSERPTFNxNDNsYldEWTBEL3FGUzhCUTE1YjdhWmtCekI4RE50OGZhd1pEQU1SY3pkTHBUQWhpbFZWZFl2TW1zNlNKbk1vRGRzd1BEWm9RNmNxS0ExSnl6UFpnRkNWcXBHVDZXYTVObXJsTVNtWHp6UWY3eXgrbVV5bXQrYUx5QlNraGx1RUM0cmtwSmFVSGxWalBzNk1aaWxXU3BVMlUwbGpFcytaYlh2UjR0OUwvaTlrb1RZTGlIVTBzeXU1UkphaG83T1o5K3hmTHNIdTFJSnRUMjdNVzFxZVoySkxDZGxTQWtxV29lUXVnYUxUTTJtS081T0NQRUlwMklrOTNzVGlSVWhWNmt4YXk1MFFveHFwVnFrbHVlZEVNcVdDaXl5ZW1URCtCWEcwdXlFaEJBQUEifQ== -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["n_lesandi"],"name":[1],"type":["int"],"align":["right"]},{"label":["p_sdag"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"2","2":"0.0026"},{"1":"3","2":"0.0078"},{"1":"4","2":"0.0132"},{"1":"5","2":"0.0258"},{"1":"6","2":"0.0468"},{"1":"7","2":"0.0582"},{"1":"8","2":"0.0716"},{"1":"9","2":"0.0914"},{"1":"10","2":"0.1158"},{"1":"11","2":"0.1394"},{"1":"12","2":"0.1708"},{"1":"13","2":"0.1892"},{"1":"14","2":"0.2270"},{"1":"15","2":"0.2528"},{"1":"16","2":"0.2848"},{"1":"17","2":"0.3078"},{"1":"18","2":"0.3434"},{"1":"19","2":"0.3752"},{"1":"20","2":"0.4116"},{"1":"21","2":"0.4500"},{"1":"22","2":"0.4858"},{"1":"23","2":"0.5126"},{"1":"24","2":"0.5482"},{"1":"25","2":"0.5690"},{"1":"26","2":"0.6036"},{"1":"27","2":"0.6406"},{"1":"28","2":"0.6524"},{"1":"29","2":"0.6738"},{"1":"30","2":"0.7072"},{"1":"31","2":"0.7268"},{"1":"32","2":"0.7502"},{"1":"33","2":"0.7752"},{"1":"34","2":"0.7952"},{"1":"35","2":"0.8146"},{"1":"36","2":"0.8346"},{"1":"37","2":"0.8482"},{"1":"38","2":"0.8658"},{"1":"39","2":"0.8872"},{"1":"40","2":"0.8922"},{"1":"41","2":"0.9050"},{"1":"42","2":"0.9192"},{"1":"43","2":"0.9272"},{"1":"44","2":"0.9320"},{"1":"45","2":"0.9394"},{"1":"46","2":"0.9442"},{"1":"47","2":"0.9520"},{"1":"48","2":"0.9634"},{"1":"49","2":"0.9656"},{"1":"50","2":"0.9700"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[49]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<pre><code>GREIÐ FRÁ!</code></pre>
+<blockquote>
+<p>1f4) plotta eitt punkt- og linjuplot av <code>p_samadag</code> frá
+spurningi 1f3, har tú mappar <code>x = n_lesandi</code> og
+<code>y = p_sdag</code>. Brúka til dømis tilhoyrandi aksa-tekstirnar:
+“Antal lesandi” og “Sannlíkindini fyri sama føðingardag”. Hvussu stóran
+flokk av lesandi skalt tú hava fyri at sannlíkindini fyri at nakar í
+flokkinum hevur sama føðingardag er ávikavist 0.5, 0.7 og 0.9?</p>
+</blockquote>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KHBfc2FtYWRhZywgYWVzKHggPSBuX2xlc2FuZGksIHkgPSBwX3NkYWcpKSArXG4gIGdlb21fcG9pbnQoKSArXG4gIGdlb21fbGluZSgpICtcbiAgbGFicyh4ID0gXCJBbnRhbCBsZXNhbmRpXCIsIHkgPSBcIlNhbm5sw61raW5kaW5pIGZ5cmkgc2FtYSBmw7jDsGluZ2FyZGFnXCIpXG5cbmBgYCJ9 -->
+<pre class="r"><code>ggplot(p_samadag, aes(x = n_lesandi, y = p_sdag)) +
   geom_point() +
   geom_line() +
-  labs(x = \Antal lesandi\, y = \Sannlíkindini fyri sama føðingardag\)
+  labs(x = &quot;Antal lesandi&quot;, y = &quot;Sannlíkindini fyri sama føðingardag&quot;)
 </code></pre>
-<pre><code>
-&lt;!-- rnb-source-end --&gt;
-
-&lt;!-- rnb-plot-begin --&gt;
-
-&lt;img src=&quot;data:image/png;base64,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&quot; /&gt;
-
-&lt;!-- rnb-plot-end --&gt;
-
-&lt;!-- rnb-chunk-end --&gt;
-
-
-&lt;!-- rnb-text-begin --&gt;
-
-    Sannlíkindini fyri at nakar í flokkinum hevur sama føðingardag er ávikavist:
-    0.5 er uml. 23
-    0.7 er uml. 28
-    0.9 er uml. 45
-
-### Uppg. 2
-
-&gt; 2a) legg variablar `n_ymisk`, `n_total`, og `p_teori` afturat tibble `p_samadag`, har tú útroknar teoretisku sannlíkindini `p_teori` fyri at nakar hevur sama føðingardag fyri hvørt virði av `n_lesandi`, og útles síðani `p_samadag` (tip: tað er lættast við formlum frá teljilæru (teljitrupuleikum) at finna sannlíkindini fyri at eingin hevur sama føðingardag, og síðani at draga hesi sannlíkindi frá 1: `p_teori = 1 - n_ymisk/n_total`. Tú kanst til dømis brúka eina `map_dbl()` funktión saman við `prod()` funktiónini í útrokningini av `n_ymisk`). Hvussu væl samsvara tíni simuleraðu `p_sdag` við tíni teoretisku `p_teori`?
-
-
-&lt;!-- rnb-text-end --&gt;
-
-
-&lt;!-- rnb-chunk-begin --&gt;
-
-
-&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXG4jIHBfc2FtYWRhZyA8LSBzYW1hX2ZkYWcgJT4lXG4jICAgZ3JvdXBfYnkobl9sZXNhbmRpKSAlPiVcbiMgICBtdXRhdGUobl95bWlzayA9IG1hcF9kYmwoZmRhZywgfmxlbmd0aCh1bmlxdWUoLngpKSkpICU+JVxuIyAgIG11dGF0ZShuX3RvdGFsID0gbWFwX2RibChmZGFnLCB+bGVuZ3RoKC54KSkpICU+JVxuIyAgIG11dGF0ZShwX3Rlb3JpID0gMSAtIHByb2QoKDM2NSAtIDEpOigzNjUgLSBuX3ltaXNrICsgMSkpLzM2NV5uX3RvdGFsKSAlPiVcbiMgICAjbXV0YXRlKHBfdGVvcmkgPSAxLW5feW1pc2svbl90b3RhbCkgJT4lXG4jICAgc3VtbWFyaXNlKHBfc2RhZyA9IG1lYW4obmFrYXJfc2RhZyksIG5feW1pc2sgPSBuX3ltaXNrWzFdLCBuX3RvdGFsID0gbl90b3RhbFsxXSwgcF90ZW9yaSA9IHBfdGVvcmlbMV0pXG4jIFxuIyBwX3NhbWFkYWdcblxuIyBwX3NhbWFkYWcgPC0gdGliYmxlKG5fbGVzYW5kaSA9IDI6MTApICU+JVxuIyAgIGNyb3NzaW5nKHJveW5kX25yID0gMToyKSAlPiVcbiMgICBtdXRhdGUoZmRhZyA9IG1hcChuX2xlc2FuZGksIH4gc2FtcGxlKDM2NSwgLiwgcmVwbGFjZSA9IFRSVUUpKSxcbiMgICAgICAgICAgbmFrYXJfc2RhZyA9IG1hcF9sZ2woZmRhZywgfiBhbnkoZHVwbGljYXRlZCgueCkpKSkgJT4lXG4jICAgZ3JvdXBfYnkobl9sZXNhbmRpKSAlPiVcbiMgICBzdW1tYXJpc2UoXG4jICAgICBwX3NkYWcgPSBtZWFuKG5ha2FyX3NkYWcpLFxuIyAgICAgbl95bWlzayA9IG1hcF9kYmwobl9sZXNhbmRpLCB+IHByb2QoMSAtIHNlcSgxLCAueCAtIDEpLzM2NSkpLFxuIyAgICAgbl90b3RhbCA9IG1hcF9kYmwobl9sZXNhbmRpLCB+IDM2NV4oLngpKSxcbiMgICAgIHBfdGVvcmkgPSAxIC0gbl95bWlzay9uX3RvdGFsXG4jICAgKVxuIyBcbiMgcF9zYW1hZGFnXG5gYGAifQ== --&gt;
-
-```r
-
+<!-- rnb-source-end -->
+<!-- rnb-plot-begin eyJoZWlnaHQiOjQzMi42MzI5LCJ3aWR0aCI6NzAwLCJzaXplX2JlaGF2aW9yIjowLCJjb25kaXRpb25zIjpbXX0= -->
+<p><img src="data:image/png;base64,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" /></p>
+<!-- rnb-plot-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<pre><code>Sannlíkindini fyri at nakar í flokkinum hevur sama føðingardag er ávikavist:
+0.5 er uml. 23
+0.7 er uml. 28
+0.9 er uml. 45</code></pre>
+</div>
+<div id="uppg.-2" class="section level3">
+<h3>Uppg. 2</h3>
+<blockquote>
+<p>2a) legg variablar <code>n_ymisk</code>, <code>n_total</code>, og
+<code>p_teori</code> afturat tibble <code>p_samadag</code>, har tú
+útroknar teoretisku sannlíkindini <code>p_teori</code> fyri at nakar
+hevur sama føðingardag fyri hvørt virði av <code>n_lesandi</code>, og
+útles síðani <code>p_samadag</code> (tip: tað er lættast við formlum frá
+teljilæru (teljitrupuleikum) at finna sannlíkindini fyri at eingin hevur
+sama føðingardag, og síðani at draga hesi sannlíkindi frá 1:
+<code>p_teori = 1 - n_ymisk/n_total</code>. Tú kanst til dømis brúka
+eina <code>map_dbl()</code> funktión saman við <code>prod()</code>
+funktiónini í útrokningini av <code>n_ymisk</code>). Hvussu væl samsvara
+tíni simuleraðu <code>p_sdag</code> við tíni teoretisku
+<code>p_teori</code>?</p>
+</blockquote>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXG4jIHBfc2FtYWRhZyA8LSBzYW1hX2ZkYWcgJT4lXG4jICAgZ3JvdXBfYnkobl9sZXNhbmRpKSAlPiVcbiMgICBtdXRhdGUobl95bWlzayA9IG1hcF9kYmwoZmRhZywgfmxlbmd0aCh1bmlxdWUoLngpKSkpICU+JVxuIyAgIG11dGF0ZShuX3RvdGFsID0gbWFwX2RibChmZGFnLCB+bGVuZ3RoKC54KSkpICU+JVxuIyAgIG11dGF0ZShwX3Rlb3JpID0gMSAtIHByb2QoKDM2NSAtIDEpOigzNjUgLSBuX3ltaXNrICsgMSkpLzM2NV5uX3RvdGFsKSAlPiVcbiMgICAjbXV0YXRlKHBfdGVvcmkgPSAxLW5feW1pc2svbl90b3RhbCkgJT4lXG4jICAgc3VtbWFyaXNlKHBfc2RhZyA9IG1lYW4obmFrYXJfc2RhZyksIG5feW1pc2sgPSBuX3ltaXNrWzFdLCBuX3RvdGFsID0gbl90b3RhbFsxXSwgcF90ZW9yaSA9IHBfdGVvcmlbMV0pXG4jIFxuIyBwX3NhbWFkYWdcblxuIyBwX3NhbWFkYWcgPC0gdGliYmxlKG5fbGVzYW5kaSA9IDI6MTApICU+JVxuIyAgIGNyb3NzaW5nKHJveW5kX25yID0gMToyKSAlPiVcbiMgICBtdXRhdGUoZmRhZyA9IG1hcChuX2xlc2FuZGksIH4gc2FtcGxlKDM2NSwgLiwgcmVwbGFjZSA9IFRSVUUpKSxcbiMgICAgICAgICAgbmFrYXJfc2RhZyA9IG1hcF9sZ2woZmRhZywgfiBhbnkoZHVwbGljYXRlZCgueCkpKSkgJT4lXG4jICAgZ3JvdXBfYnkobl9sZXNhbmRpKSAlPiVcbiMgICBzdW1tYXJpc2UoXG4jICAgICBwX3NkYWcgPSBtZWFuKG5ha2FyX3NkYWcpLFxuIyAgICAgbl95bWlzayA9IG1hcF9kYmwobl9sZXNhbmRpLCB+IHByb2QoMSAtIHNlcSgxLCAueCAtIDEpLzM2NSkpLFxuIyAgICAgbl90b3RhbCA9IG1hcF9kYmwobl9sZXNhbmRpLCB+IDM2NV4oLngpKSxcbiMgICAgIHBfdGVvcmkgPSAxIC0gbl95bWlzay9uX3RvdGFsXG4jICAgKVxuIyBcbiMgcF9zYW1hZGFnXG5gYGAifQ== -->
+<pre class="r"><code>
 # p_samadag &lt;- sama_fdag %&gt;%
 #   group_by(n_lesandi) %&gt;%
 #   mutate(n_ymisk = map_dbl(fdag, ~length(unique(.x)))) %&gt;%
@@ -2469,10 +2395,10 @@ fært eina <code>25 x 1</code> tibble).</p>
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZmVyZHNsdV9vaGFwcCA8LSByZWFkX2NzdihcImZlcmRzbHVfb2hhcHAuY3N2XCIpXG5gYGAifQ== -->
 <pre class="r"><code>ferdslu_ohapp &lt;- read_csv(&quot;ferdslu_ohapp.csv&quot;)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiV2FybmluZzogT25lIG9yIG1vcmUgcGFyc2luZyBpc3N1ZXMsIGNhbGwgYHByb2JsZW1zKClgIG9uIHlvdXIgZGF0YSBmcmFtZSBmb3IgZGV0YWlscywgZS5nLjpcbiAgZGF0IDwtIHZyb29tKC4uLilcbiAgcHJvYmxlbXMoZGF0KVJvd3M6IDI1IENvbHVtbnM6IDHilIDilIAgQ29sdW1uIHNwZWNpZmljYXRpb24g4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSAXG5EZWxpbWl0ZXI6IFwiLFwiXG5jaHIgKDEpOiBTUzAzMDYwIEZlcsOwc2x1w7NoYXBwIHNraWZ0IMOhIHPDvXNsdSwgc3Rhw7Agb2cgc2xhZyAoMTk5NS0yMDE3KVxu4oS5IFVzZSBgc3BlYygpYCB0byByZXRyaWV2ZSB0aGUgZnVsbCBjb2x1bW4gc3BlY2lmaWNhdGlvbiBmb3IgdGhpcyBkYXRhLlxu4oS5IFNwZWNpZnkgdGhlIGNvbHVtbiB0eXBlcyBvciBzZXQgYHNob3dfY29sX3R5cGVzID0gRkFMU0VgIHRvIHF1aWV0IHRoaXMgbWVzc2FnZS5cbiJ9 -->
+<!-- rnb-output-begin eyJkYXRhIjoiV2FybmluZzogT25lIG9yIG1vcmUgcGFyc2luZyBpc3N1ZXMsIGNhbGwgYHByb2JsZW1zKClgIG9uIHlvdXIgZGF0YSBmcmFtZSBmb3IgZGV0YWlscywgZS5nLjpcbiAgZGF0IDwtIHZyb29tKC4uLilcbiAgcHJvYmxlbXMoZGF0KVJvd3M6IDI1IENvbHVtbnM6IDHilIDilIAgQ29sdW1uIHNwZWNpZmljYXRpb24g4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSAXG5EZWxpbWl0ZXI6IFwiLFwiXG5jaHIgKDEpOiBTUzAzMDYwIEZlcsOwc2x1w7NoYXBwIHNraWZ0IMOhIHPDvXNsdSwgc3Rhw7Agb2cgc2xhZyAoMTk5NS0yMDE3KVxu4oS5IFVzZSBgc3BlYygpYCB0byByZXRyaWV2ZSB0aGUgZnVsbCBjb2x1bW4gc3BlY2lmaWNhdGlvbiBmb3IgdGhpcyBkYXRhLlxu4oS5IFNwZWNpZnkgdGhlIGNvbHVtbiB0eXBlcyBvciBzZXQgYHNob3dfY29sX3R5cGVzID0gRkFMU0VgIHRvIHF1aWV0IHRoaXMgbWVzc2FnZS5cbiJ9 -->
 <pre><code>Warning: One or more parsing issues, call `problems()` on your data frame for details, e.g.:
   dat &lt;- vroom(...)
-  problems(dat)Rows: 25 Columns: 1── Column specification ───────────────────────────────────────────────────────────────────────────────────────────────────
+  problems(dat)Rows: 25 Columns: 1── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
 Delimiter: &quot;,&quot;
 chr (1): SS03060 Ferðsluóhapp skift á sýslu, stað og slag (1995-2017)
 ℹ Use `spec()` to retrieve the full column specification for this data.
@@ -2481,7 +2407,7 @@ chr (1): SS03060 Ferðsluóhapp skift á sýslu, stað og slag (1995-2017)
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZmVyZHNsdV9vaGFwcFxuYGBgIn0= -->
 <pre class="r"><code>ferdslu_ohapp</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInNwZWNfdGJsX2RmIiwidGJsX2RmIiwidGJsIiwiZGF0YS5mcmFtZSJdLCJucm93IjoyNSwibmNvbCI6MSwic3VtbWFyeSI6eyJBIHRpYmJsZSI6WyIyNSDDlyAxIl19fSwicmRmIjoiSDRzSUFBQUFBQUFBQnAxV3kyN2JSaFNsRk50RkRQUUJkTldkbGkwd0VqZ1BrdUt5UUp0RmdiWkJsQlplRldVc1dSWWtVWTRvcFhXN1NUNGxmMkFnNjY3ME1mMkx1T2RjenNTU29GcHlRUEZxT09UY2U4OTluSmxuMzUzWjA3UFRLSW9lUlVmTlp2VG9HTVBvK0pmblQ5cmRDRE40YUVSSDBXUCsvNG1QdnBTSktQb0M5MWRSOUpvdnh0WHFuMnBTcUdwUnJHNFVSa09sOHp5aFNDa3lpaTVGcmt3Y3h4U2F3bEJZQ2tlUlVLUVVHVVdYZ2lzMFYyaXUwQ2FZL0drMlg5M01yb3VXdDcxNjA1b1VaYjk2TlJpTzFKTUJYbGFUNWVyZFpYRjExVnFNSmxVeExjcEtHYU4wUm1saE5WZldLUXNmNEZxcXJGWTJVODd5clhHcTA0Ry9TdU9WOVNaL3ZOZGtiMXowKzYyTDFidkpXTUZUWEZvQnZMS3FEY21ycXh3azllSmwyeXY5ZTRmUzhXdzZYWmJGNUg0b21sam9JdjhCUjF2NkdpdnRFRzZiMTJNQTFBYnZFRkNOVUdaZDJrKzB5cXh5dVhmaDZUNFgxcUhsS2dFUXJGWVo0SEdVUVNKeFNrTFc1dVgxdnZyK3Vsb3M1MUE4ZjFpU3RJYU5UTEZzNkRkeVE1eDRSUGxvRkk1R2pXZ0Q2d0NPbXRGR29ncHNXSlRHM3ZyWkh1dWJvSEtXaGJhS0laU2YxQUQ4U09VcHdRY3d3UXc2ci8rdm5mb1BTeDE2Z2QzQjVMbTQvcGNFMHE2VFJHbE5tRTZlOFNtUXdueUs0Q1B5bWZmZytYNFAxa0V5VzRDVlNnTFJVUWt5eHpLMXVHcjE2MlhaVzh3SDE5T1B5NTFHTEhNdEtkSUp3NHF4dzIzVHVoaERnU1kxUG0zRnZLd3lLZ3RsK2RzZUZ6WWFUa3YrTXVsWGpTeXg3c0VjZEVKeUNhY2MreHgyTUlseURVMzlacWVWdzlMb2tseTVGSndCRUluSlZOSkZWTUVoU1lLbzVyRnlEdTlKTVlEbGtoajB3bHVjc0toYlM1ZVNVRTh2OWp1eWdaaTh5QitDQ3ROR2lsUUxuVGtqcE1iZ2M1NmhsWUlPZFRQOGRmVjIrRURlUkwwd3VscDB5dGlRMmhqdWhFTWpCdXRHcERWV3J6ZjN3LytiMitUTW1pZGRUWTlvT09QTHM2NE9XZ3ZjdjYzeHNIUWhVdWcyUkFURWFCTldnNUc0SUVQWUNqeUNQSUNRbVR2dXY5ZmtPZzVTSXpuZjFGeUlwN1k0YndOQkFwQlgrbnNQa1hoNGk1RUUwYXprWHpZemt0Nmx3R1NtSkVlc0x6NTJnL1AzMmxsM3ZyMTJHVW1KbFJ2RnVzM3VneDFLRDJRL0pWV2poWWRJRGN4MVhiL1dvMklDU0ZVQndkTjl4clpCNkEveGJ3dU1JQVhFSGMxTmU4dlZ6Y2RzVWVneHgyWm16WURLd0c2dUhpVG9lcFlXUDJDTGU4WmhyNFphK25tUDBVMHNETDZURFRiMVpPMGtIWGxJU09pS2x6dlZIcGFTbEJ1bjdDODRJMkN6YzdMUGNrZEZOZ3l4QVJVWURCK3h1THFrSEJ1SSt0bCt3K3VRc0lVS2tFd3FqTHRRdlFPWnUwWjNXd2ZQNDdLWURpcC82R3g0czkvMmVyR04wN2kxaGFvYWp5NFdyZFhiMnBlbGFzbXB0RFVidG5nd2JYM05rMmtiSjhuc215MHJqK2V6UHpyQjBxZTRtNjhoYm05di85MTI1M3hTVkhmdTFKT24vV0pSZEM3bVdJK245MXRMUHBsZExVYXpFb3VhUEVDZmNJRS9TRGUyRkRYbVd4T2ZMMHQ2MVcrZlh5N0xjVHRaV3h0NVR4djFZZnpEdUZHYmI5NTZWU2RlMWRIZy9ITG14eWVEY2pncUJ3SFRwSGd4bVBpSHp4QUpDVVRuYWo0cUZ3RWhacXZPWXJZb3duZW41N05KbUJITTBmdi9BRXlrdytaUERBQUEifQ== -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInNwZWNfdGJsX2RmIiwidGJsX2RmIiwidGJsIiwiZGF0YS5mcmFtZSJdLCJucm93IjoyNSwibmNvbCI6MSwic3VtbWFyeSI6eyJBIHRpYmJsZSI6WyIyNSDDlyAxIl19fSwicmRmIjoiSDRzSUFBQUFBQUFBQnAxV3kyN2JSaFNsRk50RkRMUUkwRlYzWExiQVNPQThTSXJMQW0wV0Jkb0dVVnA0VlpTeFpGblF5eEdsdEc0M3lhZmtEd3hrM1pVK3BuOFI5NXpMbVZnU1ZFc09LRjROaDV4Nzc3bVBNL1A4dXpON2VuWWFSZEdqNktqWmpCNGRZeGdkLy9MaWFhc1RZUVlQamVnb2Vzei9QL0hSbHpJUlJVOXdmeFZGYi9oaVZLMytxY2FscWhibDZrWmhORkM2S0ZLS2pDS242RkFVeWlSSlFxRXBESVdsY0JRcFJVYVJVM1FvdUVKemhlWUtiWUxKbjJiejFjM3N1b3k5N2RYYmVGeE9lOVhyL21Db252YnhzaG92Vis4dnk2dXJlREVjVitXa25GYktHS1Z6U2d1cmhiSk9XZmdBMXpKbHRiSzVjcFp2alZQdE52eFZHcStzTi9uanZTYTdvN0xYaXk5Vzc4Y2pCVTl4YVFYd3lxb1dKSytPY3BEVWk1Y3RyL1R2SFVwSHM4bGtPUzNIOTBQUnhFSVgrUTg0MnRMWFJHbUhjTnVpSGdPZ05uaUhnR3FFTXUvUWZxcFZicFVydkF2UDlybXdEcTFRS1lCZ3Rjb0JqNk1jRW9sVEVySVdMNi8zOWZmWDFXSTVoK0w1dzVLa05XemtpbVZEdjVFYjRzUWp5a2VqY0RScVJCdFlCM0RVakRZU1ZXRERvaXp4MXMvMldOOEVWYkFzdEZVTW9meWtCdUJISms4cFBvQUpadEI1L1gvdDFIOVk2dEFMN0E0bXp5WDF2eVNRZHAwa1NtdkNkUEtNVDRFVTVqTUVINUhQdlFjdjludXdEcExaQXF4TUVvaU9TcEU1bHFuRlZhdGZMOHZ1WXQ2L25ueGE3alJpV1doSmtVNFpWb3dkYnB2VnhSZ0tOSzN4YVN2bVpaVlJlU2pMMy9hNHNORndXdktYUzc5cVpJbDFEK2FnRTVKTE9PWFk1N0NEU1pScmFPcTNPNjBjbGthWEZzcGw0QXlBU0UydTBnNmlDZzVKVTBTMVNKUnplRStLQVN5WEpxQVgzdUtFUmQxYXVwU0dlbnE1MzVFTnhPUkYvaEJVbURaU3BGcm96QmtoTlFhZjh3eXRGSFNvbThHdnEzZURCL0ltNm9YUjFhSlR4b2JVeG5DbkhCb3hXRGNpcmJGNnZia2YvdC9jSm1mV1BPbHFla1RER1YrZWRYWFFXdUQrYlkySHBRdVJRcmNoSWlCR203SWFqTVFGR2NKVzRCRVVBWVRNM0hIL3ZTYlhjWkFheWZtbTVrSTh0Y1I1R3dnU2dMelMzN3VJeE1OYmpDU0laaVgvc3BtUjlBNEZKbk1sT1dKOThiRVRuTC9YenJyenJiWExTRXFzM0NqV2JYYnY3MUI2SVBzcHFSb3RQRVJxWUs3cityVWVGUk5BcWdvSW51MHp0ZzFDZjR4L1MyQUVLU0R1YUc3U1hhNXVQbVdMUW84NU5qTnJCbFFHZG5QMUlFWFhzN1Q0QVZ2Y013NTdOZFRTejN1TWJtSmg4SjFzc0prbmF5ZnBLRUpDUWxlODJxbjJzSlJrM0RobGY4RVpBWnVkazMyV095cXlZWWdOcU1CZytJakYxU0hsMkVEVXovY2JYb2VFTFZTQTVGSmgzSVhxSGNqY05icmJPbmdlVDh0SnYvS0h6b1kzKzIyM205Z2tTK0l0Vk5Wb2VMR0lWKzlxWDVZcWxsTnBQQnZFUEpqR1gvTmsyc0pKTXY5bXk4cmorZXlQZHJEME9lN21HNGpiMjl0L3Q5MDVINWZWblR2MTVHbXZYSlR0aXpuVzQrbkQxcExQWmxlTDRXeUtSVTBlb0UrNHdCK2tHMXVLR3ZPdGlTZkxLYjNxdGM0dmw5TlJ5NWkxeFpGM3RWR2Z4aitPRzdYOTVxM1hkZUoxSGZYUEwyZCtmTktmRG9iVGZnQTFMbC8yeC83aEM0UkNJdEcrbWcrbml3QVJzMVY3TVZ1VTRidlQ4OWs0ekFqbzZNTi82a0NvQjFBTUFBQT0ifQ== -->
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["SS03060 Ferðsluóhapp skift á sýslu, stað og slag (1995-2017)"],"name":[1],"type":["chr"],"align":["left"]}],"data":[{"1":"sýsla,stað,slag,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012"},{"1":"Norðoya sýsla,Á landsvegi,Ferðsluóhapp tilsamans,22,17,22,33,29,34,32,28,16,31,37,43,22,24,..,19,18,13"},{"1":"Norðoya sýsla,Á landsvegi,Skadd fólk,1,2,2,1,6,1,3,-,1,1,1,8,4,1,..,1,2,-"},{"1":"Norðoya sýsla,Á kommunalvegi,Ferðsluóhapp tilsamans,122,119,122,133,138,130,147,139,130,134,123,107,109,78,..,51,73,49"},{"1":"Norðoya sýsla,Á kommunalvegi,Skadd fólk,9,5,8,3,4,7,6,8,3,7,8,5,2,4,..,-,-,-"},{"1":"Eysturoyar sýsla,Á landsvegi,Ferðsluóhapp tilsamans,115,87,97,107,116,119,97,99,101,106,126,82,105,121,..,78,87,60"},{"1":"Eysturoyar sýsla,Á landsvegi,Skadd fólk,9,9,17,13,8,13,13,12,24,15,6,13,15,9,..,8,4,4"},{"1":"Eysturoyar sýsla,Á kommunalvegi,Ferðsluóhapp tilsamans,98,95,119,140,119,133,133,124,109,111,104,124,95,82,..,69,53,47"},{"1":"Eysturoyar sýsla,Á kommunalvegi,Skadd fólk,6,8,12,6,5,8,10,5,7,2,2,3,3,2,..,6,2,-"},{"1":"Streymoyar sýsla,Á landsvegi,Ferðsluóhapp tilsamans,115,117,91,126,157,131,141,136,123,147,139,154,124,132,..,117,92,79"},{"1":"Streymoyar sýsla,Á landsvegi,Skadd fólk,11,17,17,18,11,4,34,19,21,12,12,25,14,28,..,21,5,23"},{"1":"Streymoyar sýsla,Á kommunalvegi,Ferðsluóhapp tilsamans,459,467,424,527,580,537,552,390,449,434,392,450,370,378,..,305,314,254"},{"1":"Streymoyar sýsla,Á kommunalvegi,Skadd fólk,19,20,20,36,27,23,15,14,32,42,32,26,15,23,..,13,12,7"},{"1":"Vága sýsla,Á landsvegi,Ferðsluóhapp tilsamans,10,17,11,15,20,17,21,3,18,15,21,22,26,21,..,13,11,10"},{"1":"Vága sýsla,Á landsvegi,Skadd fólk,1,-,1,1,4,1,2,-,9,2,2,2,3,2,..,1,3,1"},{"1":"Vága sýsla,Á kommunalvegi,Ferðsluóhapp tilsamans,36,40,23,30,35,28,23,12,34,29,22,26,29,21,..,19,22,13"},{"1":"Vága sýsla,Á kommunalvegi,Skadd fólk,3,4,3,-,2,-,-,-,4,-,1,3,3,4,..,-,3,2"},{"1":"Sandoyar sýsla,Á landsvegi,Ferðsluóhapp tilsamans,9,10,6,7,6,6,5,14,8,14,10,7,7,11,..,3,10,8"},{"1":"Sandoyar sýsla,Á landsvegi,Skadd fólk,-,-,-,-,-,-,2,1,-,3,-,3,5,3,..,-,-,-"},{"1":"Sandoyar sýsla,Á kommunalvegi,Ferðsluóhapp tilsamans,9,8,15,15,8,11,14,9,23,15,13,7,6,6,..,12,6,8"},{"1":"Sandoyar sýsla,Á kommunalvegi,Skadd fólk,-,-,1,2,-,-,-,-,1,-,-,1,-,-,..,-,2,-"},{"1":"Suðuroyar sýsla,Á landsvegi,Ferðsluóhapp tilsamans,42,40,37,26,39,41,46,39,45,44,28,42,45,31,..,21,20,23"},{"1":"Suðuroyar sýsla,Á landsvegi,Skadd fólk,-,3,5,4,5,2,6,2,3,3,4,5,3,9,..,-,-,1"},{"1":"Suðuroyar sýsla,Á kommunalvegi,Ferðsluóhapp tilsamans,67,60,69,59,75,94,101,78,86,62,46,44,50,60,..,38,27,39"},{"1":"Suðuroyar sýsla,Á kommunalvegi,Skadd fólk,4,4,2,3,7,2,1,5,7,3,3,2,2,2,..,1,3,4"}],"options":{"columns":{"min":{},"max":[10],"total":[1]},"rows":{"min":[10],"max":[10],"total":[25]},"pages":{}}}
@@ -2507,7 +2433,7 @@ eina <code>24 x 21</code> tibble).</p>
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuKGZlcmRzbHVfb2hhcHAgPC0gcmVhZF9jc3YoXCJmZXJkc2x1X29oYXBwLmNzdlwiLCBzaG93X2NvbF90eXBlcyA9IEZBTFNFLCBza2lwID0gMSwgbmEgPSBjKFwiLi5cIiwgTkEpKSlcbmBgYCJ9 -->
 <pre class="r"><code>(ferdslu_ohapp &lt;- read_csv(&quot;ferdslu_ohapp.csv&quot;, show_col_types = FALSE, skip = 1, na = c(&quot;..&quot;, NA)))</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInNwZWNfdGJsX2RmIiwidGJsX2RmIiwidGJsIiwiZGF0YS5mcmFtZSJdLCJucm93IjoyNCwibmNvbCI6MjEsInN1bW1hcnkiOnsiQSB0aWJibGUiOlsiMjQgw5cgMjEiXX19LCJyZGYiOiJINHNJQUFBQUFBQUFCdTFaelc0alJSQnVqNVBBaG1Xeks0aVVBd2Vma1J4Ti84d2ZGM0lnT1hJZ0MxcHhRWVB0VGFLTTdjaGpBNUU0aEVmaERTTHRHUW5KTDhPUko5alFFL2RVbGJzNnl5SWxCNlNzNUoyYW12NnByK3FycXA3Sk4xKzkwdHV2dG9VUVhiRVJSYUs3YVVXeCtlM0xvMzR1ck1iZWRNU0dlTkpjZjdHRFBySENydjA5dDc4OUlhNmFCenRmVDJmTDYrbGwyYXVYZjlSVmVaL3FGNGVYOVh3eHMvclp3ejA0bnM5R2wrTUhmZkQwdStYdkorWDk2WGFPeThtUWIzTXY2aGZIaStWMTJGSDM4V0NOTzArWHYvVXFhMFg5MCtqazdCMjZIYXM3bjQ3SGkwbFovYnY2Y2RYL3lhcHJYTmc3R3RrU1VGZUw1WnZUOHVLaU56K3I2bkpjVG1yMy9LUGo4M0k0N0wxZXZxbk9INmM4VHZtUFV4elhWczBzVXFwdGE5SUpYWW02QW5ReThYVlJrYmVxbEErTEpLeG5FcGdpVVlyOWZTUGRMdFBSL2w2ZC9wMmF5Q2ltU3JOV1pYeThFaDRwTkJvV0JldnpqTU1GRCtRNE0yUHJkZzNzSHFtWWI0dDJ4MmdrYzByZjN5czBUd1BlK0U2OEdFdkVpN29jd0FXQVNCSXRCUU5sQUxFeUFjVHRRQXl3MHI3bHdCeUVoMFJEWW9EeklENXBnYkE4eEZyN0MzU2xaanQzWll5UVVZbk9SVTZyRkFaQzVCTUZzM1g2THRONVJEa1RjQjY0R2ZaRWNrQVdXUXgra0F0dXRjNzlGV3hBWVZWQ1lVYitya3pRTmVEREpJZlFLazV3TkZNek1EeklBVlpybm9OWmdpN3pZOXh1UjJNYzQvQUFnekhHU0FiMGdwYk1XNGxHbUpCcG1NZklhZ1lteEdySlZFYjZqb29LZ3lvZk1YaVRrRFh6TjZSNUhBQ01CY1pPUm80aTVBUk13VUt1dUoyWXlBQ1pVMWdhRGpuMURiWnBTT3FFVDJ2bVdZc0ZlSUsxaTVjcG03VEd0OHpPeFV5RnhxYUxtQnZNNE9IS1JNVTRHR2hPdW1CK3lYSzB6RzlPcWI4a3BiWG1Qb3NVSm5jTVd5SC9rYmdLMjdFQmYya01WdTVqSURrR0FrOWJ4WXB0WkJMZjRDaFAwVFNmMTZ4TldNaUdJNGw1bGJYcHphaEprb0t3d2NDS2VGb0lWbDBlUUU0S01oR0p6VWVsSkdGOXpLeUlrRWlSb3FSQzZXSTRaQjFJQUYwQUtveHlLSlhaK1M5d0NzRmlRaUxQK2d0Sjd3Ynlzd2J5d2VHVmFQNGQ5TVRxK3YyZnErdW43djZsZS82NXUvL0JYVDkwMThIQjZscTQrMTlYQ3gxODRlNVRkeFZpWGQvTy95eDgvK1hmN3Y1UXJOdHp0TDZldVBNNEZVbzhERW1NNTJDUUNwWVlwRXdoMGJvNmkvbGt4UTdIaEswUUhYWlFDclNpUUg0bU1TTHdBYk1xUndvWStrQ3hHaGpsZ1pNbm9XS09jS0dTQjhwVkowQmU5SmxrSHVCNE5UY3RYY1BiZlBYYnU3TC9QZVRQOXlzZXU4Q3ZDVDhqb0t2QlIybmdySWV2SVZqbU5hR2daaExKZHY2TzlWN3RUM0ZyOGNqSldqbjJGK3lEZkp1Y3ZMZTFUdEZzSWxRMmJPMWFHbVpxZ0Iwa2ZmbVJLSEI4USs3eGtnaUhZRjdmQTlYUzhNNlM4ck96NGU4R0daQVdrcU9yRXRZZ1ErL1Rrcm1PTi9EM2ErbDRpakhleC9ETlNUa2UxYzRCdSs1N3c5YmF0OC9OZWw0dXI5MzREYXMvYVdWWlFFbHM1SlRJR1pGeklyZUdiS2c0am9rc2lheUlySWxzaUp3UU9TVnlSdVNjeUdSZlNmYVZaRjlMdkhYZlBKbE5mOTV2L2ZOeDQ4ZW1FTnpjM1B6bE8zRlFsWFhyeEZhNVBTem41ZjdybVoxdjc5NTZVejZZWHN6UHBzMFhucWo1VThTV1dKV3hqdnZSaFRvelQ3R3ptRFJXRGZ1RDA4WGt2Qy9KWE9FczdkelNHZVhkMWZiUmpWdHFxNFU5R3B4T25idzFtcHljVFVZdHBxcjhjVlM1bTJmV0U3ZU8yTCtZblUzbUxVS3JyZmZuMDNuWmp0c2VUS3RXYzR0WnZQMEhZQzBLU0prWkFBQT0ifQ== -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInNwZWNfdGJsX2RmIiwidGJsX2RmIiwidGJsIiwiZGF0YS5mcmFtZSJdLCJucm93IjoyNCwibmNvbCI6MjEsInN1bW1hcnkiOnsiQSB0aWJibGUiOlsiMjQgw5cgMjEiXX19LCJyZGYiOiJINHNJQUFBQUFBQUFCdTFaelc0alJSQnVqNVBBaG1Xeks0aVVBd2Vma1J4Ti84d2ZGM0lnT1hJZ0MxcHhRWVB0VGFLTTdjaGpBNUU0aEVmaERTTHRHUW5KTDhPUko5alFFL2RVbGJzNnl5SWxCNlNzNUoyYW12NnByK3FycXA3Sk4xKzkwdHV2dG9VUVhiRVJSYUs3YVVXeCtlM0xvMzR1ck1iZWRNU0dlTkpjZjdHRFBySENydjA5dDc4OUlhNmFCenRmVDJmTDYrbGwyYXVYZjlSVmVaL3FGNGVYOVh3eHMvclp3ejA0bnM5R2wrTUhmZkQwdStYdkorWDk2WGFPeThtUWIzTXY2aGZIaStWMTJGSDM4V0NOTzArWHYvVXFhMFg5MCtqazdCMjZIYXM3bjQ3SGkwbFovYnY2Y2RYL3lhcHJYTmc3R3RrU1VGZUw1WnZUOHVLaU56K3I2bkpjVG1yMy9LUGo4M0k0N0wxZXZxbk9INmM4VHZtUFV4elhWczBzVXFwdGE5SUpYWW02QW5ReThYVlJrYmVxbEErTEpLeG5FcGdpVVlyOWZTUGRMdFBSL2w2ZC9wMmF5Q2ltU3JOV1pYeThFaDRwTkJvV0JldnpqTU1GRCtRNE0yUHJkZzNzSHFtWWI0dDJ4MmdrYzByZjN5czBUd1BlK0U2OEdFdkVpN29jd0FXQVNCSXRCUU5sQUxFeUFjVHRRQXl3MHI3bHdCeUVoMFJEWW9EeklENXBnYkE4eEZyN0MzU2xaanQzWll5UVVZbk9SVTZyRkFaQzVCTUZzM1g2THRONVJEa1RjQjY0R2ZaRWNrQVdXUXgra0F0dXRjNzlGV3hBWVZWQ1lVYitya3pRTmVEREpJZlFLazV3TkZNek1EeklBVlpybm9OWmdpN3pZOXh1UjJNYzQvQUFnekhHU0FiMGdwYk1XNGxHbUpCcG1NZklhZ1lteEdySlZFYjZqb29LZ3lvZk1YaVRrRFh6TjZSNUhBQ01CY1pPUm80aTVBUk13VUt1dUoyWXlBQ1pVMWdhRGpuMURiWnBTT3FFVDJ2bVdZc0ZlSUsxaTVjcG03VEd0OHpPeFV5RnhxYUxtQnZNNE9IS1JNVTRHR2hPdW1CK3lYSzB6RzlPcWI4a3BiWG1Qb3NVSm5jTVd5SC9rYmdLMjdFQmYya01WdTVqSURrR0FrOWJ4WXB0WkJMZjRDaFAwVFNmMTZ4TldNaUdJNGw1bGJYcHphaEprb0t3d2NDS2VGb0lWbDBlUUU0S01oR0p6VWVsSkdGOXpLeUlrRWlSb3FSQzZXSTRaQjFJQUYwQUtveHlLSlhaK1M5d0NzRmlRaUxQK2d0Sjd3Ynlzd2J5d2VHVmFQNGQ5TVRxK3YyZnErdW43djZsZS82NXUvL0JYVDkwMThIQjZscTQrMTlYQ3gxODRlNVRkeFZpWGQvTy95eDgvK1hmN3Y1UXJOdHp0TDZldVBNNEZVbzhERW1NNTJDUUNwWVlwRXdoMGJvNmkvbGt4UTdIaEswUUhYWlFDclNpUUg0bU1TTHdBYk1xUndvWStrQ3hHaGpsZ1pNbm9XS09jS0dTQjhwVkowQmU5SmxrSHVCNE5UY3RYY1BiZlBYYnU3TC9QZVRQOXlzZXU4Q3ZDVDhqb0t2QlIybmdySWV2SVZqbU5hR2daaExKZHY2TzlWN3RUM0ZyOGNqSldqbjJGK3lEZkp1Y3ZMZTFUdEZzSWxRMmJPMWFHbVpxZ0Iwa2ZmbVJLSEI4USs3eGtnaUhZRjdmQTlYUzhNNlM4ck96NGU4R0daQVdrcU9yRXRZZ1ErL1Rrcm1PTi9EM2ErbDRpakhleC9ETlNUa2UxYzRCdSs1N3c5YmF0OC9OZWw0dXI5MzREYXMvYVdWWlFFbHM1SlRJR1pGeklyZUdiS2c0am9rc2lheUlySWxzaUp3UU9TVnlSdVNjeUdSZlNmYVZaRjlMdkhYZlBKbE5mOTV2L2ZOeDQ4ZW1FTnpjM1B6bE8zRlFsWFhyeEZhNVBTem41ZjdybVoxdjc5NTZVejZZWHN6UHBzMFhucWo1VThTV1dKV3hqdnZSaFRvelQvRjhNV21zR3ZZSHA0dkplVjlwTWxrNFV6dTNmRVo1ZDdWL2RPUFcybXB4andhblV5ZHZqU1luWjVOUkM2b3FmeHhWN3VhWmRjV3RKL1l2Wm1lVGVRdlJhdXY5K1hSZXR1TzJCOU9xMWR5Q0ZtLy9BUnl0THN5YUdRQUEifQ== -->
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["sýsla"],"name":[1],"type":["chr"],"align":["left"]},{"label":["stað"],"name":[2],"type":["chr"],"align":["left"]},{"label":["slag"],"name":[3],"type":["chr"],"align":["left"]},{"label":["1995"],"name":[4],"type":["chr"],"align":["left"]},{"label":["1996"],"name":[5],"type":["chr"],"align":["left"]},{"label":["1997"],"name":[6],"type":["chr"],"align":["left"]},{"label":["1998"],"name":[7],"type":["chr"],"align":["left"]},{"label":["1999"],"name":[8],"type":["chr"],"align":["left"]},{"label":["2000"],"name":[9],"type":["chr"],"align":["left"]},{"label":["2001"],"name":[10],"type":["chr"],"align":["left"]},{"label":["2002"],"name":[11],"type":["chr"],"align":["left"]},{"label":["2003"],"name":[12],"type":["chr"],"align":["left"]},{"label":["2004"],"name":[13],"type":["chr"],"align":["left"]},{"label":["2005"],"name":[14],"type":["chr"],"align":["left"]},{"label":["2006"],"name":[15],"type":["dbl"],"align":["right"]},{"label":["2007"],"name":[16],"type":["chr"],"align":["left"]},{"label":["2008"],"name":[17],"type":["chr"],"align":["left"]},{"label":["2009"],"name":[18],"type":["lgl"],"align":["right"]},{"label":["2010"],"name":[19],"type":["chr"],"align":["left"]},{"label":["2011"],"name":[20],"type":["chr"],"align":["left"]},{"label":["2012"],"name":[21],"type":["chr"],"align":["left"]}],"data":[{"1":"Norðoya sýsla","2":"Á landsvegi","3":"Ferðsluóhapp tilsamans","4":"22","5":"17","6":"22","7":"33","8":"29","9":"34","10":"32","11":"28","12":"16","13":"31","14":"37","15":"43","16":"22","17":"24","18":"NA","19":"19","20":"18","21":"13"},{"1":"Norðoya sýsla","2":"Á landsvegi","3":"Skadd fólk","4":"1","5":"2","6":"2","7":"1","8":"6","9":"1","10":"3","11":"-","12":"1","13":"1","14":"1","15":"8","16":"4","17":"1","18":"NA","19":"1","20":"2","21":"-"},{"1":"Norðoya sýsla","2":"Á kommunalvegi","3":"Ferðsluóhapp tilsamans","4":"122","5":"119","6":"122","7":"133","8":"138","9":"130","10":"147","11":"139","12":"130","13":"134","14":"123","15":"107","16":"109","17":"78","18":"NA","19":"51","20":"73","21":"49"},{"1":"Norðoya sýsla","2":"Á kommunalvegi","3":"Skadd fólk","4":"9","5":"5","6":"8","7":"3","8":"4","9":"7","10":"6","11":"8","12":"3","13":"7","14":"8","15":"5","16":"2","17":"4","18":"NA","19":"-","20":"-","21":"-"},{"1":"Eysturoyar sýsla","2":"Á landsvegi","3":"Ferðsluóhapp tilsamans","4":"115","5":"87","6":"97","7":"107","8":"116","9":"119","10":"97","11":"99","12":"101","13":"106","14":"126","15":"82","16":"105","17":"121","18":"NA","19":"78","20":"87","21":"60"},{"1":"Eysturoyar sýsla","2":"Á landsvegi","3":"Skadd fólk","4":"9","5":"9","6":"17","7":"13","8":"8","9":"13","10":"13","11":"12","12":"24","13":"15","14":"6","15":"13","16":"15","17":"9","18":"NA","19":"8","20":"4","21":"4"},{"1":"Eysturoyar sýsla","2":"Á kommunalvegi","3":"Ferðsluóhapp tilsamans","4":"98","5":"95","6":"119","7":"140","8":"119","9":"133","10":"133","11":"124","12":"109","13":"111","14":"104","15":"124","16":"95","17":"82","18":"NA","19":"69","20":"53","21":"47"},{"1":"Eysturoyar sýsla","2":"Á kommunalvegi","3":"Skadd fólk","4":"6","5":"8","6":"12","7":"6","8":"5","9":"8","10":"10","11":"5","12":"7","13":"2","14":"2","15":"3","16":"3","17":"2","18":"NA","19":"6","20":"2","21":"-"},{"1":"Streymoyar sýsla","2":"Á landsvegi","3":"Ferðsluóhapp tilsamans","4":"115","5":"117","6":"91","7":"126","8":"157","9":"131","10":"141","11":"136","12":"123","13":"147","14":"139","15":"154","16":"124","17":"132","18":"NA","19":"117","20":"92","21":"79"},{"1":"Streymoyar sýsla","2":"Á landsvegi","3":"Skadd fólk","4":"11","5":"17","6":"17","7":"18","8":"11","9":"4","10":"34","11":"19","12":"21","13":"12","14":"12","15":"25","16":"14","17":"28","18":"NA","19":"21","20":"5","21":"23"},{"1":"Streymoyar sýsla","2":"Á kommunalvegi","3":"Ferðsluóhapp tilsamans","4":"459","5":"467","6":"424","7":"527","8":"580","9":"537","10":"552","11":"390","12":"449","13":"434","14":"392","15":"450","16":"370","17":"378","18":"NA","19":"305","20":"314","21":"254"},{"1":"Streymoyar sýsla","2":"Á kommunalvegi","3":"Skadd fólk","4":"19","5":"20","6":"20","7":"36","8":"27","9":"23","10":"15","11":"14","12":"32","13":"42","14":"32","15":"26","16":"15","17":"23","18":"NA","19":"13","20":"12","21":"7"},{"1":"Vága sýsla","2":"Á landsvegi","3":"Ferðsluóhapp tilsamans","4":"10","5":"17","6":"11","7":"15","8":"20","9":"17","10":"21","11":"3","12":"18","13":"15","14":"21","15":"22","16":"26","17":"21","18":"NA","19":"13","20":"11","21":"10"},{"1":"Vága sýsla","2":"Á landsvegi","3":"Skadd fólk","4":"1","5":"-","6":"1","7":"1","8":"4","9":"1","10":"2","11":"-","12":"9","13":"2","14":"2","15":"2","16":"3","17":"2","18":"NA","19":"1","20":"3","21":"1"},{"1":"Vága sýsla","2":"Á kommunalvegi","3":"Ferðsluóhapp tilsamans","4":"36","5":"40","6":"23","7":"30","8":"35","9":"28","10":"23","11":"12","12":"34","13":"29","14":"22","15":"26","16":"29","17":"21","18":"NA","19":"19","20":"22","21":"13"},{"1":"Vága sýsla","2":"Á kommunalvegi","3":"Skadd fólk","4":"3","5":"4","6":"3","7":"-","8":"2","9":"-","10":"-","11":"-","12":"4","13":"-","14":"1","15":"3","16":"3","17":"4","18":"NA","19":"-","20":"3","21":"2"},{"1":"Sandoyar sýsla","2":"Á landsvegi","3":"Ferðsluóhapp tilsamans","4":"9","5":"10","6":"6","7":"7","8":"6","9":"6","10":"5","11":"14","12":"8","13":"14","14":"10","15":"7","16":"7","17":"11","18":"NA","19":"3","20":"10","21":"8"},{"1":"Sandoyar sýsla","2":"Á landsvegi","3":"Skadd fólk","4":"-","5":"-","6":"-","7":"-","8":"-","9":"-","10":"2","11":"1","12":"-","13":"3","14":"-","15":"3","16":"5","17":"3","18":"NA","19":"-","20":"-","21":"-"},{"1":"Sandoyar sýsla","2":"Á kommunalvegi","3":"Ferðsluóhapp tilsamans","4":"9","5":"8","6":"15","7":"15","8":"8","9":"11","10":"14","11":"9","12":"23","13":"15","14":"13","15":"7","16":"6","17":"6","18":"NA","19":"12","20":"6","21":"8"},{"1":"Sandoyar sýsla","2":"Á kommunalvegi","3":"Skadd fólk","4":"-","5":"-","6":"1","7":"2","8":"-","9":"-","10":"-","11":"-","12":"1","13":"-","14":"-","15":"1","16":"-","17":"-","18":"NA","19":"-","20":"2","21":"-"},{"1":"Suðuroyar sýsla","2":"Á landsvegi","3":"Ferðsluóhapp tilsamans","4":"42","5":"40","6":"37","7":"26","8":"39","9":"41","10":"46","11":"39","12":"45","13":"44","14":"28","15":"42","16":"45","17":"31","18":"NA","19":"21","20":"20","21":"23"},{"1":"Suðuroyar sýsla","2":"Á landsvegi","3":"Skadd fólk","4":"-","5":"3","6":"5","7":"4","8":"5","9":"2","10":"6","11":"2","12":"3","13":"3","14":"4","15":"5","16":"3","17":"9","18":"NA","19":"-","20":"-","21":"1"},{"1":"Suðuroyar sýsla","2":"Á kommunalvegi","3":"Ferðsluóhapp tilsamans","4":"67","5":"60","6":"69","7":"59","8":"75","9":"94","10":"101","11":"78","12":"86","13":"62","14":"46","15":"44","16":"50","17":"60","18":"NA","19":"38","20":"27","21":"39"},{"1":"Suðuroyar sýsla","2":"Á kommunalvegi","3":"Skadd fólk","4":"4","5":"4","6":"2","7":"3","8":"7","9":"2","10":"1","11":"5","12":"7","13":"3","14":"3","15":"2","16":"2","17":"2","18":"NA","19":"1","20":"3","21":"4"}],"options":{"columns":{"min":{},"max":[10],"total":[21]},"rows":{"min":[10],"max":[10],"total":[24]},"pages":{}}}
@@ -2533,7 +2459,7 @@ funktión).</p>
 ferdslu_ohapp %&gt;% mutate(across(c(4:21), 
   .fns = ~str_to_lower(str_replace_all(.,&quot;-&quot;, &quot;0&quot;))))</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6MjQsIm5jb2wiOjIxLCJzdW1tYXJ5Ijp7IkEgdGliYmxlIjpbIjI0IMOXIDIxIl19fSwicmRmIjoiSDRzSUFBQUFBQUFBQnUxWnpXNGJSd3hlN2RvdTdLWjFnOEpBam40Qkd6cy8rM2R2Yyt5aGJvdGN0NVppQzE1SmhsWnE2bHY2S0gwREF6bjNwSmZwVTZRZDJScVNtbStjcG9CekNPQUFpbW51ekpBZitaR2NsWC84N3BVNWVIV1FKRW1XN0tScGt1MDZNZG45K2FlWEozWGlOTzZYUWJLVDdLOS8vdTRXZmV1RUkvZjV4bjFlSk1uYjlZUERIMmJ6MWUzc3BqM3VWMy8xWGZ1WTZ1ZmYzL1NMNWR6cDU1L3V3ZGxpUHJxWmZOSUh6MzVaL1huUlBwN3U4S3lkRHRITW82aWZueTFYdC9GQVBjYURMZTQ4Vy8xeDNEa3YrdDlHRitNUDZBNmQ3bW8ybVN5bmJmZmY2cWRUUDVOVHQ3anc0dVhJdFlDK1c2N2VYYmJYMThlTGNkZTNrM2JhYjU1L2VYYlZEb2ZIcjFmdnVxdW5MVTliL3VlV0RkZnVoMW1xdFI5cmFpTmtpblVONlZRUjZ0S205cW9TbDZXS3pyTUZiVkVzNWFIZDFQaGpCaWEwTmNnZjFLUldnNnFzdk1xR2VCVTkwdXcwSFVyZTF4WENwUWpVdkxPQ2N6TkwxbE9kbzFuMk8yY25JU2g1YUN1Mnp4RGUvRUc4bkV2R3k3cWF3RVdBS0pFdFRRdFZCTEcyRWNSK0lTZFltOUJ6WWc3RFk2SXhNU2g0bEoreVlWZ0JZbVBDQXpKbHdIS21jb2JNU2c0dWMxcVh0SkF5WDJqYWJjb1B1WTRaUlNid1Bnb3oyV1J5VUJVNURHR1NHL1RhMU9FSkxxRjBxcUF3a0Q5VEJZZUdZbGpVNUs5R2dyT2JCc0Jna2lPc05saURWY0VoQzNQc3pja2NRNFMzR013NVpqSndGSXlDYUJXR1lWS2xjUjB6cXdGTWpOVUtWRmFGZ1VvYnk2b1FNVVZUa0xVS0RjbzZqZ0RtQnVNMk0wY1pja0d1Y0NQWDZDY1hNa0ZHQ2l1TGtNdlFZVmVHb2srRXRJYklPaXpFRSs1ZDJLWmMwZHJRTTdlWEs1VUdtMmx5ZEJqZzhjbUR5SEpDZ01QSk5CQ1hxbWJQd3VGVWhrZEtXaHVNV2FxNXVITXl4ZnhuNG1vZXg1YmlaVGhaZFloQjFCZ0pXTFlhbW0xcWk5RGh0QzdadFpEWE1DWWNaSXRJY3V5eXJyeUJtcUlvQkJzc25jaTNoV2pYeFFRaUtjUkdKamF1S2tYQmhwaWhpWWhNaWFha1krVmlFYktKRklCcENCVm5PVmJLY1ArTDNFSzRtWWpNdzN3UjVRMlFiUVJlam1POTFtQlJsakxyQ3I1eEVCMXN3YzZWaUM4eVc4bXA2bUVOODFxRHUvYmhmczEyWXhYS3VjdjV3a3hTQXhVa2dzQ016RXlGVjRnSU9rRnJoRWVtY0daRkNwa2lIQUVNN1ZCME9vNkJobWJKU1plVTVtelZESmRhZnFTdkRTSXM1NWdwaUFEaU5laGFHY0diSlB2L3VIK2Y4Yyt0dlBIOWovSlc0R1dGVTBrNUtDT1hUbjRmNG5sakJNVU5TS0x0NE12ZVI4MWhqZDd5M1JmdUZEem9lQ0NqbVZxOFFQcWdHTmpZUUVmSWpMTGdhb1I5b2ozZzNTeHlqMlJ1WTIvV29ubUZZQkdaeFJFbjN4NzlLbnhKcWFnb3FQZ3lYY0NranIzWUt3Z2QzaVErN203QjF5a2JmQ3UvTzIwbm8zNFRnS1BORng5N1cxL0M3dmFMZG5XN1diL2o5QmRlVmcyMTNMVmNDcmtTY2kxazc4aU96dk5jeUVySVdzaEd5RmJJaFpCTElWZENyb1VzN0NwaFZ3bTdqbmpic2RtZno5NmMrdmg4dFk3alcvZWY2d1YvaDBFODc5cmVCOUVyRDRidG9qMTlQWGY3M1cvdmd5MWZ6SzRYNDluNnE2WjAvVGVSdmZXR3U4ZjNIM25RWUI0b0RwZlR0VmZEay9QTDVmVHFSSXU5eWNiVFFYTGZjcjE4ZEc4KzlXMXN6OE1lblYvT052TGVhSG94bm80OHBxNzlkZFJ0ZnZuYVJlSXVFS2ZYOC9GMDRSRTZiWCs2bUMxYXYrN2dmTlo1elIzbTVQMi8xVEFyQ0NJYUFBQT0ifQ== -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6MjQsIm5jb2wiOjIxLCJzdW1tYXJ5Ijp7IkEgdGliYmxlIjpbIjI0IMOXIDIxIl19fSwicmRmIjoiSDRzSUFBQUFBQUFBQnUxWnpXNGJSd3hlN2RvdTdLWjFnc0pBam40Qkd6cy8rM2R2Yyt5aGJvdGN0NVppQzE1SmhsWnE2MXY2S0gwREF6bjNwSmZwVTZRZDJScVNtbStjcG9CekNPQUFpbW51ekpBZitaR2NsWC80OXJVNWVIMlFKRW1XN0tScGt1MDZNZG45NmNkWEozWGlOTzZYUWJLVDdLOS8vdTRXZmVPRUkvZDU3ajR2aytUdCtzSGg5N1A1Nm5aMjB4NzNxNy82cm4xTTlZdnZidnJGY3U3MDgwLzM0R3d4SDkxTVB1bURaeit2L3J4b0gwOTNlTlpPaDJqbVVkUXZ6cGFyMjNpZ0h1UEJGbmVlcmY0NDdwd1gvYStqaS9FSGRJZE9keldiVEpiVHR2dHY5ZE9wbjhtcFcxeDQrV3JrV2tEZkxWZnZMdHZyNitQRnVPdmJTVHZ0TjgrL1BMdHFoOFBqTjZ0MzNkWFRscWN0LzNQTGhtdjN3eXpWMm84MXRSRXl4YnFHZEtvSWRXbFRlMVdKeTFKRjU5bUN0aWlXOHRCdWF2d3hBeFBhR3VRUGFsS3JRVlZXWG1WRHZJb2VhWGFhRGlYdjZ3cmhVZ1JxM2xuQnVaa2w2Nm5PMFN6N25iT1RFSlE4dEJYYlp3aHYvaUJlemlYalpWMU40Q0pBbE1pV3BvVXFnbGpiQ0dLL2tCT3NUZWc1TVlmaE1kR1lHQlE4eWsvWk1Ld0FzVEhoQVpreVlEbFRPVU5tSlFlWE9hMUxXa2laTHpUdE51V0hYTWVNSWhONEg0V1piREk1cUlvY2hqREpEWHB0NnZBRWwxQTZWVkFZeUorcGdrTkRNU3hxOGxjandkbE5BMkF3eVJGV0c2ekJxdUNRaFRuMjVtU09JY0piRE9ZY014azRDa1pCdEFyRE1LblN1STZaMVFBbXhtb0ZLcXZDUUtXTlpWV0ltS0lweUZxRkJtVWRSd0J6ZzNHYm1hTU11U0JYdUpGcjlKTUxtU0FqaFpWRnlHWG9zQ3REMFNkQ1drTmtIUmJpQ2ZjdWJGT3VhRzNvbWR2TGxVcUR6VFE1T2d6dytPUkJaRGtod09Ga0dvaExWYk5uNFhBcXd5TWxyUTNHTE5WYzNEbVpZdjR6Y1RXUFkwdnhNcHlzT3NRZ2Fvd0VMRnNOelRhMVJlaHdXcGZzV3NockdCTU9za1VrT1haWlY5NUFUVkVVZ2cyV1R1VGJRclRyWWdLUkZHSWpFeHRYbGFKZ1E4elFSRVNtUkZQU3NYS3hDTmxFQ3NBMGhJcXpIQ3RsdVA5RmJpSGNURVRtWWI2SThnYklOZ0l2eDdGZWE3QW9TNWwxQmQ4NGlBNjJZT2RLeEJlWnJlUlU5YkNHZWEzQlhmdHd2MmE3c1FybDNPVjhZU2FwZ1FvU1FXQkdacWJDSzBRRW5hQTF3aU5UT0xNaWhVd1JqZ0NHZGlnNkhjZEFRN1BrcEV0S2M3WnFoa3N0UDlMWEJoR1djOHdVUkFEeEduU3RqT0JOa3YxLzNML1ArT2RXM3ZqK1Iza3I4TExDcWFRY2xKRkxKNzhQOGJ3eGd1SUdKTkYyOEdYdm8rYXdSbS81N2d0M0NoNTBQSkRSVEMxZUlIMVFER3hzb0NOa1JsbHdOY0krMFI3d2JoYTVSekszc1RkcjBieENzSWpNNG9pVGI0OStGYjZrVkZRVVZIeVpMbUJTeDE3c0ZZUU9ieElmZDdmZzY1UU52cFhmbmJhVFViOEp3TkhtaTQrOXJTOWhkL3RGdTdyZHJOOXgrZ3N2cTRaYTdsb3VoVndKdVJheWQyUkg1M2t1WkNWa0xXUWpaQ3ZrUXNpbGtDc2gxMElXZHBXd3E0UmRSN3p0Mk96UFo3K2Qrdmg4dFk3alcvZWY2d1YvaDBFODc5cmVCOUVyRDRidG9qMTlNM2Y3M1cvdmd5MWZ6SzRYNDluNnE2WjAvVGVSdmZXR3U4ZjNIM25RWUI0b25pK25hNitHSitlWHkrblZpYlppYzdKeGRaRGM5MXd2SDkzYlQzMGYyL080UitlWHM0MjhONXBlaktjakQ2cHJmeGwxbTErK2RxRzRpOFRwOVh3OFhYaUlUdHVmTG1hTDFxODdPSjkxWG5NSE9ubi9MOGk4MmRrakdnQUEifQ== -->
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["sýsla"],"name":[1],"type":["chr"],"align":["left"]},{"label":["stað"],"name":[2],"type":["chr"],"align":["left"]},{"label":["slag"],"name":[3],"type":["chr"],"align":["left"]},{"label":["1995"],"name":[4],"type":["chr"],"align":["left"]},{"label":["1996"],"name":[5],"type":["chr"],"align":["left"]},{"label":["1997"],"name":[6],"type":["chr"],"align":["left"]},{"label":["1998"],"name":[7],"type":["chr"],"align":["left"]},{"label":["1999"],"name":[8],"type":["chr"],"align":["left"]},{"label":["2000"],"name":[9],"type":["chr"],"align":["left"]},{"label":["2001"],"name":[10],"type":["chr"],"align":["left"]},{"label":["2002"],"name":[11],"type":["chr"],"align":["left"]},{"label":["2003"],"name":[12],"type":["chr"],"align":["left"]},{"label":["2004"],"name":[13],"type":["chr"],"align":["left"]},{"label":["2005"],"name":[14],"type":["chr"],"align":["left"]},{"label":["2006"],"name":[15],"type":["chr"],"align":["left"]},{"label":["2007"],"name":[16],"type":["chr"],"align":["left"]},{"label":["2008"],"name":[17],"type":["chr"],"align":["left"]},{"label":["2009"],"name":[18],"type":["chr"],"align":["left"]},{"label":["2010"],"name":[19],"type":["chr"],"align":["left"]},{"label":["2011"],"name":[20],"type":["chr"],"align":["left"]},{"label":["2012"],"name":[21],"type":["chr"],"align":["left"]}],"data":[{"1":"Norðoya sýsla","2":"Á landsvegi","3":"Ferðsluóhapp tilsamans","4":"22","5":"17","6":"22","7":"33","8":"29","9":"34","10":"32","11":"28","12":"16","13":"31","14":"37","15":"43","16":"22","17":"24","18":"NA","19":"19","20":"18","21":"13"},{"1":"Norðoya sýsla","2":"Á landsvegi","3":"Skadd fólk","4":"1","5":"2","6":"2","7":"1","8":"6","9":"1","10":"3","11":"0","12":"1","13":"1","14":"1","15":"8","16":"4","17":"1","18":"NA","19":"1","20":"2","21":"0"},{"1":"Norðoya sýsla","2":"Á kommunalvegi","3":"Ferðsluóhapp tilsamans","4":"122","5":"119","6":"122","7":"133","8":"138","9":"130","10":"147","11":"139","12":"130","13":"134","14":"123","15":"107","16":"109","17":"78","18":"NA","19":"51","20":"73","21":"49"},{"1":"Norðoya sýsla","2":"Á kommunalvegi","3":"Skadd fólk","4":"9","5":"5","6":"8","7":"3","8":"4","9":"7","10":"6","11":"8","12":"3","13":"7","14":"8","15":"5","16":"2","17":"4","18":"NA","19":"0","20":"0","21":"0"},{"1":"Eysturoyar sýsla","2":"Á landsvegi","3":"Ferðsluóhapp tilsamans","4":"115","5":"87","6":"97","7":"107","8":"116","9":"119","10":"97","11":"99","12":"101","13":"106","14":"126","15":"82","16":"105","17":"121","18":"NA","19":"78","20":"87","21":"60"},{"1":"Eysturoyar sýsla","2":"Á landsvegi","3":"Skadd fólk","4":"9","5":"9","6":"17","7":"13","8":"8","9":"13","10":"13","11":"12","12":"24","13":"15","14":"6","15":"13","16":"15","17":"9","18":"NA","19":"8","20":"4","21":"4"},{"1":"Eysturoyar sýsla","2":"Á kommunalvegi","3":"Ferðsluóhapp tilsamans","4":"98","5":"95","6":"119","7":"140","8":"119","9":"133","10":"133","11":"124","12":"109","13":"111","14":"104","15":"124","16":"95","17":"82","18":"NA","19":"69","20":"53","21":"47"},{"1":"Eysturoyar sýsla","2":"Á kommunalvegi","3":"Skadd fólk","4":"6","5":"8","6":"12","7":"6","8":"5","9":"8","10":"10","11":"5","12":"7","13":"2","14":"2","15":"3","16":"3","17":"2","18":"NA","19":"6","20":"2","21":"0"},{"1":"Streymoyar sýsla","2":"Á landsvegi","3":"Ferðsluóhapp tilsamans","4":"115","5":"117","6":"91","7":"126","8":"157","9":"131","10":"141","11":"136","12":"123","13":"147","14":"139","15":"154","16":"124","17":"132","18":"NA","19":"117","20":"92","21":"79"},{"1":"Streymoyar sýsla","2":"Á landsvegi","3":"Skadd fólk","4":"11","5":"17","6":"17","7":"18","8":"11","9":"4","10":"34","11":"19","12":"21","13":"12","14":"12","15":"25","16":"14","17":"28","18":"NA","19":"21","20":"5","21":"23"},{"1":"Streymoyar sýsla","2":"Á kommunalvegi","3":"Ferðsluóhapp tilsamans","4":"459","5":"467","6":"424","7":"527","8":"580","9":"537","10":"552","11":"390","12":"449","13":"434","14":"392","15":"450","16":"370","17":"378","18":"NA","19":"305","20":"314","21":"254"},{"1":"Streymoyar sýsla","2":"Á kommunalvegi","3":"Skadd fólk","4":"19","5":"20","6":"20","7":"36","8":"27","9":"23","10":"15","11":"14","12":"32","13":"42","14":"32","15":"26","16":"15","17":"23","18":"NA","19":"13","20":"12","21":"7"},{"1":"Vága sýsla","2":"Á landsvegi","3":"Ferðsluóhapp tilsamans","4":"10","5":"17","6":"11","7":"15","8":"20","9":"17","10":"21","11":"3","12":"18","13":"15","14":"21","15":"22","16":"26","17":"21","18":"NA","19":"13","20":"11","21":"10"},{"1":"Vága sýsla","2":"Á landsvegi","3":"Skadd fólk","4":"1","5":"0","6":"1","7":"1","8":"4","9":"1","10":"2","11":"0","12":"9","13":"2","14":"2","15":"2","16":"3","17":"2","18":"NA","19":"1","20":"3","21":"1"},{"1":"Vága sýsla","2":"Á kommunalvegi","3":"Ferðsluóhapp tilsamans","4":"36","5":"40","6":"23","7":"30","8":"35","9":"28","10":"23","11":"12","12":"34","13":"29","14":"22","15":"26","16":"29","17":"21","18":"NA","19":"19","20":"22","21":"13"},{"1":"Vága sýsla","2":"Á kommunalvegi","3":"Skadd fólk","4":"3","5":"4","6":"3","7":"0","8":"2","9":"0","10":"0","11":"0","12":"4","13":"0","14":"1","15":"3","16":"3","17":"4","18":"NA","19":"0","20":"3","21":"2"},{"1":"Sandoyar sýsla","2":"Á landsvegi","3":"Ferðsluóhapp tilsamans","4":"9","5":"10","6":"6","7":"7","8":"6","9":"6","10":"5","11":"14","12":"8","13":"14","14":"10","15":"7","16":"7","17":"11","18":"NA","19":"3","20":"10","21":"8"},{"1":"Sandoyar sýsla","2":"Á landsvegi","3":"Skadd fólk","4":"0","5":"0","6":"0","7":"0","8":"0","9":"0","10":"2","11":"1","12":"0","13":"3","14":"0","15":"3","16":"5","17":"3","18":"NA","19":"0","20":"0","21":"0"},{"1":"Sandoyar sýsla","2":"Á kommunalvegi","3":"Ferðsluóhapp tilsamans","4":"9","5":"8","6":"15","7":"15","8":"8","9":"11","10":"14","11":"9","12":"23","13":"15","14":"13","15":"7","16":"6","17":"6","18":"NA","19":"12","20":"6","21":"8"},{"1":"Sandoyar sýsla","2":"Á kommunalvegi","3":"Skadd fólk","4":"0","5":"0","6":"1","7":"2","8":"0","9":"0","10":"0","11":"0","12":"1","13":"0","14":"0","15":"1","16":"0","17":"0","18":"NA","19":"0","20":"2","21":"0"},{"1":"Suðuroyar sýsla","2":"Á landsvegi","3":"Ferðsluóhapp tilsamans","4":"42","5":"40","6":"37","7":"26","8":"39","9":"41","10":"46","11":"39","12":"45","13":"44","14":"28","15":"42","16":"45","17":"31","18":"NA","19":"21","20":"20","21":"23"},{"1":"Suðuroyar sýsla","2":"Á landsvegi","3":"Skadd fólk","4":"0","5":"3","6":"5","7":"4","8":"5","9":"2","10":"6","11":"2","12":"3","13":"3","14":"4","15":"5","16":"3","17":"9","18":"NA","19":"0","20":"0","21":"1"},{"1":"Suðuroyar sýsla","2":"Á kommunalvegi","3":"Ferðsluóhapp tilsamans","4":"67","5":"60","6":"69","7":"59","8":"75","9":"94","10":"101","11":"78","12":"86","13":"62","14":"46","15":"44","16":"50","17":"60","18":"NA","19":"38","20":"27","21":"39"},{"1":"Suðuroyar sýsla","2":"Á kommunalvegi","3":"Skadd fólk","4":"4","5":"4","6":"2","7":"3","8":"7","9":"2","10":"1","11":"5","12":"7","13":"3","14":"3","15":"2","16":"2","17":"2","18":"NA","19":"1","20":"3","21":"4"}],"options":{"columns":{"min":{},"max":[10],"total":[21]},"rows":{"min":[10],"max":[10],"total":[24]},"pages":{}}}
