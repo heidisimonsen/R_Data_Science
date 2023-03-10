@@ -330,7 +330,7 @@ ferdslu_ohapp %>%
 > 3c3) deil variabul `slag` í tveir nýggjar variablar við heitum frá `slag` og virðum frá `n`, og útles `ferdslu_ohapp` umaftur (tip: tú fært eina `216 x 5` tibble).
 
 ```{r}
-
+tralla
 ```
 
 > 3d) plotta eitt `geom_boxplot()` av `ferdslu_ohapp` við `Ferðsluóhapp tilsamans` sum x-aksa, `ár` sum y-aksa og `stað` sum facet-variabul. Greið frá hvat tit leggja merki til í hesum plotti. Viðmerk eisini útfrá plottinum hvussu nógvir outliers eru. Eftirkanna síðani við einføldum pipe-setningi hvussu nógv virði eru `> 150` og hvar tey koma frá (hvørji sýslu).
