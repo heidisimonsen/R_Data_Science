@@ -100,30 +100,9 @@ sama_fdag
 
 
 ```{r}
-# p_samadag <- sama_fdag |>
-#   group_by(n_lesandi) |>
-#   summarise(p_sdag = mean(nakar_sdag))
-# 
-# p_samadag
-
-
-# n_lesandi <- 10
-# p_sdag <- replicate(5000, {
-#   fdag <- sample(365, n_lesandi, replace = TRUE)
-#   any(duplicated(fdag))
-# })
-# mean(p_sdag)
-
-
-p_samadag <- tibble(n_lesandi) %>%
-  crossing(roynd_nr) %>%
-  mutate(fdag = map(n_lesandi, ~ sample(365, .x, replace = TRUE)),
-         nakar_sdag = map_lgl(fdag, ~ any(duplicated(.x)))) %>%
+(p_samadags <- sama_fdag  %>%
   group_by(n_lesandi) %>%
-  summarise(p_sdag = mean(nakar_sdag))
-
-p_samadag
-
+  summarise(p_sdag = mean(nakar_sdag)))
 ```
 
 > 1f)
@@ -131,67 +110,73 @@ p_samadag
 > 1f1) samla trinini í 1a, 1b, 1d, og 1e í ein samlaðan pipe-setning, goym úrslitið í tibble `p_samadag`. Útles `p_samadag`, og eftirkanna at tú fært sama/líknandi úrslit sum í 1e. 
 
 ```{r}
-p_samadag <- tibble(n_lesandi = 2:10) %>%
-  crossing(roynd_nr = 1:2) %>%
+n_lesandi <- 2:10
+roynd_nr <- 1:2
+
+p_samadag <- tibble(
+  crossing(n_lesandi, roynd_nr)) %>%
   mutate(fdag = map(n_lesandi, ~ sample(365, ., replace = TRUE)),
          nakar_sdag = map_lgl(fdag, ~ any(duplicated(.x)))) %>%
   group_by(n_lesandi) %>%
   summarise(p_sdag = mean(nakar_sdag))
 
 p_samadag
-
 ```
 
 > 1f2) set nú talið `n_lesandi` upp til `2:50`, og eftirkanna um tú enn fært sama/líknandi úrslit sum í 1e fyri fyrstu 9 rekkjurnar, og hvat tú nú fært afturat í teimum eyka rekkjunum? Greið frá hvat tú eygleiðir (tip: her skalt tú fáa eina `49 x 2` tibble).
 
 ```{r}
-# p_samadag <- tibble(crossing(n_lesandi = 2:50, roynd_nr = 1:2)) %>%
-#   mutate(fdag = map(n_lesandi, ~ sample(365, ., replace = TRUE)),
-#          nakar_sdag = map_lgl(fdag, ~ any(duplicated(.x)))) %>%
-#   group_by(n_lesandi) %>%
-#   summarise(p_sdag = mean(nakar_sdag))
-# 
-# p_samadag
+n_lesandi <- 2:50
+roynd_nr <- 1:2
 
-
-p_samadag <- tibble(n_lesandi = 2:50) %>%
-  crossing(roynd_nr = 1:2) %>%
+p_samadag_1f2 <- tibble(
+  crossing(n_lesandi, roynd_nr)) %>%
   mutate(fdag = map(n_lesandi, ~ sample(365, ., replace = TRUE)),
          nakar_sdag = map_lgl(fdag, ~ any(duplicated(.x)))) %>%
   group_by(n_lesandi) %>%
   summarise(p_sdag = mean(nakar_sdag))
 
-p_samadag
+p_samadag_1f2
 ```
     GREIÐ FRÁ HVAT TAÐ MERKIR
+    Í fyrstu 9 rekkinum síggja vit ikki stóran mun tá vit hava sama stødd av sampling tvs nummar av namingum so hetta líkist nógv 1.e 
+    men hesari tibble síggja vit at størri okkara sampling er tvs antal av lesandi so síggja vit at sanlíkindini økjast at næmingar hava saman føðingardag. 
 
 > 1f3) her skal talið `n_lesandi` framvegis vera `2:50`, og set nú talið `roynd_nr` upp til `1:5000`. Eftirkanna aftur, um tú enn fært sama/líknandi úrslit sum í 1e fyri fyrstu 9 rekkjurnar, og hvat tú nú fært í hinum rekkjunum? Greið frá hvat tú eygleiðir (tip: her skalt tú framvegis fáa eina `49 x 2` tibble).
 
 ```{r}
-p_samadag <- tibble(n_lesandi = 2:50) %>%
-  crossing(roynd_nr = 1:5000) %>%
+n_lesandi <- 2:50
+roynd_nr <- 1:5000
+
+p_samadag_1f3 <- tibble(
+  crossing(n_lesandi, roynd_nr)) %>%
   mutate(fdag = map(n_lesandi, ~ sample(365, ., replace = TRUE)),
          nakar_sdag = map_lgl(fdag, ~ any(duplicated(.x)))) %>%
   group_by(n_lesandi) %>%
   summarise(p_sdag = mean(nakar_sdag))
 
-p_samadag
+p_samadag_1f3
 ```
     GREIÐ FRÁ!
+     Við at økja vit talið av royndum fáa vit fleiri bólkar við sama talið av lesandi, tvs vit nógv meira data at samanberða við, og harvið fáa meria nágreinuligt sanlíkindi.
 
 > 1f4) plotta eitt punkt- og linjuplot av `p_samadag` frá spurningi 1f3, har tú mappar `x = n_lesandi` og `y = p_sdag`. Brúka til dømis tilhoyrandi aksa-tekstirnar: "Antal lesandi" og "Sannlíkindini fyri sama føðingardag". Hvussu stóran flokk av lesandi skalt tú hava fyri at sannlíkindini fyri at nakar í flokkinum hevur sama føðingardag er ávikavist 0.5, 0.7 og 0.9?
 
 ```{r}
-ggplot(p_samadag, aes(x = n_lesandi, y = p_sdag)) +
+ggplot(p_samadag_1f3, aes(x = n_lesandi, y = p_sdag)) +
   geom_point() +
   geom_line() +
-  labs(x = "Antal lesandi", y = "Sannlíkindini fyri sama føðingardag")
-
+  labs(x = "Antal lesandi", y = "Sannlíkindini fyri sama føðingardag")+
+  geom_hline(aes(yintercept=0.5, linetype = "0.5"), color = "blue") +
+  geom_hline(aes(yintercept=0.7, linetype = "0.7"), color = "green") +
+  geom_hline(aes(yintercept=0.9, linetype = "0.9"), color = "darkorange") +
+  scale_linetype_manual(name ="Sannlíkindini", values = c('dashed','dashed','dashed'), 
+                        guide = guide_legend(override.aes = list(color = c("blue", "green", "darkorange"))))
 ```
     Sannlíkindini fyri at nakar í flokkinum hevur sama føðingardag er ávikavist:
     0.5 er uml. 23
-    0.7 er uml. 28
-    0.9 er uml. 45
+    0.7 er uml. 30 
+    0.9 er uml. 41 
 
 ### Uppg. 2
 
@@ -322,10 +307,8 @@ ferdslu_ohapp
 > 3c1) broyt øll virðini í `ferdslu_ohapp` merkt sum '-' til '0' og les hana útaftur (tip: hetta kann lættast gerast við eini pipe av `ferdslu_ohapp` inn í `mutate(across())`, har tit lata `across()` kalla eina `str_replace` funktión).
 
 ```{r}
-
 ferdslu_ohapp %>% mutate(across(c(4:21), 
   .fns = ~str_to_lower(str_replace_all(.,"-", "0"))))
-
 ```
 
 > 3c2) samla øll árini í `ferdslu_ohapp` í ein nýggjan variabul `ár` og virðini í ein nýggjan variabul `n`, og útles `ferdslu_ohapp` (tip: tú fært eina `432 x 5` tibble. Um títt `n` ikki er numeriskt, broyt so `n` til integer og útles `ferdslu_ohapp` umaftur, áðrenn tú fert víðari).
