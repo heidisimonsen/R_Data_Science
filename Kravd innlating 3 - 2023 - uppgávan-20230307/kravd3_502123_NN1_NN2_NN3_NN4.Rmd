@@ -314,7 +314,7 @@ ferdslu_ohapp
 > 3b) les umaftur givnu fíluna `ferdslu_ohapp.csv` inn í tibble `ferdslu_ohapp` við `read_csv()`-funktiónini, men nú við brúk av parametrum. Soleiðis, at data verða innlisin uttan fyrstu linju av metadata, og har tómu virðini merkt við `..` vera sett til `NA` virði. Útles síðani `ferdslu_ohapp` umaftur (tip: tú fært eina `24 x 21` tibble).
 
 ```{r}
-
+(ferdslu_ohapp <- read_csv("ferdslu_ohapp.csv", show_col_types = FALSE, skip = 1, na = c("..", NA)))
 ```
 
 > 3c) snøgga tibble `ferdslu_ohapp` í fylgjandi trinum:
@@ -322,6 +322,9 @@ ferdslu_ohapp
 > 3c1) broyt øll virðini í `ferdslu_ohapp` merkt sum '-' til '0' og les hana útaftur (tip: hetta kann lættast gerast við eini pipe av `ferdslu_ohapp` inn í `mutate(across())`, har tit lata `across()` kalla eina `str_replace` funktión).
 
 ```{r}
+
+ferdslu_ohapp %>% mutate(across(c(4:21), 
+  .fns = ~str_to_lower(str_replace_all(.,"-", "0"))))
 
 ```
 
