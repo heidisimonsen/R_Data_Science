@@ -1,0 +1,585 @@
+---
+title: "Kravd innlating 2"
+author: "Heidi J. Simonsen, Jákup P. Dam, Bjørg W. Reinert"
+date: "Innlating í Moodle: seinast um kvøldið 28. februar 2023. Endurbrúka eisini fílnavnið á hesum template-skjalinum, sum tit lata inn, har tit seta tykkara forbókstavir inn fyri NN1_NN2_NN3_NN4."
+output: html_notebook
+---
+
+## Dátuvísindi og hagfrøði við RStudio
+
+### Innleiðing
+
+> Hendan innlating skal skal gerast í RStudio við brúk av R Markdown. Hetta soleiðis, at tú brúkar hugtøkini, sum vit hava lært innan endurskapandi gransking (reproducible research) við RStudio, har tú bindur tín tekst, R-kodu og úrslit saman í eitt html_notebook skjal, sum tú síðani letur inn. 
+>
+> Hevur tú trupulleikar við at fáa R Markdown at virka, ella bert vilt skilja R Markdown betur, so les meira um evnið í _R for Data Science_ lærubókini (__27__ R Markdown og __29__ R Markdown formats).
+>
+> Henda innlatingin er einamest um greining og plot av data við brúk av `tidyverse` hentleikum, sum tit hava lært í _R for Data Science_ lærubókini, umframt uppgávur innan simulering av data, sannlíkindi og sannlíkindafordeilingar, sum tit hava lært um úr bókini _Probability, Statistics and Data_.
+
+> Arbeiðið saman - helst bólkar á fýra lesandi - tó undantøk kunna gerast. Tað er sera umráðandi, at hvør einstaklingur í bólkinum er væl við og ger sín part av arbeiðinum. Innlatingin skal vera testað og virka á teldunum hjá hvørjum einstøkum limi í bólkinum.
+
+> Tú/tit opna hetta skjal í RStudio, sum ein template til innlatingina, og skriva tykkara R-kodu í teir givnu, men tómu kodublokkarnar.
+
+> Teir spurningar, sum tit skula svara við vanligum teksti ella tølum, skula tit gera við at svara beint undir hvørjum slíkum spurningi, á linju tit byrja við 4 blonkum teknum. Hetta ger at tykkara svar verður innrammað í eini boks, og soleiðis brýtur frá tekstinum í uppgávuni.
+
+    Svara tekstspurningum á hendan hátt, beint undir hvørjum slíkum spurningi.
+
+> Tá tit eru liðug, ger hvør bólkur eitt endaligt "Run All" og síðani "Preview", sum kann opnast í browsara (og RStudio), og lata inn skjalið: "kravd1_5021_NN1_NN2_NN3_NN4.nb.html".
+
+### Setup 
+
+> Loada brúktar pakkar, set plot-tema v.m., sum givið í fyrsta kodublokki.
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+options(dplyr.summarise.inform = FALSE)
+#install.packages("modelr")
+library(tidyverse)
+library(modelr)
+
+#install.packages("gghighlight")
+# (gg)highlight
+library(gghighlight)
+
+# set theme used for plotting
+theme_set(theme_bw(base_size = 12))
+
+```
+
+
+### Uppg. 1
+
+
+> 1a) Goym (assign) `heights` frá pakka `modelr` í objektið `heights`. Útskriva síðani `heights` á einfaldasta hátt, sum tú kanst gera. Hvørjar eindir er hæddin og vektin uppgivin í (tip: brúka hjálpina).
+
+```{r }
+heights <- modelr::heights
+heights
+```
+   Hæddin: <dbl> "stands for doubles, or real numbers" - description: inches og vektin typa <int> "integer" - description: pounds.
+
+
+
+> 1b) legg variabul `hgt` og `wgt` afturat talvuni `heights` har tú umroknar hæddina til centimetrar og vektina til kg, og útles `heights` umaftur.
+
+```{r}
+heights <- mutate(heights, hgt = cm(height), wgt = weight*0.45 )
+ 
+heights
+```
+
+> 1c)  plotta eitt box-plot av `heights` við `sex` sum x-aksa og `hgt` sum y-aksa. Hvørjar ábendingar geva hesi plot um hæddirnar hjá kvinnum og monnum í hesum datasetti?
+
+```{r}
+ggplot(data = heights, mapping = aes(x = sex, y = hgt)) +
+  geom_boxplot() 
+```
+    Út frá hesum data síggja vit, at menn eru hægri enn kvinnur.   
+
+
+
+> 1d) ger eitt histogram av variabul `hgt` í `heights` sum facet-plot í einari kolonnu eftir variabul `sex` har tú til dømis brúkar `binwidth = 1`.
+
+```{r}
+ggplot(data = heights, aes(x =hgt)) +
+  geom_histogram(binwidth = 1) +
+  facet_wrap(~ sex) 
+```
+
+> 1e) ger eitt frekvensplot av variabul `hgt` í `heights` har tú til dømis brúkar `binwidth = 8` í einari mynd við tveimum kurvum litaðar eftir variabul `sex`.
+
+```{r}
+ggplot(data = heights, aes(x =hgt)) +
+  geom_freqpoly(aes(color = sex),binwidth = 8)
+```
+
+> 1f) ger við brúk av einum pipe-setningi eitt yvirlit av talvu `heights` bólkað uppá variabul `sex`, har tú telur antal av observatiónum `n` og útroknar miðal hædd `hgt_mean` og standard frávik av hæddini `hgt_sd` fyri hvørt kynið. Goym yvirlitið í talvu `hgt_summary` og les talvuna út.
+
+```{r}
+hgt_summary <- heights %>% 
+  group_by(sex) %>% 
+    summarise(
+    count = n(),
+    hgt_mean = mean(hgt, na.rm = TRUE),
+    hgt_sd = sd(hgt,na.rm = TRUE)
+    
+  )
+hgt_summary
+```
+
+
+
+### Uppg. 2
+
+> 2a) simulera eina talvu `hgt_sim` við normalfordeildum hæddum fyri 3402 kvinnur og 3604 menn við brúk av upplýsingum úr talvu `hgt_summary`. Ger fyrst eina tibble `hgt_males` og eina tibble `hgt_females` grundað á simuleraði data frá hvør sína normalfordeiling, sum tit síðani rekkjubinda í tibble `hgt_sim`.  Talvan `hgt_sim` skal innihalda variablarnar: `hgt`, sum skal vera numerisk og `sex`, sum skal vera ein faktor. Les lidnu talvuna út.
+
+```{r}
+hgt_males <- tibble(
+             sex = as_factor("male"),
+  hgt = rnorm(hgt_summary$count[1], hgt_summary$hgt_mean[1], hgt_summary$hgt_sd[1]))
+
+hgt_females <- tibble(
+  sex = as_factor("female"),
+  hgt = rnorm(hgt_summary$count[2], hgt_summary$hgt_mean[2], hgt_summary$hgt_sd[2]))
+
+#rekkibinda í einum:
+(hgt_sim <- rbind(hgt_females, hgt_males))
+```
+
+> 2b) endurtak plottið frá 1c) nú við data `hgt_sim`.
+
+```{r}
+ggplot(data = hgt_sim, mapping = aes(x = sex, y = hgt)) +
+  geom_boxplot() 
+
+```
+
+> 2c) endurtak plottið frá 1d) nú við data `hgt_sim`.
+
+```{r}
+ggplot(data = hgt_sim, aes(x =hgt)) +
+  geom_histogram(binwidth = 1) +
+  facet_wrap(~ sex) 
+```
+
+> 2d) endurtak plottið frá 2c) við data `hgt_sim`, har tú hesuferð ger histogrammið við density og eisini leggur density-kurvar útyvir bæði histogrammini í tínum facet-plotti við brúk av `geom_density()`.
+
+```{r}
+ggplot(data = hgt_sim, aes(x = hgt)) +
+  geom_histogram(aes(y = after_stat(density)),binwidth = 1, fill = "gray") +
+  geom_density() +
+  facet_wrap(~ sex) 
+```
+
+> 2e) endurtak plottið frá 2d) við data `hgt_sim`, har tú ger histogrammið við density, men hesuferð leggur density-kurvar útyvir bæði histogrammini í tínum facet-plotti við brúk av normalfordeilingini `dnorm()` (tip: ger eyka tibbles `ndata_m` og `ndata_f` við teoretiskum normalfordeilingsdata fyri kynini, har tú ger hóskandi variablar: `x = x_values, y = dnorm(x_values, mean, sd), sex`, sum tú síðani rekkjubindur til `ndata` og brúkar til at plotta kurvarnar). 
+
+```{r}
+
+ndata_m <- tibble(x = hgt_males$hgt,
+                  y = dnorm(x, mean(x), sd(x)),
+                  sex = as_factor("male"))
+
+ndata_f <- tibble(x = hgt_females$hgt,
+                  y = dnorm(x, mean(x), sd(x)),
+                  sex = as_factor("female"))
+
+#rekkibinda í einum:
+ndata <- rbind(ndata_f, ndata_m)
+
+ggplot(data = hgt_sim, aes(x = hgt)) +
+  geom_histogram(aes(y = after_stat(density)),binwidth = 1, fill = "gray") +
+  geom_line(aes(ndata$x, ndata$y, color = "dnorm(x_values, mean, sd)"))+
+  facet_wrap(~ sex) 
+```
+
+> 2f) í hesum spurningi skalt tú gera tvær `geom_qq()` myndir í hvør sínum kodublokki (QQ plot eru lýst í bókini: Probability, Statistics and Data 7.2.5 QQ plots).
+
+> ger í fyrsta kodublokki eitt `geom_qq()` punkt-plot av `hgt` í talvu `hgt_sim` og samanber við beinu linjuna `geom_qq_line()`. Liggja punktini sum heild á beinu linjuni? 
+
+```{r}
+ggplot(hgt_sim, aes(sample = hgt)) +
+  geom_qq() +
+  geom_qq_line()+
+  scale_y_continuous(breaks = seq(125, 215, 5))
+```
+    vit síggja at okkara data fylgjur linjuni (theoretical distribution) í intervallinum [160, 185] men undir 160 og yvir 185 tá víkir tað frá linjuni tað gevur eitt "light tailed shape". 
+  
+> ger í næsta kodublokki sama slag `geom_qq()` plot, men har tú nú mappar lit av punktum og linjum til variabul `sex`. Liggja punktini fyri hvørt kynið sum heild á tilhoyrandi linjunum? 
+
+```{r}
+ggplot(hgt_sim, aes(sample = hgt, color = sex)) +
+  geom_qq()+
+  geom_qq_line() 
+```
+    Ja, punktini fyri hvørt kynið liggja sum heild á tilhoyrandi linjunum. 
+
+> hvørja niðurstøðu kanst tú gera tær um fordeilingarnar av hæddum av fólki ikki deilt á kyn í `hgt_sim`, samanborið við fordeilingarnar av hæddum av fólki í `hgt_sim`, tá hesar eru deildar á kyn?
+
+   Tá hæddin ikki er uppdeilt í kyn sast, at punktini ikki liggja sum heild á tilhoyrandi linju í mun til tá tað er deilt á kyn, 
+   tá liggja punktini sum heild á tilhoyrandi linju. 
+
+### Uppg. 3
+
+> 3a) 
+
+> hvørji eru teoretisku normalfordeilings-sannlíkindini fyri at ein maður í `hgt_sim` er `170-180 cm` høgur? Svara sama spurningi fyri kvinnur (tip: brúka `pnorm()` í báðum førum).
+
+```{r}
+#Menn
+pnorm(180, mean=hgt_summary$hgt_mean[1],  sd=hgt_summary$hgt_sd[1]) - pnorm(170, mean=hgt_summary$hgt_mean[1],  sd=hgt_summary$hgt_sd[1])
+
+#Kvinnur 
+pnorm(180, mean=hgt_summary$hgt_mean[2],  sd=hgt_summary$hgt_sd[2]) - pnorm(170, mean=hgt_summary$hgt_mean[2],  sd=hgt_summary$hgt_sd[2])
+```
+
+>  hvørji eru simuleraðu normalfordeilings-sannlíkindini fyri at ein maður í `hgt_sim` er `170-180 cm` høgur? Svara sama spurningi fyri kvinnur (tip: ger ein pipe-setning av `hgt_sim` bólkað uppá `sex` har tú roknar bæði simuleraðu sannlíkindini).
+
+```{r}
+hgt_pnorm <- hgt_sim %>% 
+  group_by(sex) %>% 
+    summarise(
+    san = pnorm(180, mean(hgt, na.rm = TRUE), sd(hgt,na.rm = TRUE)) - pnorm(170, mean(hgt, na.rm = TRUE), sd(hgt,na.rm = TRUE))
+  )
+#menn
+hgt_pnorm$san[2]
+
+#kvinnur
+hgt_pnorm$san[1]
+```
+
+> 3b) tekna teoretisku normalfordeilingarnar av `hgt` fyri kvinnur og menn og lita arealini undir kurvunum hoyrandi til fyrra spurningin í 3a) (tip: brúka `geom_area()`).
+
+```{r}
+#ndata_f, ndata_m = ndata 
+
+ggplot(data = ndata, aes(x = x, y = y)) +
+  geom_area(fill = "sky blue") + 
+  gghighlight(x > 170 & x < 180)+
+  facet_wrap(~ sex)
+```
+
+> 3c) plotta eitt box-plot av data `heights` við `wgt` sum x-aksa og `sex` sum y-aksa. 
+
+```{r}
+ggplot(data = na.omit(heights), mapping = aes(x = wgt, y = sex, color = sex)) +
+  geom_boxplot() 
+```
+
+> 3d) plotta eitt violin-plot av data `heights` við `wgt` sum x-aksa og `sex` sum y-aksa, og plotta eisini quantilar við `draw_quantiles = c(0.25, 0.5, 0.75)`.
+
+```{r}
+ggplot(data = na.omit(heights), mapping = aes(x = wgt, y = sex, color = sex)) +
+  geom_violin(draw_quantiles = c(0.25, 0.5, 0.75)) 
+```
+
+> 3e) ger eitt histogram av variabul `wgt` í `heights` sum facet-plot í einari kolonnu eftir variabul `sex` har tú til dømis brúkar `binwidth = 5`.
+
+```{r}
+ggplot(data = na.omit(heights), aes(x = wgt)) +
+  geom_histogram(binwidth = 5, color = "black", fill = "lightblue") +
+  facet_wrap(~ sex) 
+```
+
+> hvørjar ábendingar geva plottini 3c), 3d) og 3e) um vektirnar hjá kvinnum og monnum í data `heights`?
+
+    Tað er ábendingar um at kvinnur viga generelt minni enn menn.  
+
+> 3f) ger eitt `geom_qq()` punkt-plot av `wgt` í talvu `heights` og samanber við beinu linjuna `geom_qq_line()`, tá tú mappar lit av punktum og linjum til variabul `sex`. Liggja punktini fyri hvørt kynið sum heild á tilhoyrandi linjunum? 
+
+```{r}
+ggplot(na.omit(heights), aes(sample = wgt, color = sex)) +
+  geom_qq()+
+  geom_qq_line() 
+```
+    Sum heild hava punktini fyri bæði kynini eitt U skap, sum indikerar at data er skewed til høgru, tí vit hava ikki eina symetrisk distribution.
+    Tí meta vit ikki at punktini liggja á tilhoyrandi linjunum fyri hvørt kynið sum heild.   
+
+> hvørja niðurstøðu kanst tú gera tær um fordeilingarnar av vektum av fólki deilt á kyn í data `heights`?
+
+    niðurstøðan er tann, at vekt á fólki fylgjur ikki 100% einari symetrisk distribution "normalfordeiligt". 
+    Tað kunnu vera fleiri faktorar sum kunnu ávirka vektina hjá fólki.
+    Data indikerar at talan er um at fleiri fólk ikki hava teirra ideal vekt, og felst hesi hava eina meira vekt. 
+    Kunnu tí ímynda okkum at data er frá einum landi har tey hava eina populatión sum hevur nógv yvirvekt.    
+
+
+### Uppg. 4
+
+> 4a) ger eitt barplot av binomial-fordeilingini `dbinom(x, size, prob)` sum facet-plot fyri fast `prob = 0.61` og varierandi `size = 1, 2, 3, 10`, so tú fært fýra deilmyndir. Greið frá hvat plottið vísir.
+
+```{r}
+x_value <- 0:10
+prob = 0.61
+
+pdata_n01 <- tibble(x = x_value,
+             n = 1,
+             y = dbinom(x_value, n, prob))
+
+pdata_n02 <- tibble(x = x_value,
+             n = 2,
+             y = dbinom(x_value, n, prob))
+
+pdata_n03 <- tibble(x = x_value,
+             n = 3,
+             y = dbinom(x_value, n, prob))
+
+pdata_n10 <- tibble(x = x_value,
+             n = 10,
+             y = dbinom(x_value, n, prob))
+
+
+#rekkibinda í einum:
+pdata_p <- rbind(pdata_n01,pdata_n02,pdata_n03,pdata_n10)
+
+ggplot(data=pdata_p, aes(x,y))+
+  geom_bar(stat = "identity")+
+  facet_wrap(~ n, labeller = label_both)
+```
+    Jú størri okkara sample size er og við fastari probability, fáa vit eina meira symetriska fordeiling. 
+
+> 4b) ger eitt barplot av binomial-fordeilingini sum facet-plot fyri varierandi `size = 1, 2, 3, 10, 100, 200` og varierandi `prob = 0.61/size`, so tú fært 6 deilmyndir. Greið frá hvat hendur fyri vaksandi virði av `size` og fallandi virði av `prob = 0.61/size`, tá vit soleiðis halda `size*prob = 0.61` konstant (í teori: `n*p` konstant).
+
+```{r}
+x_value <- 0:5
+
+
+pdata_n01 <- tibble(x = x_value,
+             n = 1,
+             prob = (0.61/n), 
+             y = dbinom(x_value, n, prob))
+
+pdata_n02 <- tibble(x = x_value,
+             n = 2,
+             prob = (0.61/n),
+             y = dbinom(x_value, n, prob))
+
+pdata_n03 <- tibble(x = x_value,
+             n = 3,
+             prob = (0.61/n),
+             y = dbinom(x_value, n, prob))
+
+pdata_n10 <- tibble(x = x_value,
+             n = 10,
+             prob = (0.61/n),
+             y = dbinom(x_value, n, prob))
+pdata_n100 <- tibble(x = x_value,
+             n = 100,
+             prob = (0.61/n),
+             y = dbinom(x_value, n, prob))
+pdata_n200 <- tibble(x = x_value,
+             n = 200,
+             prob = (0.61/n),
+             y = dbinom(x_value, n, prob))
+
+#rekkibinda í einum:
+pdata_pd <- rbind(pdata_n01,pdata_n02,pdata_n03,pdata_n10,pdata_n100,pdata_n200)
+
+ggplot()+
+  geom_bar(data=pdata_pd, aes(x,y), stat = "identity", fill = "blue")+
+  facet_wrap(~ n, labeller = label_both)
+```
+    Av tí at vit hava eina probability sum er tengt at size vil prob = 0.61/size, tvs sjálvt um vit fáa dubult so stóra nøgd í size so vil probability vera helvtuna minni samlíkt. (dømi: hava vit size 5 , prob = 0,122, og size = 10, prob = 0,061 , so síggja vit at 10/5 = 2 , 0,122/0.61 = 2) tá vilja vit síggja at vit fáa næstan identiskar fordeilingar.  
+
+> 4c) ger eitt barplot av poisson-fordeilingini sum facet-plot fyri varierandi `lambda = 0.0061, 0.061, 0.61, 6.1`, so tú fært fýra deilmyndir. Greið frá hvat hendur fyri vaksandi virði av `rate`.
+
+```{r}
+x_value <- 0:13
+
+
+pdata_l01 <- tibble(x = x_value,
+             lambda = 0.0061,
+             y = dpois(x_value, lambda))
+
+pdata_l02 <- tibble(x = x_value,
+             lambda = 0.061,
+             y = dpois(x_value, lambda))
+
+pdata_l03 <- tibble(x = x_value,
+             lambda = 0.61,
+             y = dpois(x_value, lambda))
+
+pdata_l04 <- tibble(x = x_value,
+             lambda = 6.1,
+             y = dpois(x_value, lambda))
+
+#rekkibinda í einum:
+pdata_l <- rbind(pdata_l01,pdata_l02,pdata_l03,pdata_l04)
+
+ggplot()+
+  geom_bar(data=pdata_l, aes(x,y), stat = "identity")+
+  facet_wrap(~ lambda, labeller = label_both)
+```
+    Við hæggri lamda virið fáa vit eina meira spreidda poission-fordeiling og vit síggja ein størri hala "skew" á høgrumena.
+
+> 4d) ger eina tibble `data_bino` og eina tibble `data_pois` báðar við variablum `x, y, label`. Í `data_bino` skal variabul `y` vera binomial-fordeilings data fyri `size = 200` og `prob = 0.61/200`. Í `data_pois` skal variabul `y` vera poisson-fordeilings data fyri `lambda = 0.61`. Í variabul `label` seta tit hóskandi tekst fyri fordeilingarnar at brúka í einum facet-plotti. Rekkjubind `data_bino` og `data_pois` í tibble `data_bp` og les hana út.
+
+```{r}
+x_value <- 0:4
+
+data_bino <- tibble(x = x_value,
+             y = dbinom(x_value, 200, (0.61/200)),
+             label = "binomial-fordeiling")
+
+data_pois <- tibble(x = x_value,
+             y = dpois(x_value, 0.61),
+             label = "poisson-fordeiling")
+
+
+(data_bp <- rbind(data_bino, data_pois))
+```
+
+> 4e) ger eitt barplot av `data_bp` sum facet-plot, so tú fært tvær deilmyndir. Brúka `geom_text(aes(x, y, label = round(y, 4)), vjust=-0.5, size = 3.25)` fyri neyvari at vísa sannlíkindini í tølum yvir stabbunum. Finnur tú stórar ella smáar munir á sannlíkindunum fyri ávikavist binomial- og poisson-fordeilingina?
+
+```{r}
+ggplot(data=data_bp, aes(x,y))+
+  geom_bar(stat = "identity")+
+  geom_text(aes(label = round(y, 4)), vjust=-0.5, size = 3.25) +
+  facet_wrap(~ label)
+```
+    Út frá plottinum síggja vit smáar munir á sannlíkindunum fyri ávikavist binomial- og poisson-fordeilingina.
+
+> 4f) ger sama barplot av `data_bp` sum facet-plot, so tú aftur fært tvær deilmyndir, men har tú hesuferð gangar sannlíkindini í variabul `y` við `200` fyri at fáa vantaðu virðini. Brúka hesuferð `geom_text(aes(x, y*200, label = round(y*200, 0)), vjust=-0.5, size = 3.25)` fyri at vísa tølini yvir stabbunum. 
+
+```{r}
+ggplot(data=data_bp, aes(x,y*200))+
+  geom_bar(stat = "identity")+
+  geom_text(aes(label = round(y*200, 4)), vjust=-0.5, size = 3.25) +
+  facet_wrap(~ label)
+```
+
+> greið frá hvat plottið vísir (Tip: hetta er eitt søguligt dømi um modellering av deyða av hestasparki í prøjsiska herinum 1875-1894, har deyði av hestasparki vóru skrásettir í 10 regimentum yvir 20 ár svarandi til `size = 10*20 = 200` skrásetingar við fylgjandi observatiónum: 0 deyðir í 109 skrásetingum, 1 í 65, 2 í 22, 3 í trimum, 4 í einari, og eingin skráseting hevði meira enn 4 deyðar hermenn. Í miðal: `((0*109) + (1*65) + (2*22) + (3*3) + (4*1))/200 = 122/200 = 0.61`, sum vit hava brúkt sum `lambda` í poisson-fordeilingini). 
+
+> kann deyði av hestasparki í prøjsiska herinum 1875-1894 metast at henda tilvildarliga, og hví?
+
+    Við at vit síggja at binomial- og poisson-fordeilingini eru sera líka, meta vit at talan er um tilvild. 
+
+
+### Uppg. 5
+
+> Vit kanna her dømi um brúk av binomial- og poissonfordeilingini innan KT. Vit ímynda okkum digitalt samskifti har bit vera flutt yvir eina digitala samskiftiskanal. Tó, ikki øll bit koma feilfrítt fram, men nøkur av teimum eru feilbit. Vit antaka at hvørt bit verður sent óheft av hvørjum øðrum. Soleiðis, at ein bitfeilur ikki ávirkar nakað annað bit. Lat `p` vera sannlíkindini fyri at eitt bit er eitt feilbit, og lat `X` vera samlaða talið av feilbit, tá vit senda (transmittera) `n` bit. Tá sendingarnar eru óheftar er `X` binomialfordeilt.
+
+> 5a) kanna tey 3 førini har vit senda fleiri og fleiri bit `n = 10, 50, 100`, og samstundis lækka sannlíkindi fyri feilbit `p = 2/n`. Soleiðis, at `n*p = 2` er hildið konstant. Ger eitt barplot av binomial-fordeilingini `dbinom(x, n, p)` sum facet-plot, so tú fært 3 deilmyndir (tip: hesin spurningur minnir um spurning 4b, so tann kodan kann tillagast her).
+
+
+```{r}
+x_value <- 0:10
+
+
+pdata_n10 <- tibble(x = x_value,
+             n = 10,
+             prob = (2/n), 
+             y = dbinom(x_value, n, prob))
+
+pdata_n50 <- tibble(x = x_value,
+             n = 50,
+             prob = (2/n),
+             y = dbinom(x_value, n, prob))
+
+pdata_n100 <- tibble(x = x_value,
+             n = 100,
+             prob = (2/n),
+             y = dbinom(x_value, n, prob))
+
+#rekkibinda í einum:
+pdata_5a <- rbind(pdata_n10,pdata_n50,pdata_n100)
+
+ggplot()+
+  geom_bar(data=pdata_5a, aes(x,y), stat = "identity")+
+  facet_wrap(~ n, labeller = label_both)
+```
+
+> 5b) ger eina tibble `data_bino` og eina tibble  `data_pois` báðar við variablum `x, y, label`. Í `data_bino` skal variabul `y` vera binomial-fordeilings data fyri `n = 10, 50, 100` og `p = 2/n`. Í `data_pois` skal variabul `y` vera poisson-fordeilings data fyri `lambda = 2`. Í variabul `label` seta tit hóskandi tekst fyri fordeilingarnar at brúka í einum facet-plotti (tip: brúka til dømis `paste()` í kodu at seta labels automatiskt til `1. dbinom(x, 10, 0.2)`, `2. dbinom(x, 50, 0.04)`, `3. dbinom(x, 100, 0.02)` og `4. dpois(x, 2)`). Rekkjubind `data_bino` og `data_pois` í tibble `data_bp` og les hana út.
+
+```{r}
+x_value <- 0:10
+
+data_bino <- rbind(tibble(x = x_value,
+             y = dbinom(x_value, 10, (2/10)),
+             label = "1. dbinom(x, 10, 0.2)"),
+             tibble(x = x_value,
+             y = dbinom(x_value, 50, (2/50)),
+             label = "2. dbinom(x, 50, 0.04)"),
+             tibble(x = x_value,
+             y = dbinom(x_value, 100, (2/100)),
+             label = "3. dbinom(x, 100, 0.02)"))
+
+data_pois <- tibble(x = x_value,
+             y = dpois(x_value, 2),
+             label = "4. dpois(x, 2)")
+
+
+(data_bp <- rbind(data_bino, data_pois))
+```
+
+> 5c) ger eitt barplot av `data_bp` sum facet-plot, so tú fært fýra deilmyndir (`1. dbinom(x, 10, 0.2)`, `2. dbinom(x, 50, 0.04)`, `3. dbinom(x, 100, 0.02)` og `4. dpois(x, 2)`). Hvørjir munir eru á sannlíkindunum fyri tær trýggjar binomialfordeilingarnar samanborið við tí einu poisson-fordeilingina?
+
+```{r}
+ggplot()+
+  geom_bar(data=data_bp, aes(x,y), stat = "identity")+
+  facet_wrap(~ label)
+```
+    Vit síggja at nummar 1.dbinom líkist minst poisson-fordeilingina.
+    2.dbinom  líkist eitt vet meira poisson-fordeilingina.
+    Meðan 3.dbinom líkist mest poisson-fordeilingina.
+
+
+> 5d)  um tú omanfyri hevur brúkt virðini `0, 1, 2, ..., 10` fyri `x`, so hevur `data_bp` tilsamans `4*11 = 44` observatiónir og 3 variablar `x, y, label`. Hesi data eru vælegnaði til plotting, men verri at samanbera, um tey vera lisin út sum ein long talva. Ger tí eina nýggja tibble `distributions` fyri at fáa eitt styttri talvu-yvirlit at samanbera sannlíkindini fyri tær fýra fordeilingarnar. Ger `distributions` í einum pipe-setningi útfrá `data_bp`, sum tú pipar inn í eitt `pivot_wider()` og tekur nøvnini frá `label` og virðini frá `y`. Útles síðani talvuna (tip: brúka 5 decimalar.")`). Talvan skal hava eina rekkju fyri hvørt virði av bitfeilum í kolonnu `x` og  fýra kolonnur av sannlíkindum (eina kolonnu fyri hvørja av teimum fýra fordeilingunum).
+
+```{r}
+distributions <- data_bp |>
+  pivot_wider(
+    names_from = label,
+    values_from = y
+  )
+
+(distributions <- round(distributions, 5))
+```
+
+> hvussu væl samsvara binomialfordeilingarnar við poissonfordeilingina?
+
+    Her síggja vit at jú størri okkara trials er í binomialfordeilingarnar, jú tættari kemur hon til at líkjast poissonfordeilingina. 
+
+> 5e) endurtak 5b og 5c har tú nú brúkar `n = 10, 1000, 10000` og `p = 2/n`, so tú hesuferð fær 4 deilmyndir (`1. dbinom(x, 10, 0.2)`, `2. dbinom(x, 1000, 0.002)`, `3. dbinom(x, 10000, 2e-04)`, og `4. dpois(x, 2)`).
+
+```{r}
+x_value <- 0:10
+
+data_bino <- rbind(tibble(x = x_value,
+             y = dbinom(x_value, 10, (2/10)),
+             label = "1. dbinom(x, 10, 0.2)"),
+             tibble(x = x_value,
+             y = dbinom(x_value, 1000, (2/1000)),
+             label = "2. dbinom(x, 1000, 0.002)"),
+             tibble(x = x_value,
+             y = dbinom(x_value, 10000, (2/10000)),
+             label = "3. dbinom(x, 10000, 2e-04)"))
+
+data_pois <- tibble(x = x_value,
+             y = dpois(x_value, 2),
+             label = "4. dpois(x, 2)")
+
+
+(data_bp <- rbind(data_bino, data_pois))
+```
+
+
+```{r}
+ggplot()+
+  geom_bar(data=data_bp, aes(x,y), stat = "identity")+
+  facet_wrap(~ label)
+```
+
+> sært tú nakran mun á deilmyndum: `3. dbinom(x, 10000, 2e-04)`, og `4. dpois(x, 2)`?
+
+    Nei. 
+
+> 5f) endurtak talvuna svarandi til 5d, so tú her útlesur tær fýra fordeilingarnar: `1. dbinom(x, 10, 0.2)`, `2. dbinom(x, 1000, 0.002)`, `3. dbinom(x, 10000, 2e-04)`, og `4. dpois(x, 2)`
+
+```{r}
+distributions <- data_bp |>
+  pivot_wider(
+    names_from = label,
+    values_from = y
+  )
+
+(distributions <- round(distributions, 5))
+```
+
+> hvussu væl samsvara binomialfordeilingarnar nú við poissonfordeilingina?
+
+    í hesum dømi síggja vit at jú størri okkara trials er í binomialfordeilingarnar, er hon næstan identisk við poissonfordeilingina. 
+
+> finn við brúk av poissonfordeilingini `dpois(x, 2)` sannlíkindini `P(x <= 3)` fyri at tú í mesta lagi fært 3 bitfeilir.
+
+```{r}
+prob <- sum(dpois(0:3,2))
+prob
+```
+
+> svara sama spurningi `P(x <= 3)` við brúk av `ppois(x, 2)`
+
+```{r}
+prob_ppois <- ppois(3, 2) #make 3 or less 
+prob_ppois
+```
+
