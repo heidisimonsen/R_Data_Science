@@ -368,9 +368,10 @@ ggplot(data = na.omit(ferdslu_ohapp), mapping = aes(x = `stað`, y = `Ferðsluó
 > 3e2) plotta eitt `geom_boxplot()` av `ferdslu_ohapp` við `stað` sum x-aksa, `Ferðsluóhapp tilsamans` sum y-aksa og `sýsla` sum facet-variabul við `scales = "free_y"`. Greið frá hvat tit leggja merki til í hesum plotti, samanborið við plottið í 3e1.
 
 ```{r}
-ggplot(data = na.omit(ferdslu_ohapp), mapping = aes(x = `stað`, y = `Ferðsluóhapp tilsamans`)) +
+ggplot(data = na.omit(ferdslu_ohapp), mapping = aes(x = `stað`, y = `Ferðsluóhapp tilsamans`, color = stað)) +
   geom_boxplot() +
-  facet_wrap(~sýsla,scales = "free_y")
+  facet_wrap(~sýsla, ncol = 3, scales = "free_y")+
+  theme(axis.text.x = element_text(angle = 60, hjust=1))
 ```
    Samanborið við plottið í 3e1, síggja vit at tali av outliers eru mundani minni, 
    hetta kemur av at flestu outliers vóru frá einari sýsla (Streymoyar sýsla), men nú har vit hava deilt okkara 
@@ -386,7 +387,7 @@ ggplot(data = na.omit(ferdslu_ohapp), mapping = aes(x = `ár`, y = `Ferðsluóha
   geom_bar(stat="identity", color = "black", alpha = 0.25, width = 1) +
   geom_point(aes(color =`stað`))+
   facet_wrap(~sýsla, ncol = 2, scales = "free_y")+
-  theme(axis.text.x = element_text(angle = 100))
+  theme(axis.text.x = element_text(angle = 60, hjust=1))
 ```
     Vit síggja frá hesum plottinum at Streymoyar sýsla og Norðoya sýsla eru tær sýslur, 
     har munurin á ferðsluóhapp ávíkavist á kommunalvegi og landavegi er stórst, 
