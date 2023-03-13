@@ -66,12 +66,6 @@ sama_fdag <- mutate(
   sama_fdag,
   fdag = map(n_lesandi, ~ sample(365, ., replace=TRUE)))
 sama_fdag
-#  
-# #brúka unnest() functionina expandera fdag collum
-# sama_fdag_ekspandera <- sama_fdag %>% 
-#   unnest(cols = fdag)
-# sama_fdag_ekspandera
-
 ```
 
 > 1c)  hvør datatypa er variabul `fdag`? í tibble `sama_fdag`? Útles variabul `fdag` soleiðis, at bæði datatypa og innihald sæst.
@@ -90,8 +84,7 @@ cat("Innihald hjá variabul 'fdag': \n")
 ```{r}
 sama_fdag <- mutate(
   sama_fdag,
-  nakar_sdag = map_lgl(fdag, ~ any(duplicated(.x)))
-)
+  nakar_sdag = map_lgl(fdag, ~ any(duplicated(.x))))
 
 sama_fdag
 ```
@@ -279,7 +272,6 @@ pivot_longer(
   )
 
 p_maxsdag
-
 ```
 
 > 2e3) vit byggja víðari uppá pipe-setningin inn í `group_by(n_lesandi, max)` har tú útroknar sannlíkindini `p_sdag` av `sdag` fyri allar kombinatiónir av `n_lesandi` og `max`. Útles `p_maxsdag`, tá hetta er gjørt (tip: við `n_lesandi = seq(5, 700, 5)` og `roynd_nr = 1:100` gevur hetta eina tibble á `700 x 3` við `700` rekkjum og `3` variablum: `n_lesandi, max, p_sdag`).
