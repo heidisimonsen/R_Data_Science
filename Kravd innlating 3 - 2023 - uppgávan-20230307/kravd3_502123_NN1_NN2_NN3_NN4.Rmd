@@ -389,12 +389,17 @@ ggplot(data = na.omit(ferdslu_ohapp), mapping = aes(x = `ár`, y = `Ferðsluóha
   facet_wrap(~sýsla, ncol = 2, scales = "free_y")+
   theme(axis.text.x = element_text(angle = 60, hjust=1))
 ```
-    Vit síggja frá hesum plottinum at Streymoyar sýsla og Norðoya sýsla eru tær sýslur, 
+    Vit síggja frá hesum plottinum, at Streymoyar sýsla og Norðoya sýsla eru tær sýslur, 
     har munurin á ferðsluóhapp ávíkavist á kommunalvegi og landavegi er stórst, 
-    við flest ferðsluóhappum á kommunalvegi. 
-    Um vit hyggja at Eysturoyar sýsla sast at antal av ferðsluóhapp ávíkavist á kommunalvegi og landavegi,
-    eru meria lík, og at summi ár eru flest fersluóhap á landaveginum(1996,2002,2007,2008,2011) og at Sabdoya sýsla 
-    Meðan Sandoyar, Suðuroyar og Vága sýslurnar síggja vit at flestu áruni er ein 
+    við flest ferðsluóhappum henda á kommunalvegi. 
+    Um vit hyggja at Eysturoyar sýsla sast at tali av ferðsluóhapp ávíkavist á kommunalvegi og á landavegi,
+    eru tali av hendingum meria eins enn í hinum sýslunum.
+    Eysturoyar sýsla og Sandoyar sýsla, eru tær sýslurnar sum sast at í nøkrum av árinum, 
+    hava tær haft mest ferðsluóhapp á landaveginum í mun til hinar sýslurnar, 
+    sum í flestu førum hava mest fersluóhap á kommunalvegi. 
+    Suðuroyar og Vága sýslurnar síggja vit at flestu áruni eru flest fersluóhapp á kommunalveginum,
+    men munurin í millum ávíkavist á kommunalvegi og landavegi er ikki líka týðiligur, 
+    sum við Streymoyar sýsla og Norðoya sýsla.  
     
 
 
