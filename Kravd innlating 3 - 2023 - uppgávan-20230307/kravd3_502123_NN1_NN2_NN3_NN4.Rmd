@@ -374,10 +374,11 @@ ggplot(data = na.omit(ferdslu_ohapp), mapping = aes(x = `stað`, y = `Ferðsluó
   theme(axis.text.x = element_text(angle = 60, hjust=1))
 ```
    Samanborið við plottið í 3e1, síggja vit at tali av outliers eru mundani minni, 
-   hetta kemur av at flestu outliers vóru frá einari sýsla (Streymoyar sýsla), men nú har vit hava deilt okkara 
-   data eftur sýslum eru hesi data ikki longur presenteraði sum bert outliers. 
+   hetta kemur av at flestu outliers vóru frá einari sýsla (Streymoyar sýsla), men nú tá vit hava deilt okkara 
+   data eftir sýslum eru hesi data ikki longur presenteraði sum bert outliers. 
    Hetta kemur av at Streymoyar sýsla hevur nógv størri virðir innan Ferðsluóhapp tilsamans 
    á kommunalvegi í mun til hinar sýslurnar.
+
 
 > 3f) ger eitt `geom_bar()` plot av `ferdslu_ohapp` við `ár` sum x-aksa, `Ferðsluóhapp tilsamans` sum y-aksa, har tú brúkar `alpha = 0.25`. Hetta vísir samlaða talið av óhappum fyri hvørt árið. Í sama plotti, ger eitt `geom_point()` plot av `ferdslu_ohapp` við `ár` sum x-aksa, `Ferðsluóhapp tilsamans` sum y-aksa, har tú mappar lit av punktum til variabul `stað` og brúkar `sýsla` sum facet-variabul við `scales = "free_y"`. Greið frá hvat tit leggja merki til í hesum plotti. 
 
@@ -390,17 +391,17 @@ ggplot(data = na.omit(ferdslu_ohapp), mapping = aes(x = `ár`, y = `Ferðsluóha
   theme(axis.text.x = element_text(angle = 60, hjust=1))
 ```
     Vit síggja frá hesum plottinum, at Streymoyar sýsla og Norðoya sýsla eru tær sýslur, 
-    har munurin á ferðsluóhapp ávíkavist á kommunalvegi og landavegi er stórst, 
-    við flest ferðsluóhappum henda á kommunalvegi. 
-    Um vit hyggja at Eysturoyar sýsla sast at tali av ferðsluóhapp ávíkavist á kommunalvegi og á landavegi,
-    eru tali av hendingum meria eins enn í hinum sýslunum.
-    Eysturoyar sýsla og Sandoyar sýsla, eru tær sýslurnar sum sast at í nøkrum av árinum, 
+    har lutfallið á ferðsluóhapp ávikavist á kommunalvegi og landavegi er størst, 
+    við flest ferðsluóhappum á kommunalvegi. 
+    Um vit hyggja at Eysturoyar sýsla sæst at tali av ferðsluóhapp ávikavist á kommunalvegi og á landavegi,
+    eru tali av hendingum meira eins enn í hinum sýslunum.
+    Eysturoyar sýsla og Sandoyar sýsla, eru tær sýslurnar sum sæst at í nøkrum av árinum, 
     hava tær haft mest ferðsluóhapp á landaveginum í mun til hinar sýslurnar, 
-    sum í flestu førum hava mest fersluóhap á kommunalvegi. 
-    Suðuroyar og Vága sýslurnar síggja vit at flestu áruni eru flest fersluóhapp á kommunalveginum,
-    men munurin í millum ávíkavist á kommunalvegi og landavegi er ikki líka týðiligur, 
-    sum við Streymoyar sýsla og Norðoya sýsla.  
-    
+    sum í flestu førum hava mest ferðsluóhapp á kommunalvegi. 
+    Suðuroyar og Vága sýslurnar síggja vit at flestu árini eru flest ferðsluóhapp á kommunalveginum,
+    men lutfallið í millum ávikavist á kommunalvegi og landavegi er ikki líka stórt, 
+    sum í Streymoyar sýsla og Norðoya sýsla.
+  
 
 
 ### Uppg. 4
