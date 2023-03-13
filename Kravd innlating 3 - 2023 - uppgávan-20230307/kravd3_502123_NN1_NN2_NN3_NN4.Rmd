@@ -345,7 +345,13 @@ ggplot(p_maxsdag, aes(x = n_lesandi, y = p_sdag, color = max)) +
 > 2f4) um tú hyggur eftir virðunum `50, 100, 200, 300, 400` fyri antal lesandi, hvørji sannlíkindi `p_sdag` fyri `max == 2, 3, 4, 5` eru ávikavist hægst, næst- og trið-hægst í hvørjum føri? (tip: ger ein pipe-setning av `p_maxsdag`, sum einans vísir rekkjur fyri `n_lesandi` í `50, 100, 200, 300, 400` sorteraðar eftir vaksandi `n_lesandi` og fallandi `p_sdag`. Legg síðani ein variabul `nr` afturat tíni tibble við brúk av `row_number()`, sum tú filtrerar at vera `nr <= 3`. Úrslitið skal hava `15` rekkjur og `4` variablar: `n_lesandi, max, p_sdag,  nr`, har `nr` inniheldur virðini `1, 2, 3`).
 
 ```{r}
+p_maxsdag_filtered <- p_maxsdag %>%
+  filter(n_lesandi %in% c(50, 100, 200, 300, 400)) %>%
+  arrange(n_lesandi, desc(p_sdag)) %>%
+  mutate(nr = row_number()) %>%
+  filter(nr <= 3)
 
+p_maxsdag_filtered
 
 ```
 
