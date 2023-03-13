@@ -319,28 +319,40 @@ ferdslu_ohapp
 ```{r}
 ferdslu_ohapp <- ferdslu_ohapp %>% mutate(across(c(4:21), as.integer))
 
-ferdslu_ohapp %>% 
+ferdslu_ohapp <- ferdslu_ohapp %>% 
   pivot_longer(
     cols = c(4:21), 
     names_to = "ár", 
     values_to = "n"
   )
+
+ferdslu_ohapp
 ```
 
 > 3c3) deil variabul `slag` í tveir nýggjar variablar við heitum frá `slag` og virðum frá `n`, og útles `ferdslu_ohapp` umaftur (tip: tú fært eina `216 x 5` tibble).
 
 ```{r}
-tralla
+ferdslu_ohapp <- ferdslu_ohapp %>% 
+  pivot_wider(names_from = c(slag), values_from = c(n))
+
+ferdslu_ohapp
 ```
 
 > 3d) plotta eitt `geom_boxplot()` av `ferdslu_ohapp` við `Ferðsluóhapp tilsamans` sum x-aksa, `ár` sum y-aksa og `stað` sum facet-variabul. Greið frá hvat tit leggja merki til í hesum plotti. Viðmerk eisini útfrá plottinum hvussu nógvir outliers eru. Eftirkanna síðani við einføldum pipe-setningi hvussu nógv virði eru `> 150` og hvar tey koma frá (hvørji sýslu).
 
 ```{r}
-
+ggplot(data = na.omit(ferdslu_ohapp), mapping = aes(x = `Ferðsluóhapp tilsamans`, y = `ár`)) +
+  geom_boxplot()+
+  facet_wrap(~stað)
 ```
+    Vit kunnu obsavera outlighers í hvørjun boxplotti á kommunalvegi frá 1995 til 2012 (uttan 2009), 
+    men harafturímøtir kunnu vit bert obsavera ein á landavegi í ár 2006.
+    Har eru 18 outlighers tilsamans. 
 
 ```{r}
-
+ferdslu_ohapp %>% 
+  group_by(sýsla) %>%
+   summarise(counts = sum(`Ferðsluóhapp tilsamans` > 150, na.rm = TRUE))
 ```
 
 
@@ -349,21 +361,40 @@ tralla
 > 3e1) plotta eitt `geom_boxplot()` av `ferdslu_ohapp` við `stað` sum x-aksa, `Ferðsluóhapp tilsamans` sum y-aksa. 
 
 ```{r}
-
+ggplot(data = na.omit(ferdslu_ohapp), mapping = aes(x = `stað`, y = `Ferðsluóhapp tilsamans`)) +
+  geom_boxplot()
 ```
 
 > 3e2) plotta eitt `geom_boxplot()` av `ferdslu_ohapp` við `stað` sum x-aksa, `Ferðsluóhapp tilsamans` sum y-aksa og `sýsla` sum facet-variabul við `scales = "free_y"`. Greið frá hvat tit leggja merki til í hesum plotti, samanborið við plottið í 3e1.
 
 ```{r}
-
+ggplot(data = na.omit(ferdslu_ohapp), mapping = aes(x = `stað`, y = `Ferðsluóhapp tilsamans`)) +
+  geom_boxplot() +
+  facet_wrap(~sýsla,scales = "free_y")
 ```
+   Samanborið við plottið í 3e1, síggja vit at tali av outliers eru mundani minni, 
+   hetta kemur av at flestu outliers vóru frá einari sýsla (Streymoyar sýsla), men nú har vit hava deilt okkara 
+   data eftur sýslum eru hesi data ikki longur presenteraði sum bert outliers. 
+   Hetta kemur av at Streymoyar sýsla hevur nógv størri virðir innan Ferðsluóhapp tilsamans 
+   á kommunalvegi í mun til hinar sýslurnar.
 
 > 3f) ger eitt `geom_bar()` plot av `ferdslu_ohapp` við `ár` sum x-aksa, `Ferðsluóhapp tilsamans` sum y-aksa, har tú brúkar `alpha = 0.25`. Hetta vísir samlaða talið av óhappum fyri hvørt árið. Í sama plotti, ger eitt `geom_point()` plot av `ferdslu_ohapp` við `ár` sum x-aksa, `Ferðsluóhapp tilsamans` sum y-aksa, har tú mappar lit av punktum til variabul `stað` og brúkar `sýsla` sum facet-variabul við `scales = "free_y"`. Greið frá hvat tit leggja merki til í hesum plotti. 
 
 
 ```{r}
-
+ggplot(data = na.omit(ferdslu_ohapp), mapping = aes(x = `ár`, y = `Ferðsluóhapp tilsamans`, fill =`stað` )) +
+  geom_bar(stat="identity", color = "black", alpha = 0.25, width = 1) +
+  geom_point(aes(color =`stað`))+
+  facet_wrap(~sýsla, ncol = 2, scales = "free_y")+
+  theme(axis.text.x = element_text(angle = 100))
 ```
+    Vit síggja frá hesum plottinum at Streymoyar sýsla og Norðoya sýsla eru tær sýslur, 
+    har munurin á ferðsluóhapp ávíkavist á kommunalvegi og landavegi er stórst, 
+    við flest ferðsluóhappum á kommunalvegi. 
+    Um vit hyggja at Eysturoyar sýsla sast at antal av ferðsluóhapp ávíkavist á kommunalvegi og landavegi,
+    eru meria lík, og at summi ár eru flest fersluóhap á landaveginum(1996,2002,2007,2008,2011) og at Sabdoya sýsla 
+    Meðan Sandoyar, Suðuroyar og Vága sýslurnar síggja vit at flestu áruni er ein 
+    
 
 
 ### Uppg. 4
