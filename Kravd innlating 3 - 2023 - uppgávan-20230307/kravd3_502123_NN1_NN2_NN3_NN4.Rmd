@@ -241,33 +241,63 @@ geom_hline(aes(yintercept=0.5, linetype = "0.5"), color = "blue") +
 (pbirthday(80, 365, 2))
 
 ```
-
+    Tá n_lesandi = 50, er tað 97% sannlíkindini fyri at minst tvey hava sama føðingardag.
+    Tá n_lesandi = 80, er tað næstan 100% sannlíkindini fyri at minst tvey hava sama føðingardag.
+    
 > 2e) higartil hava vit bert kannað tey føri har minst tvey hava sama føðingardag (`TRUE` ella `FALSE` fyri at nakar lesandi hevur sama føðingardag), men vit hava ikki kannað hvussu nógv tey eru, sum hava sama føðingardag. Vit generalisera nú føðingardags-spurningin til eisini at umfata talið á teimum, sum hava sama føðingardag. Neyvari lýst, so finna vit støddina `max_sdag` á tí størsta bólkinum við sama føðingardegi í einum flokki av `n_lesandi`. Ímeðan vit byggja greiningina upp, brúka vit til dømis tølini `n_lesandi = seq(5, 700, 5)` og `roynd_nr = 1:100`, sum vit síðani kunna broyta, tá kodan virkar.
 
 > 2e1) vit skula tí í einum broyttum pipe-setningi frá `crossing(n_lesandi = seq(5, 700, 5), roynd_nr = 1:100)`, sum skapar eina tibble `p_maxsdag`, gera ein variabul `max_sdag`. Hetta gera vit við brúk av eini `map_int()` funktión, saman við `table()` og `max()` funktiónunum. Somuleiðis, broyta vit heitið á `nakar_sdag` til `>= 2`, og vit gera eisini variablar `== 2`, `== 3`, `== 4` og `== 5`, har vit kanna um `max_sdag == 2`, `max_sdag == 3` o.s.f. Útles `p_maxsdag`, tá hetta er gjørt (tip: við `n_lesandi = seq(5, 700, 5)` og `roynd_nr = 1:100` gevur hetta eina tibble á `14000 x 9` við `14000` rekkjum og `9` variablum:  `n_lesandi, roynd_nr, fdag, >= 2, max_sdag, == 2, == 3, == 4, == 5`).
 
 
 ```{r}
+n_lesandi = seq(5, 700, 5)
+roynd_nr = 1:100
 
+p_maxsdag <- crossing(n_lesandi, roynd_nr) %>%
+  mutate(
+    fdag = map(n_lesandi, ~sample(365, ., replace = TRUE)),
+    `>= 2` = map_int(fdag, ~any(duplicated(.x))),
+    max_sdag = map_int(fdag, function(x) max(table(x))),
+    `== 2` = max_sdag == 2,
+    `== 3` = max_sdag == 3,
+    `== 4` = max_sdag == 4,
+    `== 5` = max_sdag == 5,
+  )
+
+p_maxsdag
 
 ```
 
 > 2e2) vit byggja víðari uppá pipe-setningin við `pivot_longer()` og samla allar logisku variablarnar `>= 2`, `== 2`, `== 3`, `== 4`, `== 5` í eina kolonnu vit nevna `max` og virðini í eina kolonnu vit nevna `sdag`. Útles `p_maxsdag`, tá hetta er gjørt (tip: við `n_lesandi = seq(5, 700, 5)` og `roynd_nr = 1:100` gevur hetta eina tibble á `70000 x 6` við `70000` rekkjum og `6` variablum: `n_lesandi, roynd_nr, fdag, max_sdag, max, sdag`).
 
 ```{r}
+p_maxsdag <- p_maxsdag %>%
+pivot_longer(
+    cols = c(`>= 2`, `== 2`, `== 3`, `== 4`, `== 5`),
+    names_to = "max",
+    values_to = "sdag"
+  )
+
+p_maxsdag
 
 ```
 
 > 2e3) vit byggja víðari uppá pipe-setningin inn í `group_by(n_lesandi, max)` har tú útroknar sannlíkindini `p_sdag` av `sdag` fyri allar kombinatiónir av `n_lesandi` og `max`. Útles `p_maxsdag`, tá hetta er gjørt (tip: við `n_lesandi = seq(5, 700, 5)` og `roynd_nr = 1:100` gevur hetta eina tibble á `700 x 3` við `700` rekkjum og `3` variablum: `n_lesandi, max, p_sdag`).
 
 ```{r}
+p_maxsdag <- p_maxsdag %>%
+  group_by(n_lesandi, max) %>%
+  summarize(p_sdag = mean(sdag))
 
+p_maxsdag
 ```
 
 > 2e4) plotta eitt punkt- og linjuplot av `p_maxsdag` frá spurningi 2e3, har tú mappar `x = n_lesandi` og `y = p_sdag`, og har tú hesuferð mappar lit til `max` so tú fært ein legend. 
 
 ```{r}
-
+ggplot(p_maxsdag, aes(x = n_lesandi, y = p_sdag, color = max)) +
+  geom_point() +
+  geom_line()
 ```
 
 > 2f) vit dagføra nú simuleringina.
@@ -275,13 +305,36 @@ geom_hline(aes(yintercept=0.5, linetype = "0.5"), color = "blue") +
 > 2f1) dagfør tibble `p_maxsdag` við at endurbrúka kodu frá spurning 2e3, og set til dømis `n_lesandi = c(2, seq(10, 700, 10))` og `roynd_nr = 1:2000`. Útles tína dagførdu `p_maxsdag`. 
 
 ```{r}
+n_lesandi = c(2, seq(10, 700, 10))
+roynd_nr = 1:2000
 
+p_maxsdag <- crossing(n_lesandi, roynd_nr) %>%
+  mutate(
+    fdag = map(n_lesandi, ~sample(365, ., replace = TRUE)),
+    `>= 2` = map_int(fdag, ~any(duplicated(.x))),
+    max_sdag = map_int(fdag, function(x) max(table(x))),
+    `== 2` = max_sdag == 2,
+    `== 3` = max_sdag == 3,
+    `== 4` = max_sdag == 4,
+    `== 5` = max_sdag == 5,
+  ) %>%
+  pivot_longer(
+    cols = c(`>= 2`, `== 2`, `== 3`, `== 4`, `== 5`),
+    names_to = "max",
+    values_to = "sdag"
+  ) %>%
+  group_by(n_lesandi, max) %>%
+  summarize(p_sdag = mean(sdag))
+
+p_maxsdag
 ```
 
 > 2f2) plotta eitt punkt- og linjuplot av dagførdu `p_maxsdag` frá spurningi 2f1, har tú mappar `x = n_lesandi` og `y = p_sdag`, og har tú aftur mappar lit til `max` so tú fært ein legend. 
 
 ```{r}
-
+ggplot(p_maxsdag, aes(x = n_lesandi, y = p_sdag, color = max)) +
+  geom_point() +
+  geom_line()
 ```
 
 > næstu tveir spurningar eru eins, men kunna svarast í 2f3 við avlesing av plotti og/ella í 2f4 við at gera eina pipe.
@@ -292,6 +345,7 @@ geom_hline(aes(yintercept=0.5, linetype = "0.5"), color = "blue") +
 > 2f4) um tú hyggur eftir virðunum `50, 100, 200, 300, 400` fyri antal lesandi, hvørji sannlíkindi `p_sdag` fyri `max == 2, 3, 4, 5` eru ávikavist hægst, næst- og trið-hægst í hvørjum føri? (tip: ger ein pipe-setning av `p_maxsdag`, sum einans vísir rekkjur fyri `n_lesandi` í `50, 100, 200, 300, 400` sorteraðar eftir vaksandi `n_lesandi` og fallandi `p_sdag`. Legg síðani ein variabul `nr` afturat tíni tibble við brúk av `row_number()`, sum tú filtrerar at vera `nr <= 3`. Úrslitið skal hava `15` rekkjur og `4` variablar: `n_lesandi, max, p_sdag,  nr`, har `nr` inniheldur virðini `1, 2, 3`).
 
 ```{r}
+
 
 ```
 
