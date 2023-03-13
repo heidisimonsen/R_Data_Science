@@ -148,14 +148,14 @@ p_samadag_1f2
 n_lesandi <- 2:50
 roynd_nr <- 1:5000
 
-p_samadag_1f3 <- tibble(
+p_samadag <- tibble(
   crossing(n_lesandi, roynd_nr)) %>%
   mutate(fdag = map(n_lesandi, ~ sample(365, ., replace = TRUE)),
          nakar_sdag = map_lgl(fdag, ~ any(duplicated(.x)))) %>%
   group_by(n_lesandi) %>%
   summarise(p_sdag = mean(nakar_sdag))
 
-p_samadag_1f3
+p_samadag
 ```
     GREIÐ FRÁ!
      Við at økja vit talið av royndum fáa vit fleiri bólkar við sama talið av lesandi, tvs vit nógv meira data at samanberða við, og harvið fáa meria nágreinuligt sanlíkindi.
@@ -163,7 +163,7 @@ p_samadag_1f3
 > 1f4) plotta eitt punkt- og linjuplot av `p_samadag` frá spurningi 1f3, har tú mappar `x = n_lesandi` og `y = p_sdag`. Brúka til dømis tilhoyrandi aksa-tekstirnar: "Antal lesandi" og "Sannlíkindini fyri sama føðingardag". Hvussu stóran flokk av lesandi skalt tú hava fyri at sannlíkindini fyri at nakar í flokkinum hevur sama føðingardag er ávikavist 0.5, 0.7 og 0.9?
 
 ```{r}
-ggplot(p_samadag_1f3, aes(x = n_lesandi, y = p_sdag)) +
+ggplot(p_samadag, aes(x = n_lesandi, y = p_sdag)) +
   geom_point() +
   geom_line() +
   labs(x = "Antal lesandi", y = "Sannlíkindini fyri sama føðingardag")+
@@ -183,52 +183,62 @@ ggplot(p_samadag_1f3, aes(x = n_lesandi, y = p_sdag)) +
 > 2a) legg variablar `n_ymisk`, `n_total`, og `p_teori` afturat tibble `p_samadag`, har tú útroknar teoretisku sannlíkindini `p_teori` fyri at nakar hevur sama føðingardag fyri hvørt virði av `n_lesandi`, og útles síðani `p_samadag` (tip: tað er lættast við formlum frá teljilæru (teljitrupuleikum) at finna sannlíkindini fyri at eingin hevur sama føðingardag, og síðani at draga hesi sannlíkindi frá 1: `p_teori = 1 - n_ymisk/n_total`. Tú kanst til dømis brúka eina `map_dbl()` funktión saman við `prod()` funktiónini í útrokningini av `n_ymisk`). Hvussu væl samsvara tíni simuleraðu `p_sdag` við tíni teoretisku `p_teori`?
 
 ```{r}
+p_samadag <- p_samadag %>%
+  mutate(n_ymisk = map(n_lesandi, ~prod(365:(365 - . + 1))) %>% unlist,
+         n_total = 365^n_lesandi,
+         p_teori = 1 - (n_ymisk/n_total)
+  )
+p_samadag
 
-# p_samadag <- sama_fdag %>%
-#   group_by(n_lesandi) %>%
-#   mutate(n_ymisk = map_dbl(fdag, ~length(unique(.x)))) %>%
-#   mutate(n_total = map_dbl(fdag, ~length(.x))) %>%
-#   mutate(p_teori = 1 - prod((365 - 1):(365 - n_ymisk + 1))/365^n_total) %>%
-#   #mutate(p_teori = 1-n_ymisk/n_total) %>%
-#   summarise(p_sdag = mean(nakar_sdag), n_ymisk = n_ymisk[1], n_total = n_total[1], p_teori = p_teori[1])
-# 
-# p_samadag
-
-# p_samadag <- tibble(n_lesandi = 2:10) %>%
-#   crossing(roynd_nr = 1:2) %>%
-#   mutate(fdag = map(n_lesandi, ~ sample(365, ., replace = TRUE)),
-#          nakar_sdag = map_lgl(fdag, ~ any(duplicated(.x)))) %>%
-#   group_by(n_lesandi) %>%
-#   summarise(
-#     p_sdag = mean(nakar_sdag),
-#     n_ymisk = map_dbl(n_lesandi, ~ prod(1 - seq(1, .x - 1)/365)),
-#     n_total = map_dbl(n_lesandi, ~ 365^(.x)),
-#     p_teori = 1 - n_ymisk/n_total
-#   )
-# 
-# p_samadag
 ```
 
 > 2b) í R finst eisini ein funktión nevnd `pbirthday()` til útrokning av somu teoretisku sannlíkindunum, sum vit útroknaðu í `p_teori` í 2a omanfyri. Legg ein variabul `p_bday` afturat tibble `p_samadag` við brúk av `pbirthday()` funktiónini og eini `map_dbl()` funktión. Útles síðani tibble `p_samadag` umaftur. Hvussu væl samsvara tíni `p_bday` við tíni `p_teori`?
 
 ```{r}
+p_samadag <- mutate(
+  p_samadag,
+  p_bday = map_dbl(n_lesandi, pbirthday))
+
+p_samadag
 
 ```
+    `p_bday` og `p_teori` eru eins
 
 > 2c) plotta eitt punkt-plot av `p_samadag` frá spurningi 2b, har tú mappar `x = n_lesandi` og `y = p_sdag`, og har tú hesuferð plottar eina linju fyri tey teoretisku sannlíkindini `p_bday`. Útfrá teoretisku sannlíkindunum í `p_bday`, hvussu stóran flokk av lesandi skalt tú hava fyri at sannlíkindini fyri at nakar í flokkinum hevur sama føðingardag er ávikavist 0.5, 0.7 og 0.9? (tip: avles talvuna, kurvuna og/ella brúka `qbirthday()`-funktiónina). 
 
 ```{r}
-
+ggplot(p_samadag, aes(x = n_lesandi, y = p_sdag)) +
+  geom_point(aes(color = "Simulera")) +
+  geom_line(aes(y = p_bday, color = "Teoretisk")) +
+  labs(x = "Antal lesandi",
+       y = "Sannlíkindini fyri sama føðingardag",
+       title = "Samanburð millum simuleraða og teoretisk sannlíkindum")+
+  scale_color_manual(name = "Samanburð", values = c("Simulera" = "black", "Teoretisk" = "red"))+
+  
+geom_hline(aes(yintercept=0.5, linetype = "0.5"), color = "blue") +
+  geom_hline(aes(yintercept=0.7, linetype = "0.7"), color = "green") +
+  geom_hline(aes(yintercept=0.9, linetype = "0.9"), color = "darkorange") +
+  scale_linetype_manual(name ="Sannlíkindini", values = c('dashed','dashed','dashed'), 
+                        guide = guide_legend(override.aes = list(color = c("blue", "green", "darkorange"))))
 
 ```
 
 ```{r}
+(qbirthday(0.5, 365, 2))
+(qbirthday(0.7, 365, 2))
+(qbirthday(0.9, 365, 2))
 
 ```
+    Við at avlesa talvuna og við brúk av qbirthday, síggja vit at sannlíkindini fyri at nakar í flokkinum hevur sama føðingardag er ávikavist:
+    0.5 = 23
+    0.7 = 30
+    0.9 = 41
 
 > 2d)  hvørji eru sannlíkindini útroknaði við `pbirthday()` fyri at minst tvey hava sama føðingardag, tá `n_lesandi = 50`, og tá `n_lesandi = 80`?
 
 ```{r}
+(pbirthday(50, 365, 2))
+(pbirthday(80, 365, 2))
 
 ```
 
@@ -238,6 +248,7 @@ ggplot(p_samadag_1f3, aes(x = n_lesandi, y = p_sdag)) +
 
 
 ```{r}
+
 
 ```
 
@@ -330,6 +341,7 @@ ferdslu_ohapp %>%
 > 3c3) deil variabul `slag` í tveir nýggjar variablar við heitum frá `slag` og virðum frá `n`, og útles `ferdslu_ohapp` umaftur (tip: tú fært eina `216 x 5` tibble).
 
 ```{r}
+
 
 ```
 
