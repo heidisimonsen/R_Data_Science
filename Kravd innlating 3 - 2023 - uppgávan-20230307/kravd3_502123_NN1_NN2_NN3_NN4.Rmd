@@ -442,7 +442,14 @@ ggplot(data = na.omit(ferdslu_ohapp), mapping = aes(x = `ár`, y = `Ferðsluóha
 > 4f) ger eina pipe av `ferdslu_ohapp` har tú ikki tekur árið `2009` við, síðani bólkar uppá `stað`, telur antal datapunkt `n` og roknar tal av óhappum `n_ohapp`, tal av skaddum `n_skadd` og roknar sannlíkindini `p_skadd` fyri fólkaskaða. Goym úrslitið í `ophapp_yvirlit` og les hana út (tip: tú fært eina `2 x 5` tibble).
 
 ```{r}
-
+ophapp_yvirlit <- ferdslu_ohapp %>% filter(ár != 2009) %>% 
+  group_by(stað) %>%
+   summarise(
+     n = n(),
+     n_ohapp = sum(`Ferðsluóhapp tilsamans`, na.rm = TRUE),
+     n_skadd = sum(`Skadd fólk`, na.rm = TRUE),
+     p_skadd = (n_skadd/n_ohapp))
+ophapp_yvirlit
 ```
 
 
