@@ -66,12 +66,6 @@ sama_fdag <- mutate(
   sama_fdag,
   fdag = map(n_lesandi, ~ sample(365, ., replace=TRUE)))
 sama_fdag
-#  
-# #brúka unnest() functionina expandera fdag collum
-# sama_fdag_ekspandera <- sama_fdag %>% 
-#   unnest(cols = fdag)
-# sama_fdag_ekspandera
-
 ```
 
 > 1c)  hvør datatypa er variabul `fdag`? í tibble `sama_fdag`? Útles variabul `fdag` soleiðis, at bæði datatypa og innihald sæst.
@@ -90,8 +84,7 @@ cat("Innihald hjá variabul 'fdag': \n")
 ```{r}
 sama_fdag <- mutate(
   sama_fdag,
-  nakar_sdag = map_lgl(fdag, ~ any(duplicated(.x)))
-)
+  nakar_sdag = map_lgl(fdag, ~ any(duplicated(.x))))
 
 sama_fdag
 ```
@@ -148,14 +141,14 @@ p_samadag_1f2
 n_lesandi <- 2:50
 roynd_nr <- 1:5000
 
-p_samadag_1f3 <- tibble(
+p_samadag <- tibble(
   crossing(n_lesandi, roynd_nr)) %>%
   mutate(fdag = map(n_lesandi, ~ sample(365, ., replace = TRUE)),
          nakar_sdag = map_lgl(fdag, ~ any(duplicated(.x)))) %>%
   group_by(n_lesandi) %>%
   summarise(p_sdag = mean(nakar_sdag))
 
-p_samadag_1f3
+p_samadag
 ```
     GREIÐ FRÁ!
      Við at økja vit talið av royndum fáa vit fleiri bólkar við sama talið av lesandi, tvs vit nógv meira data at samanberða við, og harvið fáa meria nágreinuligt sanlíkindi.
@@ -163,7 +156,7 @@ p_samadag_1f3
 > 1f4) plotta eitt punkt- og linjuplot av `p_samadag` frá spurningi 1f3, har tú mappar `x = n_lesandi` og `y = p_sdag`. Brúka til dømis tilhoyrandi aksa-tekstirnar: "Antal lesandi" og "Sannlíkindini fyri sama føðingardag". Hvussu stóran flokk av lesandi skalt tú hava fyri at sannlíkindini fyri at nakar í flokkinum hevur sama føðingardag er ávikavist 0.5, 0.7 og 0.9?
 
 ```{r}
-ggplot(p_samadag_1f3, aes(x = n_lesandi, y = p_sdag)) +
+ggplot(p_samadag, aes(x = n_lesandi, y = p_sdag)) +
   geom_point() +
   geom_line() +
   labs(x = "Antal lesandi", y = "Sannlíkindini fyri sama føðingardag")+
@@ -183,80 +176,120 @@ ggplot(p_samadag_1f3, aes(x = n_lesandi, y = p_sdag)) +
 > 2a) legg variablar `n_ymisk`, `n_total`, og `p_teori` afturat tibble `p_samadag`, har tú útroknar teoretisku sannlíkindini `p_teori` fyri at nakar hevur sama føðingardag fyri hvørt virði av `n_lesandi`, og útles síðani `p_samadag` (tip: tað er lættast við formlum frá teljilæru (teljitrupuleikum) at finna sannlíkindini fyri at eingin hevur sama føðingardag, og síðani at draga hesi sannlíkindi frá 1: `p_teori = 1 - n_ymisk/n_total`. Tú kanst til dømis brúka eina `map_dbl()` funktión saman við `prod()` funktiónini í útrokningini av `n_ymisk`). Hvussu væl samsvara tíni simuleraðu `p_sdag` við tíni teoretisku `p_teori`?
 
 ```{r}
+p_samadag <- p_samadag %>%
+  mutate(n_ymisk = map(n_lesandi, ~prod(365:(365 - . + 1))) %>% unlist,
+         n_total = 365^n_lesandi,
+         p_teori = 1 - (n_ymisk/n_total)
+  )
+p_samadag
 
-# p_samadag <- sama_fdag %>%
-#   group_by(n_lesandi) %>%
-#   mutate(n_ymisk = map_dbl(fdag, ~length(unique(.x)))) %>%
-#   mutate(n_total = map_dbl(fdag, ~length(.x))) %>%
-#   mutate(p_teori = 1 - prod((365 - 1):(365 - n_ymisk + 1))/365^n_total) %>%
-#   #mutate(p_teori = 1-n_ymisk/n_total) %>%
-#   summarise(p_sdag = mean(nakar_sdag), n_ymisk = n_ymisk[1], n_total = n_total[1], p_teori = p_teori[1])
-# 
-# p_samadag
-
-# p_samadag <- tibble(n_lesandi = 2:10) %>%
-#   crossing(roynd_nr = 1:2) %>%
-#   mutate(fdag = map(n_lesandi, ~ sample(365, ., replace = TRUE)),
-#          nakar_sdag = map_lgl(fdag, ~ any(duplicated(.x)))) %>%
-#   group_by(n_lesandi) %>%
-#   summarise(
-#     p_sdag = mean(nakar_sdag),
-#     n_ymisk = map_dbl(n_lesandi, ~ prod(1 - seq(1, .x - 1)/365)),
-#     n_total = map_dbl(n_lesandi, ~ 365^(.x)),
-#     p_teori = 1 - n_ymisk/n_total
-#   )
-# 
-# p_samadag
 ```
 
 > 2b) í R finst eisini ein funktión nevnd `pbirthday()` til útrokning av somu teoretisku sannlíkindunum, sum vit útroknaðu í `p_teori` í 2a omanfyri. Legg ein variabul `p_bday` afturat tibble `p_samadag` við brúk av `pbirthday()` funktiónini og eini `map_dbl()` funktión. Útles síðani tibble `p_samadag` umaftur. Hvussu væl samsvara tíni `p_bday` við tíni `p_teori`?
 
 ```{r}
+p_samadag <- mutate(
+  p_samadag,
+  p_bday = map_dbl(n_lesandi, pbirthday))
+
+p_samadag
 
 ```
+    `p_bday` og `p_teori` eru eins
 
 > 2c) plotta eitt punkt-plot av `p_samadag` frá spurningi 2b, har tú mappar `x = n_lesandi` og `y = p_sdag`, og har tú hesuferð plottar eina linju fyri tey teoretisku sannlíkindini `p_bday`. Útfrá teoretisku sannlíkindunum í `p_bday`, hvussu stóran flokk av lesandi skalt tú hava fyri at sannlíkindini fyri at nakar í flokkinum hevur sama føðingardag er ávikavist 0.5, 0.7 og 0.9? (tip: avles talvuna, kurvuna og/ella brúka `qbirthday()`-funktiónina). 
 
 ```{r}
-
+ggplot(p_samadag, aes(x = n_lesandi, y = p_sdag)) +
+  geom_point(aes(color = "Simulera")) +
+  geom_line(aes(y = p_bday, color = "Teoretisk")) +
+  labs(x = "Antal lesandi",
+       y = "Sannlíkindini fyri sama føðingardag",
+       title = "Samanburð millum simuleraða og teoretisk sannlíkindum")+
+  scale_color_manual(name = "Samanburð", values = c("Simulera" = "black", "Teoretisk" = "red"))+
+  
+geom_hline(aes(yintercept=0.5, linetype = "0.5"), color = "blue") +
+  geom_hline(aes(yintercept=0.7, linetype = "0.7"), color = "green") +
+  geom_hline(aes(yintercept=0.9, linetype = "0.9"), color = "darkorange") +
+  scale_linetype_manual(name ="Sannlíkindini", values = c('dashed','dashed','dashed'), 
+                        guide = guide_legend(override.aes = list(color = c("blue", "green", "darkorange"))))
 
 ```
 
 ```{r}
+(qbirthday(0.5, 365, 2))
+(qbirthday(0.7, 365, 2))
+(qbirthday(0.9, 365, 2))
 
 ```
+    Við at avlesa talvuna og við brúk av qbirthday, síggja vit at sannlíkindini fyri at nakar í flokkinum hevur sama føðingardag er ávikavist:
+    0.5 = 23
+    0.7 = 30
+    0.9 = 41
 
 > 2d)  hvørji eru sannlíkindini útroknaði við `pbirthday()` fyri at minst tvey hava sama føðingardag, tá `n_lesandi = 50`, og tá `n_lesandi = 80`?
 
 ```{r}
+(pbirthday(50, 365, 2))
+(pbirthday(80, 365, 2))
 
 ```
-
+    Tá n_lesandi = 50, er tað 97% sannlíkindini fyri at minst tvey hava sama føðingardag.
+    Tá n_lesandi = 80, er tað næstan 100% sannlíkindini fyri at minst tvey hava sama føðingardag.
+    
 > 2e) higartil hava vit bert kannað tey føri har minst tvey hava sama føðingardag (`TRUE` ella `FALSE` fyri at nakar lesandi hevur sama føðingardag), men vit hava ikki kannað hvussu nógv tey eru, sum hava sama føðingardag. Vit generalisera nú føðingardags-spurningin til eisini at umfata talið á teimum, sum hava sama føðingardag. Neyvari lýst, so finna vit støddina `max_sdag` á tí størsta bólkinum við sama føðingardegi í einum flokki av `n_lesandi`. Ímeðan vit byggja greiningina upp, brúka vit til dømis tølini `n_lesandi = seq(5, 700, 5)` og `roynd_nr = 1:100`, sum vit síðani kunna broyta, tá kodan virkar.
 
 > 2e1) vit skula tí í einum broyttum pipe-setningi frá `crossing(n_lesandi = seq(5, 700, 5), roynd_nr = 1:100)`, sum skapar eina tibble `p_maxsdag`, gera ein variabul `max_sdag`. Hetta gera vit við brúk av eini `map_int()` funktión, saman við `table()` og `max()` funktiónunum. Somuleiðis, broyta vit heitið á `nakar_sdag` til `>= 2`, og vit gera eisini variablar `== 2`, `== 3`, `== 4` og `== 5`, har vit kanna um `max_sdag == 2`, `max_sdag == 3` o.s.f. Útles `p_maxsdag`, tá hetta er gjørt (tip: við `n_lesandi = seq(5, 700, 5)` og `roynd_nr = 1:100` gevur hetta eina tibble á `14000 x 9` við `14000` rekkjum og `9` variablum:  `n_lesandi, roynd_nr, fdag, >= 2, max_sdag, == 2, == 3, == 4, == 5`).
 
 
 ```{r}
+n_lesandi = seq(5, 700, 5)
+roynd_nr = 1:100
+
+p_maxsdag <- crossing(n_lesandi, roynd_nr) %>%
+  mutate(
+    fdag = map(n_lesandi, ~sample(365, ., replace = TRUE)),
+    `>= 2` = map_int(fdag, ~any(duplicated(.x))),
+    max_sdag = map_int(fdag, function(x) max(table(x))),
+    `== 2` = max_sdag == 2,
+    `== 3` = max_sdag == 3,
+    `== 4` = max_sdag == 4,
+    `== 5` = max_sdag == 5,
+  )
+
+p_maxsdag
 
 ```
 
 > 2e2) vit byggja víðari uppá pipe-setningin við `pivot_longer()` og samla allar logisku variablarnar `>= 2`, `== 2`, `== 3`, `== 4`, `== 5` í eina kolonnu vit nevna `max` og virðini í eina kolonnu vit nevna `sdag`. Útles `p_maxsdag`, tá hetta er gjørt (tip: við `n_lesandi = seq(5, 700, 5)` og `roynd_nr = 1:100` gevur hetta eina tibble á `70000 x 6` við `70000` rekkjum og `6` variablum: `n_lesandi, roynd_nr, fdag, max_sdag, max, sdag`).
 
 ```{r}
+p_maxsdag <- p_maxsdag %>%
+pivot_longer(
+    cols = c(`>= 2`, `== 2`, `== 3`, `== 4`, `== 5`),
+    names_to = "max",
+    values_to = "sdag"
+  )
 
+p_maxsdag
 ```
 
 > 2e3) vit byggja víðari uppá pipe-setningin inn í `group_by(n_lesandi, max)` har tú útroknar sannlíkindini `p_sdag` av `sdag` fyri allar kombinatiónir av `n_lesandi` og `max`. Útles `p_maxsdag`, tá hetta er gjørt (tip: við `n_lesandi = seq(5, 700, 5)` og `roynd_nr = 1:100` gevur hetta eina tibble á `700 x 3` við `700` rekkjum og `3` variablum: `n_lesandi, max, p_sdag`).
 
 ```{r}
+p_maxsdag <- p_maxsdag %>%
+  group_by(n_lesandi, max) %>%
+  summarize(p_sdag = mean(sdag))
 
+p_maxsdag
 ```
 
 > 2e4) plotta eitt punkt- og linjuplot av `p_maxsdag` frá spurningi 2e3, har tú mappar `x = n_lesandi` og `y = p_sdag`, og har tú hesuferð mappar lit til `max` so tú fært ein legend. 
 
 ```{r}
-
+ggplot(p_maxsdag, aes(x = n_lesandi, y = p_sdag, color = max)) +
+  geom_point() +
+  geom_line()
 ```
 
 > 2f) vit dagføra nú simuleringina.
@@ -264,13 +297,36 @@ ggplot(p_samadag_1f3, aes(x = n_lesandi, y = p_sdag)) +
 > 2f1) dagfør tibble `p_maxsdag` við at endurbrúka kodu frá spurning 2e3, og set til dømis `n_lesandi = c(2, seq(10, 700, 10))` og `roynd_nr = 1:2000`. Útles tína dagførdu `p_maxsdag`. 
 
 ```{r}
+n_lesandi = c(2, seq(10, 700, 10))
+roynd_nr = 1:2000
 
+p_maxsdag <- crossing(n_lesandi, roynd_nr) %>%
+  mutate(
+    fdag = map(n_lesandi, ~sample(365, ., replace = TRUE)),
+    `>= 2` = map_int(fdag, ~any(duplicated(.x))),
+    max_sdag = map_int(fdag, function(x) max(table(x))),
+    `== 2` = max_sdag == 2,
+    `== 3` = max_sdag == 3,
+    `== 4` = max_sdag == 4,
+    `== 5` = max_sdag == 5,
+  ) %>%
+  pivot_longer(
+    cols = c(`>= 2`, `== 2`, `== 3`, `== 4`, `== 5`),
+    names_to = "max",
+    values_to = "sdag"
+  ) %>%
+  group_by(n_lesandi, max) %>%
+  summarize(p_sdag = mean(sdag))
+
+p_maxsdag
 ```
 
 > 2f2) plotta eitt punkt- og linjuplot av dagførdu `p_maxsdag` frá spurningi 2f1, har tú mappar `x = n_lesandi` og `y = p_sdag`, og har tú aftur mappar lit til `max` so tú fært ein legend. 
 
 ```{r}
-
+ggplot(p_maxsdag, aes(x = n_lesandi, y = p_sdag, color = max)) +
+  geom_point() +
+  geom_line()
 ```
 
 > næstu tveir spurningar eru eins, men kunna svarast í 2f3 við avlesing av plotti og/ella í 2f4 við at gera eina pipe.
@@ -281,6 +337,13 @@ ggplot(p_samadag_1f3, aes(x = n_lesandi, y = p_sdag)) +
 > 2f4) um tú hyggur eftir virðunum `50, 100, 200, 300, 400` fyri antal lesandi, hvørji sannlíkindi `p_sdag` fyri `max == 2, 3, 4, 5` eru ávikavist hægst, næst- og trið-hægst í hvørjum føri? (tip: ger ein pipe-setning av `p_maxsdag`, sum einans vísir rekkjur fyri `n_lesandi` í `50, 100, 200, 300, 400` sorteraðar eftir vaksandi `n_lesandi` og fallandi `p_sdag`. Legg síðani ein variabul `nr` afturat tíni tibble við brúk av `row_number()`, sum tú filtrerar at vera `nr <= 3`. Úrslitið skal hava `15` rekkjur og `4` variablar: `n_lesandi, max, p_sdag,  nr`, har `nr` inniheldur virðini `1, 2, 3`).
 
 ```{r}
+p_maxsdag_filtered <- p_maxsdag %>%
+  filter(n_lesandi %in% c(50, 100, 200, 300, 400)) %>%
+  arrange(n_lesandi, desc(p_sdag)) %>%
+  mutate(nr = row_number()) %>%
+  filter(nr <= 3)
+
+p_maxsdag_filtered
 
 ```
 
@@ -288,7 +351,7 @@ ggplot(p_samadag_1f3, aes(x = n_lesandi, y = p_sdag)) +
 
 ### Uppg. 3
 
-> 3a) les givnu fíluna `ferdslu_ohapp.csv` inn í tibble `ferdslu_ohapp` við einføldum brúki av `read_csv()`-funktiónini uttan nakrar parametrar (tip: tú fært eina `25 x 1` tibble).
+>3a) les givnu fíluna `ferdslu_ohapp.csv` inn í tibble `ferdslu_ohapp` við einføldum brúki av `read_csv()`-funktiónini uttan nakrar parametrar (tip: tú fært eina `25 x 1` tibble).
 
 ```{r}
 ferdslu_ohapp <- read_csv("ferdslu_ohapp.csv")
@@ -319,28 +382,40 @@ ferdslu_ohapp
 ```{r}
 ferdslu_ohapp <- ferdslu_ohapp %>% mutate(across(c(4:21), as.integer))
 
-ferdslu_ohapp %>% 
+ferdslu_ohapp <- ferdslu_ohapp %>% 
   pivot_longer(
     cols = c(4:21), 
     names_to = "ár", 
     values_to = "n"
   )
+
+ferdslu_ohapp
 ```
 
 > 3c3) deil variabul `slag` í tveir nýggjar variablar við heitum frá `slag` og virðum frá `n`, og útles `ferdslu_ohapp` umaftur (tip: tú fært eina `216 x 5` tibble).
 
 ```{r}
+ferdslu_ohapp <- ferdslu_ohapp %>% 
+  pivot_wider(names_from = c(slag), values_from = c(n))
 
+ferdslu_ohapp
 ```
 
 > 3d) plotta eitt `geom_boxplot()` av `ferdslu_ohapp` við `Ferðsluóhapp tilsamans` sum x-aksa, `ár` sum y-aksa og `stað` sum facet-variabul. Greið frá hvat tit leggja merki til í hesum plotti. Viðmerk eisini útfrá plottinum hvussu nógvir outliers eru. Eftirkanna síðani við einføldum pipe-setningi hvussu nógv virði eru `> 150` og hvar tey koma frá (hvørji sýslu).
 
 ```{r}
-
+ggplot(data = na.omit(ferdslu_ohapp), mapping = aes(x = `Ferðsluóhapp tilsamans`, y = `ár`)) +
+  geom_boxplot()+
+  facet_wrap(~stað)
 ```
+    Vit kunnu obsavera outlighers í hvørjun boxplotti á kommunalvegi frá 1995 til 2012 (uttan 2009), 
+    men harafturímøtir kunnu vit bert obsavera ein á landavegi í ár 2006.
+    Har eru 18 outlighers tilsamans. 
 
 ```{r}
-
+ferdslu_ohapp %>% 
+  group_by(sýsla) %>%
+   summarise(counts = sum(`Ferðsluóhapp tilsamans` > 150, na.rm = TRUE))
 ```
 
 
@@ -349,21 +424,39 @@ ferdslu_ohapp %>%
 > 3e1) plotta eitt `geom_boxplot()` av `ferdslu_ohapp` við `stað` sum x-aksa, `Ferðsluóhapp tilsamans` sum y-aksa. 
 
 ```{r}
-
+ggplot(data = na.omit(ferdslu_ohapp), mapping = aes(x = `stað`, y = `Ferðsluóhapp tilsamans`)) +
+  geom_boxplot()
 ```
 
 > 3e2) plotta eitt `geom_boxplot()` av `ferdslu_ohapp` við `stað` sum x-aksa, `Ferðsluóhapp tilsamans` sum y-aksa og `sýsla` sum facet-variabul við `scales = "free_y"`. Greið frá hvat tit leggja merki til í hesum plotti, samanborið við plottið í 3e1.
 
 ```{r}
-
+ggplot(data = na.omit(ferdslu_ohapp), mapping = aes(x = `stað`, y = `Ferðsluóhapp tilsamans`)) +
+  geom_boxplot() +
+  facet_wrap(~sýsla,scales = "free_y")
 ```
+   Samanborið við plottið í 3e1, síggja vit at tali av outliers eru mundani minni, 
+   hetta kemur av at flestu outliers vóru frá einari sýsla (Streymoyar sýsla), men nú har vit hava deilt okkara 
+   data eftur sýslum eru hesi data ikki longur presenteraði sum bert outliers. 
+   Hetta kemur av at Streymoyar sýsla hevur nógv størri virðir innan Ferðsluóhapp tilsamans 
+   á kommunalvegi í mun til hinar sýslurnar.
 
 > 3f) ger eitt `geom_bar()` plot av `ferdslu_ohapp` við `ár` sum x-aksa, `Ferðsluóhapp tilsamans` sum y-aksa, har tú brúkar `alpha = 0.25`. Hetta vísir samlaða talið av óhappum fyri hvørt árið. Í sama plotti, ger eitt `geom_point()` plot av `ferdslu_ohapp` við `ár` sum x-aksa, `Ferðsluóhapp tilsamans` sum y-aksa, har tú mappar lit av punktum til variabul `stað` og brúkar `sýsla` sum facet-variabul við `scales = "free_y"`. Greið frá hvat tit leggja merki til í hesum plotti. 
 
 
 ```{r}
-
+ggplot(data = na.omit(ferdslu_ohapp), mapping = aes(x = `ár`, y = `Ferðsluóhapp tilsamans`, fill =`stað` )) +
+  geom_bar(stat="identity", color = "black", alpha = 0.25, width = 1) +
+  geom_point(aes(color =`stað`))+
+  facet_wrap(~sýsla, ncol = 2, scales = "free_y")+
+  theme(axis.text.x = element_text(angle = 100))
 ```
+    Vit síggja frá hesum plottinum at Streymoyar sýsla og Norðoya sýsla eru tær sýslur, 
+    har munurin á ferðsluóhapp ávíkavist á kommunalvegi og landavegi er stórst, 
+    við flest ferðsluóhappum á kommunalvegi. 
+    Um vit hyggja at Eysturoyar sýsla sast at antal av ferðsluóhapp ávíkavist á kommunalvegi og landavegi,
+    eru meria lík, og at summi ár eru flest fersluóhap á landaveginum(1996,2002,2007,2008,2011) og at Sabdoya sýsla 
+    Meðan Sandoyar, Suðuroyar og Vága sýslurnar síggja vit at flestu áruni er ein 
 
 
 ### Uppg. 4
