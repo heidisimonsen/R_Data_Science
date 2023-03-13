@@ -450,6 +450,7 @@ ophapp_yvirlit <- ferdslu_ohapp %>% filter(ár != 2009) %>%
      n_skadd = sum(`Skadd fólk`, na.rm = TRUE),
      p_skadd = (n_skadd/n_ohapp))
 ophapp_yvirlit
+
 ```
 
 
@@ -459,12 +460,32 @@ ophapp_yvirlit
 > 5a) ger eitt 95% confidensinterval fyri `p_skadd` í 4f fyri `stað`, ávikavist `Á kommunalvegi, Á landsvegi`. 
 
 ```{r}
+t.test(ophapp_yvirlit$p_skadd, conf.level = .95)$conf.int
 
 ```
 
 > 5b) á netinum kann lesast: "According to the National Highway Traffic Safety Administration (NHTSA), in the United States, the overall probability of being injured in a motor vehicle crash in 2019 was approximately 1 in 103. However, this is a general statistic that includes all types of motor vehicle crashes, from minor fender-benders to more severe accidents." Ger eina hypotesu-test, sum eftirkannar um tilsvarandi sannlíkindini `Á kommunalvegi` eru tey somu í Føroyum?
 
 ```{r}
+n <- 103
+p_skadd_us <- (1/n)
+mean_us <- p_skadd_us*n 
+sd_us <- sqrt(n*p_skadd_us*(1-p_skadd_us))
+
+p_skadd_us
+mean_us
+sd_us
+
+ophapp_yvirlit <- ophapp_yvirlit %>% filter(stað == "Á kommunalvegi")
+
+p_skadd <- ophapp_yvirlit$p_skadd
+mean_fo <- p_skadd*n
+sd_fo <- sqrt(n*p_skadd*(1-p_skadd))
+
+p_skadd
+mean_fo
+sd_fo
+
 
 ```
 
