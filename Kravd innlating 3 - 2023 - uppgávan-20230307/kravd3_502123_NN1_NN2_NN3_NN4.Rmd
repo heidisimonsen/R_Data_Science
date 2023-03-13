@@ -408,8 +408,8 @@ ggplot(data = na.omit(ferdslu_ohapp), mapping = aes(x = `Ferðsluóhapp tilsaman
   geom_boxplot()+
   facet_wrap(~stað)
 ```
-    Vit kunnu obsavera outlighers í hvørjun boxplotti á kommunalvegi frá 1995 til 2012 (uttan 2009), 
-    men harafturímøtir kunnu vit bert obsavera ein á landavegi í ár 2006.
+    Vit kunnu observera outliers í hvørjun boxplotti á kommunalvegi frá 1995 til 2012 (uttan 2009), 
+    men harafturímótir kunnu vit bert obsavera ein á landavegi í ár 2006.
     Har eru 18 outlighers tilsamans. 
 
 ```{r}
@@ -465,39 +465,64 @@ ggplot(data = na.omit(ferdslu_ohapp), mapping = aes(x = `ár`, y = `Ferðsluóha
 > 4a)  plotta eitt `geom_boxplot()` av `ferdslu_ohapp` við `Skadd fólk` sum x-aksa, `ár` sum y-aksa og `stað` sum facet-variabul.
 
 ```{r}
-
+ggplot(data = na.omit(ferdslu_ohapp), aes(x = `Skadd fólk`, y = `ár`)) + 
+  geom_boxplot() +
+  facet_wrap(~`stað`)
 ```
 
 > 4b) plotta eitt `geom_boxplot()` av `ferdslu_ohapp` við `stað` sum x-aksa, `Skadd fólk` sum y-aksa. 
 
 ```{r}
-
+ggplot(data = na.omit(ferdslu_ohapp), aes(x = `stað`, y = `Skadd fólk`)) + 
+  geom_boxplot()
 ```
 
 > 4c) plotta eitt `geom_boxplot()` av `ferdslu_ohapp` við `stað` sum x-aksa, `Skadd fólk` sum y-aksa og `sýsla` sum facet-variabul við `scales = "free_y"`.
 
 ```{r}
-
+ggplot(data = na.omit(ferdslu_ohapp), aes(x = `stað`, y = `Skadd fólk`)) + 
+  geom_boxplot() +
+  facet_wrap(~ `sýsla`, scales = "free_y")
 ```
 
 > 4d) plotta eitt `geom_boxplot()` av `ferdslu_ohapp` við `stað` sum x-aksa, lutfallið `Skadd fólk`/`Ferðsluóhapp tilsamans` sum y-aksa og `sýsla` sum facet-variabul við `scales = "free_y"`. Greið frá hvat tit leggja merki til í hesum plotti.
 
 
 ```{r}
-
-```
-
+ggplot(data = na.omit(ferdslu_ohapp), aes(x = `stað`, y = `Skadd fólk`/`Ferðsluóhapp tilsamans`)) + 
+  geom_boxplot() +
+  facet_wrap(~ `sýsla`, scales = "free_y")
+``` 
+    Tá ið vit brúka ´free_y´, síggja vit at ratio av skaddum fólki/ Ferðsluóhapp tilsamans, er umleið tað sama í sýðslunum. Tó víkir Vága sýsla frá, við tí at tað henda meira skaðar á komunalvegi enn á landsvegi, men har eru nakrir outliers á landsvegnum.  
+    
 > 4e) plotta eitt `geom_boxplot()` av `ferdslu_ohapp` við `Skadd fólk`/`Ferðsluóhapp tilsamans` sum x-aksa, `stað` sum y-aksa uttan at brúka nakran facet-variabul. Í sama plotti, legg eitt tilsvarandi `geom_violin()` plot, har tú brúkar `alpha = 0.25`. Í sama plotti, legg harumframt eitt eyka `geom_boxplot()` við `Skadd fólk`/`Ferðsluóhapp tilsamans` sum x-aksa, `Í Føroyum` sum y-aksa, og eitt tilsvarandi `geom_violin()` plot, har tú aftur brúkar `alpha = 0.25`. Greið frá hvat tú leggur merki til í hesum plotti (tip: samanber tey trý box- og violinplottini). 
 
 
 ```{r}
+ggplot(data = na.omit(ferdslu_ohapp), aes(x = `Skadd fólk`/`Ferðsluóhapp tilsamans`, y = `stað`)) + 
+  geom_boxplot() +
+  geom_violin(alpha = 0.25) +
+  labs(x = "Skadd fólk/Ferðsluóhapp tilsamans", y = "stað")
+
+ggplot(data = na.omit(ferdslu_ohapp), aes(x = `Skadd fólk`/`Ferðsluóhapp tilsamans`, y = "Í Føroyum")) +
+  geom_boxplot() +
+  geom_violin(alpha = 0.25) +
+  labs(x = "Skadd fólk/Ferðsluóhapp tilsamans", y = "Í Føroyum")
 
 ```
 
 > 4f) ger eina pipe av `ferdslu_ohapp` har tú ikki tekur árið `2009` við, síðani bólkar uppá `stað`, telur antal datapunkt `n` og roknar tal av óhappum `n_ohapp`, tal av skaddum `n_skadd` og roknar sannlíkindini `p_skadd` fyri fólkaskaða. Goym úrslitið í `ophapp_yvirlit` og les hana út (tip: tú fært eina `2 x 5` tibble).
 
 ```{r}
+ohapp_yvirlit <- ferdslu_ohapp %>%
+  filter(ár != 2009) %>%
+  group_by(stað) %>%
+  summarize(n = n(),
+            n_ohapp = sum(`Ferðsluóhapp tilsamans`, na.rm = TRUE),
+            n_skadd = sum(`Skadd fólk`, na.rm = TRUE),
+            p_skadd = mean(n_skadd/n_ohapp))
 
+ohapp_yvirlit
 ```
 
 
