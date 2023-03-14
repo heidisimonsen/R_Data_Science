@@ -550,24 +550,11 @@ t.test(ohapp_yvirlit$p_skadd, conf.level = .95)$conf.int
 
 ```{r}
 n <- 103
-p_skadd_us <- (1/n)
-mean_us <- p_skadd_us*n 
-sd_us <- sqrt(n*p_skadd_us*(1-p_skadd_us))
+p_skadd_us <- (1/n) 
+n_skadd <- ophapp_yvirlit$n_skadd #636
+n_ohapp <- ophapp_yvirlit$n_ohapp #12623
 
-p_skadd_us
-mean_us
-sd_us
-
-ophapp_yvirlit <- ophapp_yvirlit %>% filter(stað == "Á kommunalvegi")
-p_skadd <- ophapp_yvirlit$p_skadd
-mean_fo <- p_skadd*n
-sd_fo <- sqrt(n*p_skadd*(1-p_skadd))
-
-p_skadd
-mean_fo
-sd_fo
-
-tibble(skadd = c(1, ), b = a * 2, c = 1)
+binom.test(x = n_skadd, n = n_ohapp, p = p_skadd_us)
 ```
 
 > 5c) ger eina `prop.test()` við hóskandi data frá `ophapp_yvirlit` í 4f, sum kannar null-hypotesuna um `p_skadd` er eins fyri teir tveir bólkarnar av `stað`. Hvørja niðurstøðu kemur testin fram til? 
