@@ -378,6 +378,8 @@ ggplot(data = na.omit(ferdslu_ohapp), mapping = aes(x = `stað`, y = `Ferðsluó
    data eftir sýslum eru hesi data ikki longur presenteraði sum bert outliers. 
    Hetta kemur av at Streymoyar sýsla hevur nógv størri virðir innan Ferðsluóhapp tilsamans 
    á kommunalvegi í mun til hinar sýslurnar.
+   
+   KANSKA SIGA NAKA UM TAÐ SÆR NORMALT FORDEILT ÚT???
 
 
 > 3f) ger eitt `geom_bar()` plot av `ferdslu_ohapp` við `ár` sum x-aksa, `Ferðsluóhapp tilsamans` sum y-aksa, har tú brúkar `alpha = 0.25`. Hetta vísir samlaða talið av óhappum fyri hvørt árið. Í sama plotti, ger eitt `geom_point()` plot av `ferdslu_ohapp` við `ár` sum x-aksa, `Ferðsluóhapp tilsamans` sum y-aksa, har tú mappar lit av punktum til variabul `stað` og brúkar `sýsla` sum facet-variabul við `scales = "free_y"`. Greið frá hvat tit leggja merki til í hesum plotti. 
@@ -485,6 +487,8 @@ sd_fo <- sqrt(n*p_skadd*(1-p_skadd))
 p_skadd
 mean_fo
 sd_fo
+
+tibble(skadd = c(1, ), b = a * 2, c = 1)
 
 
 ```
