@@ -132,8 +132,8 @@ p_samadag_1f2 <- tibble(
 p_samadag_1f2
 ```
     GREIÐ FRÁ HVAT TAÐ MERKIR
-    Í fyrstu 9 rekkinum síggja vit ikki stóran mun tá vit hava sama stødd av sampling tvs nummar av namingum so hetta líkist nógv 1.e 
-    men hesari tibble síggja vit at størri okkara sampling er tvs antal av lesandi so síggja vit at sanlíkindini økjast at næmingar hava saman føðingardag. 
+    Í fyrstu 9 rekkjunum síggja vit ikki stóran mun, tá vit hava sama stødd av sampling tvs. nummar av næmingum; so hetta líkist nógv 1.e 
+Men í hesari tibble, síggja vit, at jú størri okkara sampling er (tal av lesandi), jú meira økist sannlíkindini fyri at næmingarnar hava sama føðingardag.
 
 > 1f3) her skal talið `n_lesandi` framvegis vera `2:50`, og set nú talið `roynd_nr` upp til `1:5000`. Eftirkanna aftur, um tú enn fært sama/líknandi úrslit sum í 1e fyri fyrstu 9 rekkjurnar, og hvat tú nú fært í hinum rekkjunum? Greið frá hvat tú eygleiðir (tip: her skalt tú framvegis fáa eina `49 x 2` tibble).
 
@@ -151,7 +151,7 @@ p_samadag <- tibble(
 p_samadag
 ```
     GREIÐ FRÁ!
-     Við at økja vit talið av royndum fáa vit fleiri bólkar við sama talið av lesandi, tvs vit nógv meira data at samanberða við, og harvið fáa meria nágreinuligt sanlíkindi.
+     Við at økja talið av royndum, fáa vit fleiri bólkar, við sama talið av lesandi - tvs. við nógv meira data at samanbera við, og harvið fáa vit meira nágreinilig sannlíkindi.
 
 > 1f4) plotta eitt punkt- og linjuplot av `p_samadag` frá spurningi 1f3, har tú mappar `x = n_lesandi` og `y = p_sdag`. Brúka til dømis tilhoyrandi aksa-tekstirnar: "Antal lesandi" og "Sannlíkindini fyri sama føðingardag". Hvussu stóran flokk av lesandi skalt tú hava fyri at sannlíkindini fyri at nakar í flokkinum hevur sama føðingardag er ávikavist 0.5, 0.7 og 0.9?
 
@@ -412,9 +412,7 @@ ggplot(data = na.omit(ferdslu_ohapp), mapping = aes(x = `Ferðsluóhapp tilsaman
   geom_boxplot()+
   facet_wrap(~stað)
 ```
-    Vit kunnu obsavera outlighers í hvørjun boxplotti á kommunalvegi frá 1995 til 2012 (uttan 2009), 
-    men harafturímøtir kunnu vit bert obsavera ein á landavegi í ár 2006.
-    Har eru 18 outlighers tilsamans. 
+    Vit síggja outliers í hvørt boxplotti á kommunalvegi frá 1995 til 2012 (uttan 2009), harafturímóti síggja vit bert éin outlier á landavegi í ár 2006. Har eru 18 outliers tilsamans.
 
 ```{r}
 ferdslu_ohapp %>% 
@@ -439,11 +437,7 @@ ggplot(data = na.omit(ferdslu_ohapp), mapping = aes(x = `stað`, y = `Ferðsluó
   facet_wrap(~sýsla, ncol = 3, scales = "free_y")+
   theme(axis.text.x = element_text(angle = 60, hjust=1))
 ```
-   Samanborið við plottið í 3e1, síggja vit at tali av outliers eru mundani minni, 
-   hetta kemur av at flestu outliers vóru frá einari sýsla (Streymoyar sýsla), men nú tá vit hava deilt okkara 
-   data eftir sýslum eru hesi data ikki longur presenteraði sum bert outliers. 
-   Hetta kemur av at Streymoyar sýsla hevur nógv størri virðir innan Ferðsluóhapp tilsamans 
-   á kommunalvegi í mun til hinar sýslurnar.
+  Samanborið við plottið í 3e1, síggja vit at talið av outliers eru munandi minni, hetta kemur av at flestu outliers eru frá Streymoyar sýsla. Nú vit hava deilt okkara data eftir sýslum, eru hesi data ikki longur víst sum bert outliers. Hetta kemur av at Streymoyar sýsla hevur nógv størri virðir innan Ferðsluóhapp tilsamans á kommunalvegi í mun til hinar sýslurnar.
    
    KANSKA SIGA NAKA UM TAÐ SÆR NORMALT FORDEILT ÚT???
 
@@ -456,17 +450,10 @@ ggplot(data = na.omit(ferdslu_ohapp), mapping = aes(x = `ár`, y = `Ferðsluóha
   facet_wrap(~sýsla, ncol = 2, scales = "free_y")+
   theme(axis.text.x = element_text(angle = 60, hjust=1))
 ```
-    Vit síggja frá hesum plottinum, at Streymoyar sýsla og Norðoya sýsla eru tær sýslur, 
-    har lutfallið á ferðsluóhapp ávikavist á kommunalvegi og landavegi er størst, 
-    við flest ferðsluóhappum á kommunalvegi. 
-    Um vit hyggja at Eysturoyar sýsla sæst at tali av ferðsluóhapp ávikavist á kommunalvegi og á landavegi,
-    eru tali av hendingum meira eins enn í hinum sýslunum.
-    Eysturoyar sýsla og Sandoyar sýsla, eru tær sýslurnar sum sæst at í nøkrum av árinum, 
-    hava tær haft mest ferðsluóhapp á landaveginum í mun til hinar sýslurnar, 
-    sum í flestu førum hava mest ferðsluóhapp á kommunalvegi. 
-    Suðuroyar og Vága sýslurnar síggja vit at flestu árini eru flest ferðsluóhapp á kommunalveginum,
-    men lutfallið í millum ávikavist á kommunalvegi og landavegi er ikki líka stórt, 
-    sum í Streymoyar sýsla og Norðoya sýsla.
+     Vit síggja frá hesum plottinum, at Streymoyar sýsla og Norðoya sýsla eru tær sýslur, har lutfallið á ferðsluóhapp ávikavist á kommunalvegi og landavegi er størst, við flest ferðsluóhappum á kommunalvegi. Um vit hyggja at Eysturoyar sýsla, sæst tað, at talið av ferðsluóhapp á kommunal- og á landavegi, eru meira jøvn (koma næstan líka ofta fyri) enn í hinum sýslunum.
+     Eysturoyar sýsla og Sandoyar sýsla, eru tær sýslurnar, sum í nøkrum av árini, hava haft mest ferðsluóhapp á landaveginum í mun til hinar sýslurnar, sum í flestu førum hava mest ferðsluóhapp á kommunalvegi.
+   
+   Suðuroyar og Vága sýslurnar síggja vit at flestu av árini, eru flest ferðsluóhapp á kommunalvegnum, men lutfallið í millum kommunalvegi og landavegi er ikki líka stórt, sum í Streymoyar sýsla og Norðoya sýsla. 
 
 
 ### Uppg. 4
