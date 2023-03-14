@@ -184,6 +184,7 @@ p_samadag <- p_samadag %>%
 p_samadag
 
 ```
+    Okkara simuleraðu `p_sdag` samsvara nokso væl okkara teoretisku `p_teori`
 
 > 2b) í R finst eisini ein funktión nevnd `pbirthday()` til útrokning av somu teoretisku sannlíkindunum, sum vit útroknaðu í `p_teori` í 2a omanfyri. Legg ein variabul `p_bday` afturat tibble `p_samadag` við brúk av `pbirthday()` funktiónini og eini `map_dbl()` funktión. Útles síðani tibble `p_samadag` umaftur. Hvussu væl samsvara tíni `p_bday` við tíni `p_teori`?
 
@@ -204,22 +205,26 @@ x1 <- (qbirthday(0.5, 365, 2))
 x2 <- (qbirthday(0.7, 365, 2))
 x3 <- (qbirthday(0.9, 365, 2))
 
-ggplot(p_samadag, aes(x = n_lesandi, y = p_sdag)) +
+plot <- ggplot(p_samadag, aes(x = n_lesandi, y = p_sdag)) +
   geom_point(aes(color = "Simulera")) +
   geom_line(aes(y = p_bday, color = "Teoretisk")) +
   labs(x = "Antal lesandi",
        y = "Sannlíkindini fyri sama føðingardag",
        title = "Samanburð millum simuleraða og teoretisk sannlíkindum")+
-  scale_color_manual(name = "Samanburð", values = c("Simulera" = "black", "Teoretisk" = "red"))+
-  
-geom_hline(aes(yintercept=0.5, linetype = "0.5"), color = "blue") +
+  scale_colour_manual(name = "Samanburð", 
+                       values = c("Simulera" = "black", "Teoretisk" = "red"),
+                       guide = guide_legend(override.aes = list(
+                         linetype = c("blank", "solid"),
+                         shape = c(16, NA))))
+
+plot + geom_hline(aes(yintercept=0.5, linetype = "0.5"), color = "blue") +
   geom_hline(aes(yintercept=0.7, linetype = "0.7"), color = "green") +
   geom_hline(aes(yintercept=0.9, linetype = "0.9"), color = "darkorange") +
   scale_linetype_manual(name ="Sannlíkindini", values = c('dashed','dashed','dashed'), 
                         guide = guide_legend(override.aes = list(color = c("blue", "green", "darkorange"))))+
   geom_vline(aes(xintercept =x1), color = "blue") +
   geom_vline(aes(xintercept =x2),color = "green") +
-  geom_vline(aes(xintercept =x3),color = "darkorange") 
+  geom_vline(aes(xintercept =x3),color = "darkorange")
 
 ```
 
@@ -345,6 +350,7 @@ ggplot(p_maxsdag, aes(x = n_lesandi, y = p_sdag, color = max)) +
 
 ```{r}
 p_maxsdag_filtered <- p_maxsdag %>%
+  filter(max != ">= 2") %>%
   filter(n_lesandi %in% c(50, 100, 200, 300, 400)) %>%
   arrange(n_lesandi, desc(p_sdag)) %>%
   mutate(nr = row_number()) %>%
@@ -353,8 +359,6 @@ p_maxsdag_filtered <- p_maxsdag %>%
 p_maxsdag_filtered
 
 ```
-
-
 
 ### Uppg. 3
 
@@ -490,21 +494,23 @@ ggplot(data = na.omit(ferdslu_ohapp), aes(x = `stað`, y = `Skadd fólk`/`Ferðs
   geom_boxplot() +
   facet_wrap(~ `sýsla`, scales = "free_y")
 ``` 
-    Tá ið vit brúka ´free_y´, síggja vit at ratio av skaddum fólki/ Ferðsluóhapp tilsamans, er umleið tað sama í sýðslunum. Tó víkir Vága sýsla frá, við tí at tað henda meira skaðar á komunalvegi enn á landsvegi, men har eru nakrir outliers á landsvegnum.  
+    Tá ið vit brúka ´free_y´, síggja vit at ratio av skaddum fólki/ Ferðsluóhapp tilsamans, er umleið tað sama í sýðslunum. Tó víkir Vága sýsla frá, við tí at tað henda meira skaðar á komunalvegi enn á landsvegi, men har eru nakrir outliers á landsvegnum. 
+    Man kundi vænta, at grundin til at probaliteturin er hægri at fáa skaða tá ið eitt ferðslu óhapp hendur á landsvegi er størri enn á komunalvegi, er vegna at fólk koyra skjótari á landsvegi í mun til á komunalvegi.  
     
 > 4e) plotta eitt `geom_boxplot()` av `ferdslu_ohapp` við `Skadd fólk`/`Ferðsluóhapp tilsamans` sum x-aksa, `stað` sum y-aksa uttan at brúka nakran facet-variabul. Í sama plotti, legg eitt tilsvarandi `geom_violin()` plot, har tú brúkar `alpha = 0.25`. Í sama plotti, legg harumframt eitt eyka `geom_boxplot()` við `Skadd fólk`/`Ferðsluóhapp tilsamans` sum x-aksa, `Í Føroyum` sum y-aksa, og eitt tilsvarandi `geom_violin()` plot, har tú aftur brúkar `alpha = 0.25`. Greið frá hvat tú leggur merki til í hesum plotti (tip: samanber tey trý box- og violinplottini). 
 
 
 ```{r}
-ggplot(data = na.omit(ferdslu_ohapp), aes(x = `Skadd fólk`/`Ferðsluóhapp tilsamans`, y = `stað`)) + 
+landsogkomunal_plot <- ggplot(data = na.omit(ferdslu_ohapp), aes(x = `Skadd fólk`/`Ferðsluóhapp tilsamans`, y = `stað`)) +
   geom_boxplot() +
-  geom_violin(alpha = 0.25) +
+  geom_violin(alpha = 0.25)
+
+samanlagt_plot <- landsogkomunal_plot +
+  geom_boxplot(aes(y = "Í Føroyum")) +
+  geom_violin(aes(y = "Í Føroyum"), alpha = 0.25) +
   labs(x = "Skadd fólk/Ferðsluóhapp tilsamans", y = "stað")
 
-ggplot(data = na.omit(ferdslu_ohapp), aes(x = `Skadd fólk`/`Ferðsluóhapp tilsamans`, y = "Í Føroyum")) +
-  geom_boxplot() +
-  geom_violin(alpha = 0.25) +
-  labs(x = "Skadd fólk/Ferðsluóhapp tilsamans", y = "Í Føroyum")
+samanlagt_plot
 
 ```
 
@@ -529,7 +535,8 @@ ohapp_yvirlit
 > 5a) ger eitt 95% confidensinterval fyri `p_skadd` í 4f fyri `stað`, ávikavist `Á kommunalvegi, Á landsvegi`. 
 
 ```{r}
-t.test(ohapp_yvirlit$p_skadd, conf.level = .95)$conf.int
+#install.packages("broom")
+broom::glance(t.test(ohapp_yvirlit$p_skadd, conf.level = .95))
 
 ```
 
@@ -538,8 +545,8 @@ t.test(ohapp_yvirlit$p_skadd, conf.level = .95)$conf.int
 ```{r}
 n <- 103
 p_skadd_us <- (1/n) 
-n_skadd <- ophapp_yvirlit$n_skadd #636
-n_ohapp <- ophapp_yvirlit$n_ohapp #12623
+n_skadd <- ohapp_yvirlit$n_skadd #636
+n_ohapp <- ohapp_yvirlit$n_ohapp #12623
 
 binom.test(x = n_skadd, n = n_ohapp, p = p_skadd_us)
 ```
