@@ -543,6 +543,9 @@ ohapp_yvirlit
 
 ```{r}
 #install.packages("broom")
+
+t.test(ohapp_yvirlit$p_skadd, conf.level = .95)
+
 broom::glance(t.test(ohapp_yvirlit$p_skadd, conf.level = .95))
 
 ```
@@ -556,12 +559,17 @@ n_skadd <- ohapp_yvirlit$n_skadd #636
 n_ohapp <- ohapp_yvirlit$n_ohapp #12623
 
 binom.test(x = n_skadd, n = n_ohapp, p = p_skadd_us)
-```
 
+broom::glance(binom.test(x = n_skadd, n = n_ohapp, p = p_skadd_us))
+```
+    P-viðri er sera lágt (minni enn 0.05), og tí kunna vit avvísa null-hypotesuna. Vit kunna forkasta at tað er ikki tilsvarandi. 
+    
 > 5c) ger eina `prop.test()` við hóskandi data frá `ophapp_yvirlit` í 4f, sum kannar null-hypotesuna um `p_skadd` er eins fyri teir tveir bólkarnar av `stað`. Hvørja niðurstøðu kemur testin fram til? 
 
 ```{r}
 prop.test(x = ohapp_yvirlit$n_skadd, n = ohapp_yvirlit$n_ohapp)
+
+broom::glance(prop.test(x = ohapp_yvirlit$n_skadd, n = ohapp_yvirlit$n_ohapp))
 ```
     Niðurstøðan er tann at p-value er væl lægri enn 0.05, og tí kunna vit avvísa null-hypotesuna. Altso `p_skadd` ikki eins fyri tveir bólkarnar av `stað`!
     
@@ -569,7 +577,7 @@ prop.test(x = ohapp_yvirlit$n_skadd, n = ohapp_yvirlit$n_ohapp)
 
 ```{r}
 landsvegi_ar <- ferdslu_ohapp %>% 
-  filter(`ár` == 1998, `stað` == "Á landsvegi") %>%
+  filter(ár == 1998, stað == "Á landsvegi") %>%
   group_by(stað, ár, sýsla) %>%
   summarise(
     n_ohapp = sum(`Ferðsluóhapp tilsamans`),
@@ -584,22 +592,22 @@ landsvegi_ar
 
 ```{r}
 n_ohapp <- landsvegi_ar$n_ohapp
-p <- 626/5285 # p_skadd
+p_skadd <- 626/5285
 bino_data <- NULL
 for (n in n_ohapp) {
-  tb_bino <- tibble(
+  bino_tb <- tibble(
   x = seq(0, 25, 1),
-  y = dbinom(x, n, p),
+  y = dbinom(x, n, p_skadd),
   n_ohapp = n
   )
-  bino_data <- rbind(bino_data, tb_bino)
+  bino_data <- rbind(bino_data, bino_tb)
 }
 
 ggplot(bino_data, aes(x,y)) +
   geom_line() +
   facet_wrap(~ n_ohapp)
 ```
-    GREIÐ FRÁ
+   Jú størri n, síggja vit at binomialfordeilingin fer at líkjast meiri eini normalfordeiling.
     
 > 5f) 
 
@@ -607,8 +615,8 @@ ggplot(bino_data, aes(x,y)) +
 
 ```{r}
 sysla_yvirlit <- ferdslu_ohapp %>%
-  filter(`ár` != 2009) %>%
-  group_by(`sýsla`) %>%
+  filter(ár != 2009) %>%
+  group_by(sýsla) %>%
   summarise(
     n_ohapp = sum(`Ferðsluóhapp tilsamans`),
     n_skadd = sum(`Skadd fólk`),
@@ -633,6 +641,8 @@ skadd_oskadd
 ```{r}
 chisq.test(skadd_oskadd)
 
+broom::glance(chisq.test(skadd_oskadd))
+
 ```
     chisq.test fortelur okkum um tað er significant munur á data og tað forvantaða. Og av tí at p-viðri er sera lágt (minni enn 0.05), kunna vit avvísa null-hypotesuna. Altso er niðurstøðan tann, at tað er ikki somu sannlíkindini fyri fólkaskaða í øllum sýslunum. 
     
@@ -640,6 +650,8 @@ chisq.test(skadd_oskadd)
 
 ```{r}
 prop.test(x = as.matrix(skadd_oskadd))
-```
 
-    
+broom::glance(prop.test(x = as.matrix(skadd_oskadd)))
+
+```
+    p-viðri er sera lágt (minni enn 0.05), og vit kunna tí avvísa null-hypotesuna. Altso er niðurstøðan tann, at har er ein týðandi munur í millum tær seks sýslurnar.
