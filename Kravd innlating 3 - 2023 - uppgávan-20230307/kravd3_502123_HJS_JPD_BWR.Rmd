@@ -134,7 +134,7 @@ p_samadag_1f2 <- tibble(
 
 p_samadag_1f2
 ```
-    GREIÐ FRÁ HVAT TAÐ MERKIR
+    
     Í fyrstu 9 rekkjunum síggja vit ikki stóran mun, tá vit hava sama stødd av sampling tvs. nummar av næmingum; so hetta líkist nógv 1.e 
 Men í hesari tibble, síggja vit, at jú størri okkara sampling er (tal av lesandi), jú meira økist sannlíkindini fyri at næmingarnar hava sama føðingardag.
 
@@ -153,7 +153,6 @@ p_samadag <- tibble(
 
 p_samadag
 ```
-    GREIÐ FRÁ!
      Við at økja talið av royndum, fáa vit fleiri bólkar, við sama talið av lesandi - tvs. við nógv meira data at samanbera við, og harvið fáa vit meira nágreinilig sannlíkindi.
 
 > 1f4) plotta eitt punkt- og linjuplot av `p_samadag` frá spurningi 1f3, har tú mappar `x = n_lesandi` og `y = p_sdag`. Brúka til dømis tilhoyrandi aksa-tekstirnar: "Antal lesandi" og "Sannlíkindini fyri sama føðingardag". Hvussu stóran flokk av lesandi skalt tú hava fyri at sannlíkindini fyri at nakar í flokkinum hevur sama føðingardag er ávikavist 0.5, 0.7 og 0.9?
