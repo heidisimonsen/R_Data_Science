@@ -493,13 +493,14 @@ ggplot(data = na.omit(ferdslu_ohapp), aes(x = `stað`, y = `Skadd fólk`/`Ferðs
   geom_boxplot() +
   facet_wrap(~ `sýsla`, scales = "free_y")
 ``` 
-    Tá ið vit brúka ´free_y´, síggja vit at ratio av skaddum fólki/ Ferðsluóhapp tilsamans, er umleið tað sama í sýðslunum. Tó víkir Vága sýsla frá, við tí at tað henda meira skaðar á komunalvegi enn á landsvegi, men har eru nakrir outliers á landsvegnum.  
+    Tá ið vit brúka ´free_y´, síggja vit at ratio av skaddum fólki/ Ferðsluóhapp tilsamans, er umleið tað sama í sýðslunum. Tó víkir Vága sýsla frá, við tí at tað henda meira skaðar á komunalvegi enn á landsvegi, men har eru nakrir outliers á landsvegnum. 
+    Man kundi vænta, at grundin til at probaliteturin fyri at fáa skaða á landsvegi er størri, vegn at fólk koyra skjótari á landsvegi í mun til á komunalvegi.
     
 > 4e) plotta eitt `geom_boxplot()` av `ferdslu_ohapp` við `Skadd fólk`/`Ferðsluóhapp tilsamans` sum x-aksa, `stað` sum y-aksa uttan at brúka nakran facet-variabul. Í sama plotti, legg eitt tilsvarandi `geom_violin()` plot, har tú brúkar `alpha = 0.25`. Í sama plotti, legg harumframt eitt eyka `geom_boxplot()` við `Skadd fólk`/`Ferðsluóhapp tilsamans` sum x-aksa, `Í Føroyum` sum y-aksa, og eitt tilsvarandi `geom_violin()` plot, har tú aftur brúkar `alpha = 0.25`. Greið frá hvat tú leggur merki til í hesum plotti (tip: samanber tey trý box- og violinplottini). 
 
 
 ```{r}
-ggplot(data = na.omit(ferdslu_ohapp), aes(x = `Skadd fólk`/`Ferðsluóhapp tilsamans`, y = `stað`)) + 
+ggplot(data = na.omit(ferdslu_ohapp), aes(x = `Skadd fólk`/`Ferðsluóhapp tilsamans`, y = `stað`)) +
   geom_boxplot() +
   geom_violin(alpha = 0.25) +
   labs(x = "Skadd fólk/Ferðsluóhapp tilsamans", y = "stað")
@@ -510,8 +511,9 @@ ggplot(data = na.omit(ferdslu_ohapp), aes(x = `Skadd fólk`/`Ferðsluóhapp tils
   labs(x = "Skadd fólk/Ferðsluóhapp tilsamans", y = "Í Føroyum")
 
 ```
-
-> 4f) ger eina pipe av `ferdslu_ohapp` har tú ikki tekur árið `2009` við, síðani bólkar uppá `stað`, telur antal datapunkt `n` og roknar tal av óhappum `n_ohapp`, tal av skaddum `n_skadd` og roknar sannlíkindini `p_skadd` fyri fólkaskaða. Goym úrslitið í `ophapp_yvirlit` og les hana út (tip: tú fært eina `2 x 5` tibble).
+   
+    
+> 4f) ger eina pipe av `ferdslu_ohapp` har tú ikki tekur árið `2009` við, síðani bólkar uppá `stað`, telur antal datapunkt `n` og roknar tal av óhappum `n_ohapp`, tal av skaddum `n_skadd` og roknar sannlíkindini `p_skadd` fyri fólkaskaða. Goym úrslitið í `ohapp_yvirlit` og les hana út (tip: tú fært eina `2 x 5` tibble).
 
 ```{r}
 ohapp_yvirlit <- ferdslu_ohapp %>%
@@ -521,7 +523,7 @@ ohapp_yvirlit <- ferdslu_ohapp %>%
             n_ohapp = sum(`Ferðsluóhapp tilsamans`, na.rm = TRUE),
             n_skadd = sum(`Skadd fólk`, na.rm = TRUE),
             p_skadd = mean(n_skadd/n_ohapp))
-
+          
 ohapp_yvirlit
 ```
 
@@ -532,6 +534,8 @@ ohapp_yvirlit
 > 5a) ger eitt 95% confidensinterval fyri `p_skadd` í 4f fyri `stað`, ávikavist `Á kommunalvegi, Á landsvegi`. 
 
 ```{r}
+
+Broom::glance(t.test(ohapp_yvirlit$p_skadd, conf.level = .95))
 
 ```
 
