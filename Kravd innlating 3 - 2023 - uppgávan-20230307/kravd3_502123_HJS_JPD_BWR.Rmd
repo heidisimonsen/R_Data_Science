@@ -39,6 +39,9 @@ library(tidyverse)
 # set theme used for plotting
 theme_set(theme_bw(base_size = 12))
 
+#install.packages("broom")
+library(broom)
+
 ```
 
 
@@ -221,11 +224,7 @@ plot + geom_hline(aes(yintercept=0.5, linetype = "0.5"), color = "blue") +
   geom_hline(aes(yintercept=0.7, linetype = "0.7"), color = "green") +
   geom_hline(aes(yintercept=0.9, linetype = "0.9"), color = "darkorange") +
   scale_linetype_manual(name ="Sannlíkindini", values = c('dashed','dashed','dashed'), 
-                        guide = guide_legend(override.aes = list(color = c("blue", "green", "darkorange"))))+
-  geom_vline(aes(xintercept =x1), color = "blue") +
-  geom_vline(aes(xintercept =x2),color = "green") +
-  geom_vline(aes(xintercept =x3),color = "darkorange")
-
+                        guide = guide_legend(override.aes = list(color = c("blue", "green", "darkorange"))))
 ```
 
 ```{r}
@@ -542,8 +541,6 @@ ohapp_yvirlit
 > 5a) ger eitt 95% confidensinterval fyri `p_skadd` í 4f fyri `stað`, ávikavist `Á kommunalvegi, Á landsvegi`. 
 
 ```{r}
-#install.packages("broom")
-
 t.test(ohapp_yvirlit$p_skadd, conf.level = .95)
 
 broom::glance(t.test(ohapp_yvirlit$p_skadd, conf.level = .95))
