@@ -513,7 +513,14 @@ samanlagt_plot <- landsogkomunal_plot +
 samanlagt_plot
 
 ```
-
+    Um vit samanbera boxplottini og violin plottini, so síggja vit neyvari
+    distribusjónina við at geom_violin, av tí at vit síggja allan probabilitets
+    densitetin, og kunnu tí síggja distributións modelli. Densiteturin er fallandi høgru
+    meðin median(positive skew). Tó, Ì komunalvegin, síggja vit at hon hevur tveir
+    'toppar', ein við 0.0, og við umleið 0.04, har ið medianin er. So hon kundi verið ein 
+    multimodel.Densiteturin er í øllum triðmun førðum hægst tætt við medianina, tó er er
+    densiteturin eitt sindur til vinstru fyri median samanlagt Ì Føroyum.
+    
 > 4f) ger eina pipe av `ferdslu_ohapp` har tú ikki tekur árið `2009` við, síðani bólkar uppá `stað`, telur antal datapunkt `n` og roknar tal av óhappum `n_ohapp`, tal av skaddum `n_skadd` og roknar sannlíkindini `p_skadd` fyri fólkaskaða. Goym úrslitið í `ophapp_yvirlit` og les hana út (tip: tú fært eina `2 x 5` tibble).
 
 ```{r}
@@ -554,47 +561,85 @@ binom.test(x = n_skadd, n = n_ohapp, p = p_skadd_us)
 > 5c) ger eina `prop.test()` við hóskandi data frá `ophapp_yvirlit` í 4f, sum kannar null-hypotesuna um `p_skadd` er eins fyri teir tveir bólkarnar av `stað`. Hvørja niðurstøðu kemur testin fram til? 
 
 ```{r}
-`kommunalvegi` <- ohapp_yvirlit %>% filter(`stað` == "Á kommunalvegi")
-prop.test(x = 10, n = `kommunalvegi`$n, p = `kommunalvegi`$p_skadd)
-`landsvegi` <- ohapp_yvirlit %>% filter(`stað` == "Á landsvegi")
-prop.test(x = 10, n = `landsvegi`$n, p = `landsvegi`$p_skadd)
-
+prop.test(x = ohapp_yvirlit$n_skadd, n = ohapp_yvirlit$n_ohapp)
 ```
-
+    Niðurstøðan er tann at p-value er væl lægri enn 0.05, og tí kunna vit avvísa null-hypotesuna. Altso `p_skadd` ikki eins fyri tveir bólkarnar av `stað`!
+    
 > 5d) ger eina pipe av `ferdslu_ohapp` har tú bert tekur ár `1998` og stað `Á landsvegi` við, síðani bólkar uppá `stað, ár, sýsla` (so hesi lesast út), roknar tal av óhappum `n_ohapp` og tal av skaddum `n_skadd`. Goym úrslitið í `landsvegi_ar` og les hana út (tip: tú fært eina `6 x 5` tibble).
 
 ```{r}
+landsvegi_ar <- ferdslu_ohapp %>% 
+  filter(`ár` == 1998, `stað` == "Á landsvegi") %>%
+  group_by(stað, ár, sýsla) %>%
+  summarise(
+    n_ohapp = sum(`Ferðsluóhapp tilsamans`),
+    n_skadd = sum(`Skadd fólk`)
+  )
+
+landsvegi_ar
 
 ```
 
 > 5e) antak at á landsvegi í Føroyum eru fólkaskaðatilburðir í hvørjari sýslu binomialfordeildir við somu sannlíkindum sum fyri alt landið (`p_skadd = 626/5285`), og plotta tær seks binomialfordeilingarnar svarandi til tey seks `n_ohapp` virðini í `landsvegi_ar`. Greið frá hvat tú leggur merki til í hesum sannlíkinda-plottum (tip: brúka  til dømis ein for-loop og eitt facet-plot, eins og vit áður hava gjørt í undirvísingini, og lat `x = seq(0, 25, 1)`).
 
 ```{r}
+n_ohapp <- landsvegi_ar$n_ohapp
+p <- 626/5285 # p_skadd
+bino_data <- NULL
+for (n in n_ohapp) {
+  tb_bino <- tibble(
+  x = seq(0, 25, 1),
+  y = dbinom(x, n, p),
+  n_ohapp = n
+  )
+  bino_data <- rbind(bino_data, tb_bino)
+}
 
+ggplot(bino_data, aes(x,y)) +
+  geom_line() +
+  facet_wrap(~ n_ohapp)
 ```
-
+    GREIÐ FRÁ
+    
 > 5f) 
 
 > 5f1) ger eina pipe av `ferdslu_ohapp` har tú ikki tekur árið `2009` við, síðani bólkar uppá `sýsla`, roknar tal av óhappum `n_ohapp`, tal av skaddum `n_skadd` og talið av ikki-skaddum `n_oskadd = n_ohapp - n_skadd`. Goym úrslitið í `sysla_yvirlit` og les hana út (tip: tú fært eina `6 x 4` tibble).
 
 ```{r}
+sysla_yvirlit <- ferdslu_ohapp %>%
+  filter(`ár` != 2009) %>%
+  group_by(`sýsla`) %>%
+  summarise(
+    n_ohapp = sum(`Ferðsluóhapp tilsamans`),
+    n_skadd = sum(`Skadd fólk`),
+    n_oskadd = n_ohapp - n_skadd 
+  )
 
+sysla_yvirlit
 ```
 
 > 5f2) vel bert variablar `n_skadd, n_oskadd` frá `sysla_yvirlit`. Goym úrslitið í tibble `skadd_oskadd`, og les hana út (tip: tú fært eina `6 x 2` tibble).
 
 ```{r}
+skadd_oskadd <- sysla_yvirlit %>%
+  group_by(n_skadd, n_oskadd) %>%
+  select(n_skadd, n_oskadd)
 
+skadd_oskadd
 ```
 
 > 5f3) brúka `chisq.test()` at kanna null-hypotesuna um at sannlíkindini fyri fólkaskaða í ferðsluóhappum í Føroyum eru óheftir av `sýslu`. Hvørja niðurstøðu kemur testin fram til? 
 
 ```{r}
+chisq.test(skadd_oskadd)
 
 ```
-
+    chisq.test fortelur okkum um tað er significant munur á data og tað forvantaða. Og av tí at p-viðri er sera lágt (minni enn 0.05), kunna vit avvísa null-hypotesuna. Altso er niðurstøðan tann, at tað er ikki somu sannlíkindini fyri fólkaskaða í øllum sýslunum. 
+    
 > 5f4) ger eina líknandi test við `prop.test()`, sum kannar null-hypotesuna um at `p_skadd` er eins fyri allar sýslur. Hvørja niðurstøðu kemur testin fram til? 
 
 ```{r}
-
+prop.test(x = as.matrix(skadd_oskadd))
 ```
+
+    
