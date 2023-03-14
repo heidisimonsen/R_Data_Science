@@ -1,6 +1,6 @@
 ---
 title: "Kravd innlating 3"
-author: "Skriva fult navn/nøvn á lesandi her."
+author: "Heidi J. Simonsen, Jákup P. Dam, Bjørg W. Reinert"
 date: "Innlating í Moodle: seinast um kvøldið 14. mars 2023. Endurbrúka eisini fílnavnið á hesum template-skjalinum, sum tit lata inn, har tit seta tykkara forbókstavir inn fyri NN1_NN2_NN3_NN4."
 output: html_notebook
 ---
